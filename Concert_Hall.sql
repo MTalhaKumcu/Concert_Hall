@@ -10,6 +10,8 @@ CREATE TABLE Artists (
     GenreID INT,
     CONSTRAINT fk_Genre FOREIGN KEY (GenreID) REFERENCES Genres(GenreID)
 );
+SELECT * FROM artists;
+
 
 -- -----------------------------------------------------
 -- Table Genres
