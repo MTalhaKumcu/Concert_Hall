@@ -1,15 +1,14 @@
 USE `concert_hall` ;
-
 -- -----------------------------------------------------
 -- Table Artists
 -- -----------------------------------------------------
 CREATE TABLE Artists (
-	ArtistID INT PRIMARY KEY,
+    ArtistID INT PRIMARY KEY,
     ArtistName VARCHAR(255) NOT NULL,
     BirthDate DATE,
     Country VARCHAR(255),
     GenreID INT,
-    CONSTRAINT fk_Genre FOREIGN KEY (Genre_ID) REFERENCES Genres(GenreID)
+    CONSTRAINT fk_Genre FOREIGN KEY (GenreID) REFERENCES Genres(GenreID)
 );
 
 -- -----------------------------------------------------
@@ -25,11 +24,11 @@ CREATE TABLE Genres (
 CREATE TABLE Events (
     EventID INT PRIMARY KEY,
     EventName VARCHAR(255) NOT NULL,
-    VenueID INT, -- Foreign Key referencing Venues table
     Date DATE,
     StartTime TIME,
-    EndTime TIME,
-    CONSTRAINT fk_Venue FOREIGN KEY (VenueID) REFERENCES Venues(VenueID)
+    EndTime TIME,  
+    venueID INT, 
+    CONSTRAINT fk_venue FOREIGN KEY (venueID) REFERENCES Venue (venueID)
 );
 -- -----------------------------------------------------
 -- Table Venue
