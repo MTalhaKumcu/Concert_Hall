@@ -1,74 +1,76 @@
+-- -----------------------------------------------------
+-- Schema concert_hall
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS Concert_Hall DEFAULT CHARACTER SET utf8 ;
 USE `concert_hall` ;
+
 -- -----------------------------------------------------
--- Table Artists
+-- Schema artists
 -- -----------------------------------------------------
-CREATE TABLE Artists (
-    ArtistID INT PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS Concert_Hall.artists (
+	ArtistID INT PRIMARY KEY,
     ArtistName VARCHAR(255) NOT NULL,
     BirthDate DATE,
     Country VARCHAR(255),
     GenreID INT,
     CONSTRAINT fk_Genre FOREIGN KEY (GenreID) REFERENCES Genres(GenreID)
 );
-SELECT * FROM artists;
-
-
 -- -----------------------------------------------------
--- Table Genres
+-- Schema genres
 -- -----------------------------------------------------
-CREATE TABLE Genres (
+CREATE TABLE IF NOT EXISTS Concert_Hall.genres (
 	GenreID INT PRIMARY KEY,
     GenreName VARCHAR(255) NOT NULL
 );
+
 -- -----------------------------------------------------
--- Table Events
+-- Schema Events
 -- -----------------------------------------------------
-CREATE TABLE Events (
-    EventID INT PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS Concert_Hall.Events (
+	EventID INT PRIMARY KEY,
     EventName VARCHAR(255) NOT NULL,
     Date DATE,
     StartTime TIME,
     EndTime TIME,  
     venueID INT, 
     CONSTRAINT fk_venue FOREIGN KEY (venueID) REFERENCES Venue (venueID)
+        
+        
 );
 -- -----------------------------------------------------
--- Table Venue
+-- Schema Venues
 -- -----------------------------------------------------
-CREATE TABLE Venue (
+CREATE TABLE IF NOT EXISTS Concert_Hall.Venues (
 	VenueID INT PRIMARY KEY NOT NULL ,
     VenueName VARCHAR(255) NOT NULL,
     Capacity INT,
     Location VARCHAR(255)
 );
-
 -- -----------------------------------------------------
--- Table Tickets
+-- Schema Tickets
 -- -----------------------------------------------------
-CREATE TABLE Tickets (
+CREATE TABLE IF NOT EXISTS Concert_Hall.Tickets (
 	TicketID INT PRIMARY KEY,
     EventID INT,
     Price DECIMAL (10,2) NOT NULL,
     TicketType VARCHAR(50),
     CONSTRAINT fk_Event FOREIGN KEY (EventID) REFERENCES Events(EventID)
 );
-
 -- -----------------------------------------------------
--- Table Customers
+-- Schema Customers
 -- -----------------------------------------------------
-CREATE TABLE Customers (
-    CustomerID INT PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS Concert_Hall.Customers (
+	CustomerID INT PRIMARY KEY,
     FirstName VARCHAR(255) NOT NULL,
     LastName VARCHAR(255) NOT NULL,
     Email VARCHAR(255),
     PhoneNumber VARCHAR(15)
 );
 -- -----------------------------------------------------
--- Table Orders
+-- Schema Orders
 -- -----------------------------------------------------
-
-CREATE TABLE Orders (
-    OrderID INT PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS Concert_Hall.Orders (
+	OrderID INT PRIMARY KEY,
     CustomerID INT, 
     EventID INT, 
     PurchaseDate DATE,
@@ -77,18 +79,18 @@ CREATE TABLE Orders (
     CONSTRAINT fk_EventOrder FOREIGN KEY (EventID) REFERENCES Events(EventID)
 );
 -- -----------------------------------------------------
--- Table PaymentMethods
+-- Schema PaymentMethods
 -- -----------------------------------------------------
-CREATE TABLE PaymentMethods (
-    PaymentMethodID INT PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS Concert_Hall.PaymentMethods (
+	PaymentMethodID INT PRIMARY KEY,
     MethodName VARCHAR(50) NOT NULL,
     Description VARCHAR(255)
 );
 -- -----------------------------------------------------
--- Table OrderItems
+-- Schema PaymentMethods
 -- -----------------------------------------------------
-CREATE TABLE OrderItems (
-    OrderItemID INT PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS Concert_Hall.OrderItems (
+	OrderItemID INT PRIMARY KEY,
     OrderID INT, 
     TicketID INT,
     Quantity INT,
@@ -97,29 +99,32 @@ CREATE TABLE OrderItems (
     CONSTRAINT fk_TicketOrderItem FOREIGN KEY (TicketID) REFERENCES Tickets(TicketID)
 );
 -- -----------------------------------------------------
--- Table Staff
+-- Schema Staff
 -- -----------------------------------------------------
-CREATE TABLE Staff (
-    StaffID INT PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS Concert_Hall.Staff (
+	StaffID INT PRIMARY KEY,
     FirstName VARCHAR(255) NOT NULL,
     LastName VARCHAR(255) NOT NULL,
     Position VARCHAR(50)
 );
 -- -----------------------------------------------------
--- Table Roles
+-- Schema Roles
 -- -----------------------------------------------------
-CREATE TABLE Roles (
+CREATE TABLE IF NOT EXISTS Concert_Hall.Roles (
     RoleID INT PRIMARY KEY,
     RoleName VARCHAR(50) NOT NULL,
     Description VARCHAR(255)
 );
 -- -----------------------------------------------------
--- Table StaffRoles
+-- Schema StaffRoles
 -- -----------------------------------------------------
-CREATE TABLE StaffRoles (
+CREATE TABLE IF NOT EXISTS Concert_Hall.StaffRoles (
     StaffRoleID INT PRIMARY KEY,
     StaffID INT, 
     RoleID INT, 
     CONSTRAINT fk_StaffStaffRole FOREIGN KEY (StaffID) REFERENCES Staff(StaffID),
     CONSTRAINT fk_RoleStaffRole FOREIGN KEY (RoleID) REFERENCES Roles(RoleID)
 );
+
+
+
