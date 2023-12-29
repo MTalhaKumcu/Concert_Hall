@@ -127,4 +127,4 @@ CREATE TABLE IF NOT EXISTS Concert_Hall.StaffRoles (
 );
 
 
-
+SELECT * FROM  Concert_Hall.artists WHERE ArtistID=2;
