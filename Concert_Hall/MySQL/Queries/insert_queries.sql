@@ -1,7 +1,7 @@
 -- Artists
-INSERT INTO Artists (ArtistID, ArtistName, BirthDate, Country) VALUES (1, 'John Doe', '1990-01-15', 'USA');
-INSERT INTO Artists (ArtistID, ArtistName, BirthDate, Country) VALUES (2, 'Jane Smith', '1985-05-20', 'UK');
-INSERT INTO Artists (ArtistID, ArtistName, BirthDate, Country) VALUES (3, 'Kane Smith', '1986-05-20', 'TR');
+INSERT INTO Artists (ArtistID, ArtistName, BirthDate, Country, GenreID ,ArtistSurname) VALUES (1, 'John', '1990-01-15', 'USA', 1);
+INSERT INTO Artists (ArtistID, ArtistName, BirthDate, Country, GenreID, ArtistSurname) VALUES (2, 'Jane', '1985-05-20', 'UK', 2);
+INSERT INTO Artists (ArtistID, ArtistName, BirthDate, Country, GenreID) VALUES (3, 'Kane', '1986-05-20', 'TR' ,3 );
 
 -- Genres
 INSERT INTO Genres (GenreID, GenreName) VALUES (1, 'Rock');
@@ -19,20 +19,19 @@ INSERT INTO Events (EventID, EventName, VenueID, Date, StartTime, EndTime) VALUE
 INSERT INTO Events (EventID, EventName, VenueID, Date, StartTime, EndTime) VALUES (3, 'MetalFest', 3, '2023-08-20', '19:30:00', '22:30:00');
 
 -- Tickets
-INSERT INTO Tickets (TicketID, EventID, Price, TicketType) VALUES (1, 1, 50.00, 'Regular');
-INSERT INTO Tickets (TicketID, EventID, Price, TicketType) VALUES (2, 2, 75.00, 'VIP');
-INSERT INTO Tickets (TicketID, EventID, Price, TicketType) VALUES (3, 3, 75.00, 'VIP');
+INSERT INTO Tickets (TicketID, EventID, Price, TicketTypeID) VALUES (1, 1, 50.00, 1);
+INSERT INTO Tickets (TicketID, EventID, Price, TicketTypeID) VALUES (2, 2, 75.00, 2);
+INSERT INTO Tickets (TicketID, EventID, Price, TicketTypeID) VALUES (3, 3, 75.00, 3);
 
 -- Customers
-INSERT INTO Customers (CustomerID, FirstName, LastName, Email, PhoneNumber) VALUES (1, 'Alice', 'Johnson', 'alice@email.com', '1234567890');
-INSERT INTO Customers (CustomerID, FirstName, LastName, Email, PhoneNumber) VALUES (2, 'Bob', 'Smith', 'bob@email.com', '9876543210');
-INSERT INTO Customers (CustomerID, FirstName, LastName, Email, PhoneNumber) VALUES (3, 'Mehmet', 'Smith', 'Mehmet@email.com', '9876543210');
-
+INSERT INTO Customers (CustomerID, FirstName, LastName, Email) VALUES (1, 'Alice', 'Johnson', 'alice@email.com');
+INSERT INTO Customers (CustomerID, FirstName, LastName, Email) VALUES (2, 'Bob', 'Smith', 'bob@email.com');
+INSERT INTO Customers (CustomerID, FirstName, LastName, Email) VALUES (3, 'Mehmet', 'Smith', 'Mehmet@email.com');
 
 -- Orders
-INSERT INTO Orders (OrderID, CustomerID, EventID, PurchaseDate, TotalAmount) VALUES (1, 1, 1, '2023-07-10', 50.00);
-INSERT INTO Orders (OrderID, CustomerID, EventID, PurchaseDate, TotalAmount) VALUES (2, 2, 2, '2023-08-15', 75.00);
-INSERT INTO Orders (OrderID, CustomerID, EventID, PurchaseDate, TotalAmount) VALUES (3, 3, 3, '2023-08-15', 75.00);
+INSERT INTO Orders (OrderID, CustomerID, EventID, PurchaseDate, TotalAmount ,PaymentMethodID) VALUES (1, 1, 1, '2023-07-10', 50.00,1);
+INSERT INTO Orders (OrderID, CustomerID, EventID, PurchaseDate, TotalAmount ,PaymentMethodID) VALUES (2, 2, 2, '2023-08-15', 75.00,2);
+INSERT INTO Orders (OrderID, CustomerID, EventID, PurchaseDate, TotalAmount ,PaymentMethodID) VALUES (3, 3, 3, '2023-08-15', 75.00,3);
 
 -- PaymentMethods
 INSERT INTO PaymentMethods (PaymentMethodID, MethodName, Description) VALUES (1, 'Credit Card', 'Visa');
@@ -43,4 +42,15 @@ INSERT INTO PaymentMethods (PaymentMethodID, MethodName, Description) VALUES (3,
 INSERT INTO OrderItems (OrderItemID, OrderID, TicketID, Quantity, Subtotal) VALUES (1, 1, 1, 2, 100.00);
 INSERT INTO OrderItems (OrderItemID, OrderID, TicketID, Quantity, Subtotal) VALUES (2, 2, 2, 1, 75.00);
 INSERT INTO OrderItems (OrderItemID, OrderID, TicketID, Quantity, Subtotal) VALUES (3, 3, 3, 1, 75.00);
+
+-- Staff 
+INSERT INTO Staff (StaffID, FirstName, LastName, Position, ArtistID) VALUES (1, 'Alice', 'Manager', 'Manager', 1);
+INSERT INTO Staff (StaffID, FirstName, LastName, Position, ArtistID) VALUES (2, 'Charlie', 'Assistant', 'Assistant', 2);
+INSERT INTO Staff (StaffID, FirstName, LastName, Position, ArtistID) VALUES (3, 'Eve', 'Coordinator', 'Coordinator', 3);
+INSERT INTO Staff (StaffID, FirstName, LastName, Position) VALUES (4, 'Ahmet' , 'Service ' ,'Runner ');
+
+-- TicketType
+INSERT INTO TicketTypes (TicketTypeID, TypeName, Description) VALUES (1, 'Regular', 'Standard admission ticket');
+INSERT INTO TicketTypes (TicketTypeID, TypeName, Description) VALUES (2, 'VIP', 'VIP access with additional perks');
+INSERT INTO TicketTypes (TicketTypeID, TypeName, Description) VALUES (3, 'Student', 'Discounted ticket for students');
 

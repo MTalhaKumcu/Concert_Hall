@@ -1,5 +1,6 @@
 -- Add a new column to Artists table
 ALTER TABLE Artists ADD COLUMN Website VARCHAR(255);
+ALTER TABLE Artists ADD COLUMN ArtistSurname VARCHAR(255);
 
 -- Rename a column in Events table
 ALTER TABLE Events CHANGE COLUMN Date EventDate DATE;
@@ -12,3 +13,19 @@ ALTER TABLE OrderItems ADD CONSTRAINT fk_OrderItemTicket FOREIGN KEY (TicketID) 
 
 -- Drop a column from Customers table
 ALTER TABLE Customers DROP COLUMN PhoneNumber;
+
+-- Add a column to Staff table and foreign key
+ALTER TABLE Staff ADD COLUMN  ArtistID INT; 
+ALTER TABLE Staff ADD CONSTRAINT fk_ArtistStaff FOREIGN KEY (ArtistID) REFERENCES Artists(ArtistID);
+
+-- Add a column to order table and foreign key
+ALTER TABLE orders ADD COLUMN  PaymentMethodID INT;
+ALTER TABLE orders ADD CONSTRAINT fk_paymentMethod FOREIGN KEY (PaymentMethodID) REFERENCES PaymentMethods(PaymentMethodID);
+
+-- Drop a column to Ticket in TickeTypes 
+ALTER TABLE Tickets DROP COLUMN TicketType;
+
+-- Add a column to Ticket table and foreign key
+ALTER TABLE Tickets ADD COLUMN  TicketTypeID INT;
+ALTER TABLE Tickets ADD CONSTRAINT fk_TicketTypeID FOREIGN KEY (TicketTypeID) REFERENCES TicketTypes(TicketTypeID);
+

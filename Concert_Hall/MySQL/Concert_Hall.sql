@@ -125,6 +125,16 @@ CREATE TABLE IF NOT EXISTS Concert_Hall.StaffRoles (
     CONSTRAINT fk_StaffStaffRole FOREIGN KEY (StaffID) REFERENCES Staff(StaffID),
     CONSTRAINT fk_RoleStaffRole FOREIGN KEY (RoleID) REFERENCES Roles(RoleID)
 );
+CREATE TABLE IF NOT EXISTS Concert_Hall.TicketTypes (
+	TicketTypeID INT PRIMARY KEY,
+    TypeName VARCHAR(50) NOT NULL,
+    Description VARCHAR(255)
+);
+SELECT * FROM  Concert_Hall.artists;
+SELECT * FROM  Concert_Hall.staff;
+SELECT * FROM  Concert_Hall.orders;
+SELECT * FROM  Concert_Hall.customers;
+SELECT * FROM  Concert_Hall.paymentsmethods;
+SELECT * FROM  Concert_Hall.TicketTypes;
+SELECT * FROM  Concert_Hall.Tickets;
 
-
-SELECT * FROM  Concert_Hall.artists WHERE ArtistID=2;
