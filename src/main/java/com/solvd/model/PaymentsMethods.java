@@ -1,12 +1,12 @@
 package com.solvd.model;
 
-public class PaymentsMethodsDAO {
+public class PaymentsMethods {
 
     private int paymentMethodID;
     private String methodName;
     private String description;
 
-    public PaymentsMethodsDAO(int paymentMethodID, String methodName, String description) {
+    public PaymentsMethods(int paymentMethodID, String methodName, String description) {
 
         this.paymentMethodID = paymentMethodID;
         this.methodName = methodName;

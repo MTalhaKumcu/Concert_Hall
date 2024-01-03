@@ -2,7 +2,7 @@ package com.solvd.model;
 
 import java.util.Objects;
 
-public class EventsDAO {
+public class Events {
 
     private int eventID;
     private String eventName;
@@ -11,7 +11,7 @@ public class EventsDAO {
     private String endTime;
     private int venueID;
 
-    public EventsDAO(int eventID, String eventName, String eventDate, String startTime, String endTime, int venueID) {
+    public Events(int eventID, String eventName, String eventDate, String startTime, String endTime, int venueID) {
         this.eventID = eventID;
         this.eventName = eventName;
         this.eventDate = eventDate;
@@ -72,8 +72,8 @@ public class EventsDAO {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        EventsDAO eventsDAO = (EventsDAO) o;
-        return eventID == eventsDAO.eventID && venueID == eventsDAO.venueID && Objects.equals(eventName, eventsDAO.eventName) && Objects.equals(eventDate, eventsDAO.eventDate) && Objects.equals(startTime, eventsDAO.startTime) && Objects.equals(endTime, eventsDAO.endTime);
+        Events events = (Events) o;
+        return eventID == events.eventID && venueID == events.venueID && Objects.equals(eventName, events.eventName) && Objects.equals(eventDate, events.eventDate) && Objects.equals(startTime, events.startTime) && Objects.equals(endTime, events.endTime);
     }
 
     @Override

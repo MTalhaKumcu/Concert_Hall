@@ -2,14 +2,14 @@ package com.solvd.model;
 
 import java.util.Objects;
 
-public class StaffsDAO {
+public class Staffs {
     private int staffID ;
     private int artistID;
     private String firstName;
     private String lastName;
     private String position;
 
-    public StaffsDAO(int staffID, int artistID, String firstName, String lastName, String position) {
+    public Staffs(int staffID, int artistID, String firstName, String lastName, String position) {
         this.staffID = staffID;
         this.artistID = artistID;
         this.firstName = firstName;
@@ -72,8 +72,8 @@ public class StaffsDAO {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        StaffsDAO staffsDAO = (StaffsDAO) o;
-        return staffID == staffsDAO.staffID && artistID == staffsDAO.artistID && Objects.equals(firstName, staffsDAO.firstName) && Objects.equals(lastName, staffsDAO.lastName) && Objects.equals(position, staffsDAO.position);
+        Staffs staffs = (Staffs) o;
+        return staffID == staffs.staffID && artistID == staffs.artistID && Objects.equals(firstName, staffs.firstName) && Objects.equals(lastName, staffs.lastName) && Objects.equals(position, staffs.position);
     }
 
     @Override

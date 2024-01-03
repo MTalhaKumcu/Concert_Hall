@@ -2,14 +2,14 @@ package com.solvd.model;
 
 import java.util.Objects;
 
-public class TicketsDAO {
+public class Tickets {
 
     private int ticketID;
     private int eventID;
     private int price;
     private int ticketTypeID;
 
-    public TicketsDAO(int ticketID, int eventID, int price, int ticketTypeID) {
+    public Tickets(int ticketID, int eventID, int price, int ticketTypeID) {
         this.ticketID = ticketID;
         this.eventID = eventID;
         this.price = price;
@@ -52,7 +52,7 @@ public class TicketsDAO {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        TicketsDAO that = (TicketsDAO) o;
+        Tickets that = (Tickets) o;
         return ticketID == that.ticketID && eventID == that.eventID && price == that.price && ticketTypeID == that.ticketTypeID;
     }
 

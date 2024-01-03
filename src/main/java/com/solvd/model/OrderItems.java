@@ -2,7 +2,7 @@ package com.solvd.model;
 
 import java.util.Objects;
 
-public class OrderItemsDAO {
+public class OrderItems {
 
     private int orderItemID ;
     private int orderID;
@@ -10,7 +10,7 @@ public class OrderItemsDAO {
     private int quantity;
     private int subTotal;
 
-    public OrderItemsDAO(int orderItemID, int orderID, int ticketID, int quantity, int subTotal) {
+    public OrderItems(int orderItemID, int orderID, int ticketID, int quantity, int subTotal) {
         this.orderItemID = orderItemID;
         this.orderID = orderID;
         this.ticketID = ticketID;
@@ -62,7 +62,7 @@ public class OrderItemsDAO {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        OrderItemsDAO that = (OrderItemsDAO) o;
+        OrderItems that = (OrderItems) o;
         return orderItemID == that.orderItemID && orderID == that.orderID && ticketID == that.ticketID && quantity == that.quantity && subTotal == that.subTotal;
     }
 

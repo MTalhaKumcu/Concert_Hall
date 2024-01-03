@@ -2,12 +2,12 @@ package com.solvd.model;
 
 import java.util.Objects;
 
-public class GenresDAO {
+public class Genres {
 
     private int genreID;
     private String genreName;
 
-    public GenresDAO (int genreID , String genreName){
+    public Genres(int genreID , String genreName){
         this.genreID = genreID;
         this.genreName = genreName;
     }
@@ -31,8 +31,8 @@ public class GenresDAO {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        GenresDAO genresDAO = (GenresDAO) o;
-        return genreID == genresDAO.genreID && Objects.equals(genreName, genresDAO.genreName);
+        Genres genres = (Genres) o;
+        return genreID == genres.genreID && Objects.equals(genreName, genres.genreName);
     }
 
     @Override

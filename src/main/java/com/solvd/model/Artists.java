@@ -2,7 +2,7 @@ package com.solvd.model;
 
 import java.util.Objects;
 
-public class ArtistsDAO {
+public class Artists {
     private int artistID ;
     private String artistName;
     private String artistSurame;
@@ -10,7 +10,7 @@ public class ArtistsDAO {
     private String country;
     private int genreID ;
 
-    public ArtistsDAO(int artistID, String artistName, String artistSurame, String birthDate, String country, int genreID) {
+    public Artists(int artistID, String artistName, String artistSurame, String birthDate, String country, int genreID) {
         this.artistID = artistID;
         this.artistName = artistName;
         this.artistSurame = artistSurame;
@@ -83,7 +83,7 @@ public class ArtistsDAO {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        ArtistsDAO that = (ArtistsDAO) o;
+        Artists that = (Artists) o;
         return artistID == that.artistID && genreID == that.genreID && Objects.equals(artistName, that.artistName) && Objects.equals(artistSurame, that.artistSurame) && Objects.equals(birthDate, that.birthDate) && Objects.equals(country, that.country);
     }
 

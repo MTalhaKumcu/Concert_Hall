@@ -1,9 +1,8 @@
 package com.solvd.model;
 
-import javax.swing.*;
 import java.util.Objects;
 
-public class OrdersDAO {
+public class Orders {
     private int orderID;
     private int customerID;
     private int eventID;
@@ -11,7 +10,7 @@ public class OrdersDAO {
     private int totalAmount;
     private int paymentMethodID;
 
-    public OrdersDAO(int orderID, int customerID, int eventID, String purchaseDate, int totalAmount, int paymentMethodID) {
+    public Orders(int orderID, int customerID, int eventID, String purchaseDate, int totalAmount, int paymentMethodID) {
         this.orderID = orderID;
         this.customerID = customerID;
         this.eventID = eventID;
@@ -72,7 +71,7 @@ public class OrdersDAO {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        OrdersDAO ordersDAO = (OrdersDAO) o;
+        Orders ordersDAO = (Orders) o;
         return orderID == ordersDAO.orderID && customerID == ordersDAO.customerID && eventID == ordersDAO.eventID && totalAmount == ordersDAO.totalAmount && paymentMethodID == ordersDAO.paymentMethodID && Objects.equals(purchaseDate, ordersDAO.purchaseDate);
     }
 
