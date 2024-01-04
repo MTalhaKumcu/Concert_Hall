@@ -1,16 +1,17 @@
 package com.solvd.model;
 
+import java.util.Date;
 import java.util.Objects;
 
 public class Artists {
     private int artistID ;
     private String artistName;
     private String artistSurame;
-    private String birthDate ;
+    private Date birthDate ;
     private String country;
     private int genreID ;
 
-    public Artists(int artistID, String artistName, String artistSurame, String birthDate, String country, int genreID) {
+    public Artists(int artistID, String artistName, String artistSurame, Date birthDate, String country, int genreID) {
         this.artistID = artistID;
         this.artistName = artistName;
         this.artistSurame = artistSurame;
@@ -18,6 +19,8 @@ public class Artists {
         this.country = country;
         this.genreID = genreID;
     }
+
+
 
     public int getArtistID() {
         return artistID;
@@ -43,11 +46,11 @@ public class Artists {
         this.artistSurame = artistSurame;
     }
 
-    public String getBirthDate() {
+    public Date getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(String birthDate) {
+    public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
 
