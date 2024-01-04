@@ -1,4 +1,13 @@
 package com.solvd.persistence.dao;
 
-public class StaffRolesDAO {
+import com.solvd.model.StaffRoles;
+
+import java.util.List;
+
+public interface StaffRolesDAO {
+    StaffRoles getStaffRoleByID(int StaffRolesID);
+    List<StaffRoles> getAllStaffRoles();
+    void addStaffRole(StaffRoles staffRoles);
+    void updateStaffRole(StaffRoles staffRoles);
+    void deleteStaffRole(int staffRolesID);
 }

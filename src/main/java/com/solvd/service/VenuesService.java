@@ -1,4 +1,4 @@
-gpackage com.solvd.service;
+package com.solvd.service;
 
 public class VenuesService {
 }

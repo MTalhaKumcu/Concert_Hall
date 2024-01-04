@@ -1,4 +1,15 @@
 package com.solvd.persistence.dao;
 
-public class ArtistsDAO {
+import com.solvd.model.Artists;
+import java.util.List;
+
+
+
+public interface ArtistsDAO {
+    Artists getArtistsByID(int artistID);
+    List<Artists> getAllArtists();
+    void addArtist(Artists artists);
+    void updateArtist(Artists artists);
+    void deleteArtist(int artistID);
+
 }

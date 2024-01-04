@@ -1,4 +1,20 @@
 package com.solvd.persistence.dao;
 
-public class VenuesDAO {
+import com.solvd.model.Venues;
+
+import java.util.List;
+
+public interface VenuesDAO {
+
+
+    Venues getVenuesByID(int venuesID);
+
+    List<Venues>getAllTickets();
+
+    void addVenues(Venues venues);
+
+    void updateVenues(Venues venues);
+
+    void deleteVenues(int venuesID);
+
 }
