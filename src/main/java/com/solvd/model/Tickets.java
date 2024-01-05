@@ -5,15 +5,14 @@ import java.util.Objects;
 public class Tickets {
 
     private int ticketID;
-    private int eventID;
+    private int ticketEventID;
     private int price;
-    private int ticketTypeID;
 
-    public Tickets(int ticketID, int eventID, int price, int ticketTypeID) {
+    public Tickets(int ticketID, int ticketEventID, int price) {
         this.ticketID = ticketID;
-        this.eventID = eventID;
+        this.ticketEventID = ticketEventID;
         this.price = price;
-        this.ticketTypeID = ticketTypeID;
+
     }
 
     public int getTicketID() {
@@ -24,12 +23,12 @@ public class Tickets {
         this.ticketID = ticketID;
     }
 
-    public int getEventID() {
-        return eventID;
+    public int getTicketEventID() {
+        return ticketEventID;
     }
 
-    public void setEventID(int eventID) {
-        this.eventID = eventID;
+    public void setTicketEventID(int ticketEventID) {
+        this.ticketEventID = ticketEventID;
     }
 
     public int getPrice() {
@@ -40,34 +39,25 @@ public class Tickets {
         this.price = price;
     }
 
-    public int getTicketTypeID() {
-        return ticketTypeID;
-    }
-
-    public void setTicketTypeID(int ticketTypeID) {
-        this.ticketTypeID = ticketTypeID;
-    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Tickets that = (Tickets) o;
-        return ticketID == that.ticketID && eventID == that.eventID && price == that.price && ticketTypeID == that.ticketTypeID;
+        Tickets tickets = (Tickets) o;
+        return ticketID == tickets.ticketID && ticketEventID == tickets.ticketEventID && price == tickets.price;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(ticketID, eventID, price, ticketTypeID);
+        return Objects.hash(ticketID, ticketEventID, price);
     }
 
     @Override
     public String toString() {
-        return "TicketsDAO{" +
+        return "TicketsDAO " +
                 "ticketID=" + ticketID +
-                ", eventID=" + eventID +
-                ", price=" + price +
-                ", ticketTypeID=" + ticketTypeID +
-                '}';
+                ", eventID=" + ticketEventID +
+                ", price=" + price ;
     }
 }
