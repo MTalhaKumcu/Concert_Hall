@@ -12,17 +12,23 @@ public class ConnectionPool {
 
     public ConnectionPool(int connectionPoolSize) throws SQLException, InterruptedException {
 
-        this.connectionPool = new ArrayBlockingQueue<>(connectionPoolSize);
-
-        for (int i = 0; i < connectionPoolSize; i++) {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/mydb", "root", "admin");
-            connectionPool.put(connection);
+        try {
+            for (int i = 0; i < connectionPoolSize; i++) {
+                Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/mydb", "root", "admin");
+                connectionPool.put(connection);
+            }
+        } catch (SQLException | InterruptedException e) {
+            e.printStackTrace();
         }
     }
 
     public synchronized static ConnectionPool getInstance(int size) throws SQLException, InterruptedException {
         if (instance == null) {
-            instance = new ConnectionPool(size);
+            try {
+                instance = new ConnectionPool(size);
+            } catch (SQLException | InterruptedException e) {
+                e.printStackTrace();
+            }
         }
         return instance;
     }
