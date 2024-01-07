@@ -17,14 +17,17 @@ public class ConnectionPool {
     private String username;
     private String password;
 
+
     public ConnectionPool(int connectionPoolSize) throws SQLException, InterruptedException {
+
         this.connectionPool = new ArrayBlockingQueue<>(connectionPoolSize);
 
-        try (InputStream input = getClass().getClassLoader().getResourceAsStream("config.properties") {
+        try (InputStream input = getClass().getClassLoader().getResourceAsStream("src/main/resources/config.properties")) {
             Properties properties = new Properties();
             if (input == null) {
                 System.out.println("Sorry, unable to find config.properties");
             }
+
             properties.load(input);
 
             url = properties.getProperty("db.url");
@@ -40,21 +43,21 @@ public class ConnectionPool {
             throw new RuntimeException(e);
         }
 
-        public synchronized static ConnectionPool getInstance (int size) throws SQLException, InterruptedException {
+        public synchronized static ConnectionPool getInstance ( int size){
             if (instance == null) {
                 try {
                     instance = new ConnectionPool(size);
                 } catch (SQLException | InterruptedException e) {
-                    e.printStackTrace();
+                    throw new RuntimeException(e);
                 }
             }
-            return instance;
+            return;
         }
-        public Connection getConnection () throws InterruptedException {
+        public Connection getConnection() throws InterruptedException {
             return connectionPool.take();
         }
-        public void releaseConnection (Connection connection){
-            connectionPool.offer(connection);
+        public void releaseConnection(Connection connection) {
+            connectionPool.add(connection);
         }
 
     }
