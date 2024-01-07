@@ -1,5 +1,8 @@
 .idea
 target/
+src/main/java/com/solvd/persistence/connection/config.properties
+
+
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
