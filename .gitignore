@@ -1,6 +1,6 @@
 .idea
 target/
-src/main/resources/config.properties
+src/main/resources/mapper/config.properties
 
 
 !.mvn/wrapper/maven-wrapper.jar

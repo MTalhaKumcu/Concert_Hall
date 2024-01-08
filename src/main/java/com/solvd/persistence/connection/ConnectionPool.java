@@ -22,7 +22,7 @@ public class ConnectionPool {
 
         this.connectionPool = new ArrayBlockingQueue<>(connectionPoolSize);
 
-        try (InputStream input = getClass().getClassLoader().getResourceAsStream("src/main/resources/config.properties")) {
+        try (InputStream input = getClass().getClassLoader().getResourceAsStream("src/main/resources/mapper/config.properties")) {
             Properties properties = new Properties();
             if (input == null) {
                 System.out.println("Sorry, unable to find config.properties");
@@ -43,7 +43,7 @@ public class ConnectionPool {
             throw new RuntimeException(e);
         }
 
-        public synchronized static ConnectionPool getInstance ( int size){
+        public synchronized static ConnectionPool getInstance(int size){
             if (instance == null) {
                 try {
                     instance = new ConnectionPool(size);
