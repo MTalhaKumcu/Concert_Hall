@@ -9,10 +9,6 @@ JOIN PaymentMethods ON PaymentMethods.PaymentMethodID = PaymentMethods.PaymentMe
 JOIN OrderItems ON OrderItems.OrderID = Orders.OrderID
 JOIN StaffRoles ON StaffRoles.StaffID = StaffRoles.StaffID
 JOIN Staff ON Staff.StaffID = StaffRoles.StaffID
-JOIN Roles ON Roles.RoleID = StaffRoles.RoleID;
-
-SELECT * FROM Artists
-JOIN Staff ON staff.ArtistID = artists.ArtistID;
-
-SELECT * FROM tickets
+JOIN Roles ON Roles.RoleID = StaffRoles.RoleID
+JOIN Staff ON staff.ArtistID = artists.ArtistID
 JOIN TicketTypes ON tickets.TicketID = TicketTypes.TicketTypeID;

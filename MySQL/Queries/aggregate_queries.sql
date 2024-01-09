@@ -1,8 +1,8 @@
 -- Count the number of events for each venue
-SELECT Venues.VenueID, VenueName, COUNT(Events.EventID) AS EventCount
-FROM Venues
-LEFT JOIN Events ON Venues.VenueID = Events.VenueID
-GROUP BY Venues.VenueID;
+SELECT Venue.VenueID, VenueName, COUNT(Events.EventID) AS EventCount
+FROM Venue
+LEFT JOIN Events ON Venue.VenueID = Events.VenueID
+GROUP BY Venue.VenueID;
 
 -- Calculate the total revenue for each event
 SELECT Events.EventID, EventName, SUM(OrderItems.Subtotal) AS TotalRevenue
@@ -21,7 +21,7 @@ GROUP BY Genres.GenreID;
 
 -- Find the maximum capacity among venues
 SELECT MAX(Capacity) AS MaxCapacity
-FROM Venues;
+FROM Venue;
 
 -- Calculate the total number of tickets sold for each event
 SELECT Events.EventID, EventName, SUM(OrderItems.Quantity) AS TotalTicketsSold
@@ -35,7 +35,11 @@ SELECT Artists.ArtistID, ArtistName, SUM(OrderItems.Subtotal) AS TotalRevenue
 FROM Artists
 LEFT JOIN Events ON Artists.ArtistID = Events.ArtistID
 LEFT JOIN Tickets ON Events.EventID = Tickets.EventID
-LEFT JOIN Orders ON Tickets.TicketID = OrderItems.TicketID
+LEFT JOIN OrderItems ON Tickets.TicketID = OrderItems.TicketID
 GROUP BY Artists.ArtistID
 ORDER BY TotalRevenue DESC
 LIMIT 1;
+
+
+select Subtotal from orderitems;
+select * from Tickets;

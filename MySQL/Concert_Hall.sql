@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS Concert_Hall.genres (
 CREATE TABLE IF NOT EXISTS Concert_Hall.Events (
 	EventID INT PRIMARY KEY,
     EventName VARCHAR(255) NOT NULL,
-    Date DATE,
+    EventDate DATE,
     StartTime TIME,
     EndTime TIME,  
     venueID INT, 

@@ -6,7 +6,8 @@ DELETE FROM Venues WHERE VenueID = 1;
 
 -- Delete an Event
 DELETE FROM Events WHERE EventID = 1;
-
+DELETE FROM Events WHERE EventID = 2;
+DELETE FROM Events WHERE EventID = 3;
 -- Delete a Ticket
 DELETE FROM Tickets WHERE TicketID = 1;
 
@@ -28,7 +29,8 @@ DELETE FROM PaymentMethods WHERE PaymentMethodID = 1;
 
 -- Delete an Order Item
 DELETE FROM OrderItems WHERE OrderItemID = 1;
-
+DELETE FROM OrderItems WHERE OrderItemID = 2;
+DELETE FROM OrderItems WHERE OrderItemID = 3;
 -- Delete a Staff Member
 DELETE FROM Staff WHERE StaffID = 1;
 
