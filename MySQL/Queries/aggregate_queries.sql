@@ -2,7 +2,19 @@
 SELECT Venue.VenueID, VenueName, COUNT(Events.EventID) AS EventCount
 FROM Venue
 LEFT JOIN Events ON Venue.VenueID = Events.VenueID
-GROUP BY Venue.VenueID;
+GROUP BY Venue.VenueID ;
+
+-- Total Revenue Grouping
+SELECT ArtistID, SUM(TotalAmount) AS TotalRevenue
+FROM Events
+JOIN Orders ON Events.EventID = Orders.EventID
+GROUP BY ArtistID;
+
+-- Number of Customers Grouping:
+SELECT VenueID, COUNT(DISTINCT CustomerID) AS TotalCustomers
+FROM Events
+JOIN Orders ON Events.EventID = Orders.EventID
+GROUP BY VenueID;
 
 -- Calculate the total revenue for each event
 SELECT Events.EventID, EventName, SUM(OrderItems.Subtotal) AS TotalRevenue
@@ -40,6 +52,46 @@ GROUP BY Artists.ArtistID
 ORDER BY TotalRevenue DESC
 LIMIT 1;
 
+-- Total Revenue Grouping and Filtering
+SELECT ArtistID, SUM(TotalAmount) AS TotalRevenue
+FROM Events
+JOIN Orders ON Events.EventID = Orders.EventID
+GROUP BY ArtistID
+HAVING TotalRevenue > 1000;
+
+-- Event Number Grouping and Filtering:
+
+SELECT VenueID, COUNT(EventID) AS TotalEvents
+FROM Events
+GROUP BY VenueID
+HAVING TotalEvents >= 1;
+
+-- Event Number Grouping and Filtering:
+
+SELECT ArtistID, COUNT(DISTINCT CustomerID) AS UniqueCustomers
+FROM Events
+JOIN Orders ON Events.EventID = Orders.EventID
+GROUP BY ArtistID
+HAVING UniqueCustomers >= 50;
+
+-- Average Ticket Price Grouping and Filtering:
+SELECT VenueID, AVG(Price) AS AverageTicketPrice
+FROM Tickets
+GROUP BY VenueID
+HAVING AverageTicketPrice < 50.00;
+-- Average Spend per Customer Grouping and Filtering:
+SELECT CustomerID, AVG(TotalAmount) AS AvgSpendingPerCustomer
+FROM Orders
+GROUP BY CustomerID
+HAVING AvgSpendingPerCustomer > 75.00;
+
+--  Grouping and Filtering Number of Sales per Event:
+
+SELECT EventID, COUNT(OrderID) AS TotalSales
+FROM Orders
+GROUP BY EventID
+HAVING TotalSales >= 5;
+
 -- It shows which events each artist belongs to.
 SELECT Artists.ArtistID, ArtistName, EventID, EventName
 FROM Artists
@@ -68,26 +120,45 @@ SELECT Staff.StaffID, FirstName, LastName, Position, ArtistName
 FROM Staff
 INNER JOIN Artists ON Staff.ArtistID = Artists.ArtistID;
 
--- Artists and Events (Left Outer Join)
+-- Artists and Events (Left Outer Join + Right Outer Join)
 SELECT Artists.ArtistID, ArtistName, EventID, EventName
 FROM Artists
-LEFT JOIN Events ON Artists.ArtistID = Events.ArtistID ;
+LEFT JOIN Events ON Artists.ArtistID = Events.ArtistID
+UNION
+SELECT Artists.ArtistID, ArtistName, EventID, EventName
+FROM Events
+RIGHT JOIN Artists ON Artists.ArtistID = Events.ArtistID;
 
--- Venues and Events (Left Outer Join):
+-- Venues and Events (Left Outer Join + Right Outer Join):
 SELECT Events.EventID, EventName, VenueName, Location
 FROM Events
-RIGHT JOIN Venue ON Events.VenueID = Venue.VenueID;
+LEFT JOIN Venue ON Events.VenueID = Venue.VenueID
+UNION
+SELECT Events.EventID, EventName, VenueName, Location
+FROM Venue
+RIGHT JOIN Events ON Events.VenueID = Venue.VenueID;
 
--- Customers and Orders (Left Outer Join)
+
+-- Customers and Orders (Left Outer Join + Right Outer Join)
 SELECT Customers.CustomerID, FirstName, LastName, EventName, PurchaseDate, TotalAmount
 FROM Customers
 LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID
-LEFT JOIN Events ON Orders.EventID = Events.EventID;
+LEFT JOIN Events ON Orders.EventID = Events.EventID
+UNION
+SELECT Customers.CustomerID, FirstName, LastName, EventName, PurchaseDate, TotalAmount
+FROM Orders
+RIGHT JOIN Customers ON Customers.CustomerID = Orders.CustomerID
+RIGHT JOIN Events ON Orders.EventID = Events.EventID;
 
--- Staffs and Artists (Right Outer Join):
+-- Staffs and Artists (Left Outer Join + Right Outer Join):
 SELECT Staff.StaffID, FirstName, LastName, Position, ArtistName
 FROM Staff
-RIGHT JOIN Artists ON Staff.ArtistID = Artists.ArtistID;
+LEFT JOIN Artists ON Staff.ArtistID = Artists.ArtistID
+UNION
+SELECT Staff.StaffID, FirstName, LastName, Position, ArtistName
+FROM Artists
+RIGHT JOIN Staff ON Staff.ArtistID = Artists.ArtistID;
+
 
 -- Tickets and Events (right and left outter joins)
 SELECT Events.EventID, EventName, TypeName, Description
