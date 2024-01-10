@@ -2,12 +2,12 @@ package com.solvd.model;
 
 import java.util.Objects;
 
-public class StaffRoles {
+public class StaffRole {
     private int staffRoleID;
     private int staffID;
     private int roleID;
 
-    public StaffRoles(int staffRoleID, int staffID, int roleID) {
+    public StaffRole(int staffRoleID, int staffID, int roleID) {
         this.staffRoleID = staffRoleID;
         this.staffID = staffID;
         this.roleID = roleID;
@@ -41,7 +41,7 @@ public class StaffRoles {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        StaffRoles that = (StaffRoles) o;
+        StaffRole that = (StaffRole) o;
         return staffRoleID == that.staffRoleID && staffID == that.staffID && roleID == that.roleID;
     }
 

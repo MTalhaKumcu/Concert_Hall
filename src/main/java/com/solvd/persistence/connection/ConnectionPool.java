@@ -1,65 +1,90 @@
 package com.solvd.persistence.connection;
 
-import java.io.IOException;
-import java.io.InputStream;
+import java.lang.reflect.Proxy;
 import java.sql.*;
-import java.util.Properties;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
+
+import static java.lang.Class.forName;
 
 public class ConnectionPool {
 
 
-    private BlockingQueue<Connection> connectionPool;
-    private static ConnectionPool instance;
+    private static ConnectionPool connectionPool;
+    private static final String URL_KEY = "url";
+    private static final String USER_KEY = "user";
+    private static final String PASSWORD_KEY = "password";
+    private static final String DRIVER_KEY = "driver";
+    private static final String POOL_SIZE_KEY = "size";
+    private static BlockingQueue<Connection> pool;
+    private static List<Connection> sourceConnections;
 
-    private String url;
-    private String username;
-    private String password;
+    public ConnectionPool() {
+    }
 
+    static {
+        loadDriver();
+        initConnectionPool();
+    }
 
-    public ConnectionPool(int connectionPoolSize) throws SQLException, InterruptedException {
+    private static void initConnectionPool() {
 
-        this.connectionPool = new ArrayBlockingQueue<>(connectionPoolSize);
+        int size = Integer.parseInt(DBpropertiesUtil.get(POOL_SIZE_KEY));
+        pool = new ArrayBlockingQueue<>(size);
+        sourceConnections = new ArrayList<>(size);
+        for (int i = 0; i < size; i++) {
+            Connection connection = open();
+            Connection proxyConnections = (Connection) Proxy.newProxyInstance(ConnectionPool.class.getClassLoader(),
+                    new Class[]{Connection.class},
+                    (proxy, method, args) -> method.getName().equals("close") ? pool.add((Connection) proxy)
+                            : method.invoke(connection, args));
+            pool.add(proxyConnections);
+            sourceConnections.add(connection);
+        }
+    }
 
-        try (InputStream input = getClass().getClassLoader().getResourceAsStream("src/main/resources/mapper/config.properties")) {
-            Properties properties = new Properties();
-            if (input == null) {
-                System.out.println("Sorry, unable to find config.properties");
-            }
-
-            properties.load(input);
-
-            url = properties.getProperty("db.url");
-            username = properties.getProperty("db.username");
-            password = properties.getProperty("db.password");
-
-            for (int i = 0; i < connectionPoolSize; i++) {
-                Connection connection = DriverManager.getConnection(url, username, password);
-                connectionPool.put(connection);
-            }
-
-        } catch (IOException | SQLException | InterruptedException e) {
+    private static Connection open() {
+        try {
+            return DriverManager.getConnection(DBpropertiesUtil.get(URL_KEY),
+                    DBpropertiesUtil.get(USER_KEY),
+                    DBpropertiesUtil.get(PASSWORD_KEY));
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
 
-        public synchronized static ConnectionPool getInstance(int size){
-            if (instance == null) {
-                try {
-                    instance = new ConnectionPool(size);
-                } catch (SQLException | InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
+    private static void loadDriver() {
+
+        try {
+
+            Class.forName(DBpropertiesUtil.get(DRIVER_KEY));
+
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public static Connection get() {
+        try {
+            return pool.take();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public static void releaseConnection(Connection connection) {
+        pool.offer(connection);
+    }
+
+    public static void closeConnectionPool() {
+        try {
+            for (Connection sourceConnection : sourceConnections) {
+                sourceConnection.close();
             }
-            return;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
-        public Connection getConnection() throws InterruptedException {
-            return connectionPool.take();
-        }
-        public void releaseConnection(Connection connection) {
-            connectionPool.add(connection);
-        }
-
     }
 }
 

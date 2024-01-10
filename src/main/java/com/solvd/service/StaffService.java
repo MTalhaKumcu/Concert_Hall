@@ -1,6 +1,6 @@
 package com.solvd.service;
 
-import com.solvd.model.Staffs;
+import com.solvd.model.Staff;
 import com.solvd.persistence.dao.StaffDAO;
 
 import java.util.List;
@@ -14,20 +14,20 @@ public class StaffService {
         this.staffDAO = staffDAO;
     }
 
-    public Staffs getStaffByID(int StaffID) {
+    public Staff getStaffByID(int StaffID) {
         return staffDAO.getStaffByID(StaffID);
     }
 
-    public List<Staffs> getAllStaffs() {
+    public List<Staff> getAllStaffs() {
         return staffDAO.getAllStaffs();
     }
 
-    public void addStaff(Staffs staffs) {
-        staffDAO.addStaff(staffs);
+    public void addStaff(Staff staff) {
+        staffDAO.addStaff(staff);
     }
 
-    public void updateStaff(Staffs staffs) {
-        staffDAO.updateStaff(staffs);
+    public void updateStaff(Staff staff) {
+        staffDAO.updateStaff(staff);
     }
 
     public void deleteStaff(int StaffID) {

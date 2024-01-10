@@ -1,16 +1,16 @@
 package com.solvd.model;
 
-public class PaymentsMethods {
+public class PaymentsMethod {
 
     private static int paymentMethodID;
     private static String paymentMethodName;
     private static String description;
 
-    public PaymentsMethods(int paymentMethodID, String paymentMethodName, String description) {
+    public PaymentsMethod(int paymentMethodID, String paymentMethodName, String description) {
 
-        PaymentsMethods.paymentMethodID = paymentMethodID;
-        PaymentsMethods.paymentMethodName = paymentMethodName;
-        PaymentsMethods.description = description;
+        PaymentsMethod.paymentMethodID = paymentMethodID;
+        PaymentsMethod.paymentMethodName = paymentMethodName;
+        PaymentsMethod.description = description;
         // it did not find non-static intance variable cuz of i made it
 
     }

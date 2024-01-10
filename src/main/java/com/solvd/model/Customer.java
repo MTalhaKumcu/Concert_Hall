@@ -2,14 +2,14 @@ package com.solvd.model;
 
 import java.util.Objects;
 
-public class Customers {
+public class Customer {
 
     private int customerID;
     private String firstName;
     private String lastName;
     private String email;
 
-    public Customers(int customerID, String firstName, String lastName, String email) {
+    public Customer(int customerID, String firstName, String lastName, String email) {
         this.customerID = customerID;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -53,7 +53,7 @@ public class Customers {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Customers that = (Customers) o;
+        Customer that = (Customer) o;
         return customerID == that.customerID && Objects.equals(firstName, that.firstName) && Objects.equals(lastName, that.lastName) && Objects.equals(email, that.email);
     }
 

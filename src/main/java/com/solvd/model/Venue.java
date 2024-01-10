@@ -2,13 +2,13 @@ package com.solvd.model;
 
 import java.util.Objects;
 
-public class Venues {
+public class Venue {
     private int venueID;
     private String venueName;
     private int capacity;
     private String location;
 
-    public Venues(int venueID, String venueName, int capacity, String location) {
+    public Venue(int venueID, String venueName, int capacity, String location) {
         this.venueID = venueID;
         this.venueName = venueName;
         this.capacity = capacity;
@@ -51,8 +51,8 @@ public class Venues {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Venues venues = (Venues) o;
-        return venueID == venues.venueID && capacity == venues.capacity && Objects.equals(venueName, venues.venueName) && Objects.equals(location, venues.location);
+        Venue venue = (Venue) o;
+        return venueID == venue.venueID && capacity == venue.capacity && Objects.equals(venueName, venue.venueName) && Objects.equals(location, venue.location);
     }
 
     @Override

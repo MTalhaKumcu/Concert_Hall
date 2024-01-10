@@ -2,13 +2,13 @@ package com.solvd.model;
 
 import java.util.Objects;
 
-public class Tickets {
+public class Ticket {
 
     private int ticketID;
     private int ticketEventID;
     private int price;
 
-    public Tickets(int ticketID, int ticketEventID, int price) {
+    public Ticket(int ticketID, int ticketEventID, int price) {
         this.ticketID = ticketID;
         this.ticketEventID = ticketEventID;
         this.price = price;
@@ -44,8 +44,8 @@ public class Tickets {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Tickets tickets = (Tickets) o;
-        return ticketID == tickets.ticketID && ticketEventID == tickets.ticketEventID && price == tickets.price;
+        Ticket ticket = (Ticket) o;
+        return ticketID == ticket.ticketID && ticketEventID == ticket.ticketEventID && price == ticket.price;
     }
 
     @Override

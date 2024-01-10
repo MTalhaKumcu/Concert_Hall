@@ -4,7 +4,7 @@ import java.sql.Time;
 import java.util.Date;
 import java.util.Objects;
 
-public class Events {
+public class Event {
 
     private int eventID;
     private String eventName;
@@ -14,7 +14,7 @@ public class Events {
     private int venueID;
 
 
-    public Events(int eventID, String eventName, int venueID, java.sql.Date date, Time startTime, Time endTime) {
+    public Event(int eventID, String eventName, int venueID, java.sql.Date date, Time startTime, Time endTime) {
         this.eventID = eventID;
         this.eventName = eventName;
         this.eventDate = eventDate;
@@ -76,8 +76,8 @@ public class Events {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Events events = (Events) o;
-        return eventID == events.eventID && venueID == events.venueID && Objects.equals(eventName, events.eventName) && Objects.equals(eventDate, events.eventDate) && Objects.equals(startTime, events.startTime) && Objects.equals(endTime, events.endTime);
+        Event event = (Event) o;
+        return eventID == event.eventID && venueID == event.venueID && Objects.equals(eventName, event.eventName) && Objects.equals(eventDate, event.eventDate) && Objects.equals(startTime, event.startTime) && Objects.equals(endTime, event.endTime);
     }
 
     @Override

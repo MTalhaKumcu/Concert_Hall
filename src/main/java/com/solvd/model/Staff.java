@@ -2,14 +2,14 @@ package com.solvd.model;
 
 import java.util.Objects;
 
-public class Staffs {
+public class Staff {
     private int staffID ;
    // private int staffArtistID;
     private String firstName;
     private String lastName;
     private String position;
 
-    public Staffs(int staffID, String firstName, String lastName, String position) {
+    public Staff(int staffID, String firstName, String lastName, String position) {
         this.staffID = staffID;
    //     this.staffArtistID = staffArtistID;
         this.firstName = firstName;
@@ -71,8 +71,8 @@ public class Staffs {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Staffs staffs = (Staffs) o;
-        return staffID == staffs.staffID && Objects.equals(firstName, staffs.firstName) && Objects.equals(lastName, staffs.lastName) && Objects.equals(position, staffs.position);
+        Staff staff = (Staff) o;
+        return staffID == staff.staffID && Objects.equals(firstName, staff.firstName) && Objects.equals(lastName, staff.lastName) && Objects.equals(position, staff.position);
     }
 
     @Override

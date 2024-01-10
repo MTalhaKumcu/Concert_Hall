@@ -1,6 +1,6 @@
 package com.solvd.persistence.daoImpl;
 
-import com.solvd.model.Customers;
+import com.solvd.model.Customer;
 import com.solvd.persistence.dao.CustomerDAO;
 
 import java.sql.*;
@@ -15,8 +15,8 @@ public class JdbcCustomerDAO implements CustomerDAO {
         this.connection = connection;
     }
     @Override
-    public Customers getCustomerByID(int customerID) {
-        Customers customer = null;
+    public Customer getCustomerByID(int customerID) {
+        Customer customer = null;
         String query = "SELECT * FROM Customers WHERE CustomerID = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
@@ -36,15 +36,15 @@ public class JdbcCustomerDAO implements CustomerDAO {
 
 
     @Override
-    public List<Customers> getAllCustomers() {
-        List<Customers> customers = new ArrayList<>();
+    public List<Customer> getAllCustomers() {
+        List<Customer> customers = new ArrayList<>();
         String query = "SELECT * FROM Customers";
 
         try (Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery(query)) {
 
             while (resultSet.next()) {
-                Customers customer = mapResultSetToCustomer(resultSet);
+                Customer customer = mapResultSetToCustomer(resultSet);
                 customers.add(customer);
             }
         } catch (SQLException e) {
@@ -55,13 +55,13 @@ public class JdbcCustomerDAO implements CustomerDAO {
     }
 
     @Override
-    public void addCustomers(Customers customers) {
+    public void addCustomers(Customer customer) {
         String query = "INSERT INTO Customers (FirstName, LastName, Email, PhoneNumber) VALUES (?, ?, ?, ?)";
 
         try (PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
-            statement.setString(1, customers.getFirstName());
-            statement.setString(2, customers.getLastName());
-            statement.setString(3, customers.getEmail());
+            statement.setString(1, customer.getFirstName());
+            statement.setString(2, customer.getLastName());
+            statement.setString(3, customer.getEmail());
 
             int affectedRows = statement.executeUpdate();
 
@@ -71,7 +71,7 @@ public class JdbcCustomerDAO implements CustomerDAO {
 
             try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
                 if (generatedKeys.next()) {
-                    customers.setCustomerID(generatedKeys.getInt(1));
+                    customer.setCustomerID(generatedKeys.getInt(1));
                 } else {
                     throw new SQLException("Customer creation failed, no ID obtained.");
                 }
@@ -82,14 +82,14 @@ public class JdbcCustomerDAO implements CustomerDAO {
     }
 
     @Override
-    public void updateCustomers(Customers customers) {
+    public void updateCustomers(Customer customer) {
         String query = "UPDATE Customers SET FirstName = ?, LastName = ?, Email = ? WHERE CustomerID = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setString(1, customers.getFirstName());
-            statement.setString(2, customers.getLastName());
-            statement.setString(3, customers.getEmail());
-            statement.setInt(5, customers.getCustomerID());
+            statement.setString(1, customer.getFirstName());
+            statement.setString(2, customer.getLastName());
+            statement.setString(3, customer.getEmail());
+            statement.setInt(5, customer.getCustomerID());
 
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -112,13 +112,13 @@ public class JdbcCustomerDAO implements CustomerDAO {
 
 
 
-    private Customers mapResultSetToCustomer(ResultSet resultSet) throws SQLException {
+    private Customer mapResultSetToCustomer(ResultSet resultSet) throws SQLException {
         int customerID = resultSet.getInt("CustomerID");
         String firstName = resultSet.getString("FirstName");
         String lastName = resultSet.getString("LastName");
         String email = resultSet.getString("Email");
 
 
-        return new Customers (customerID, firstName, lastName, email);
+        return new Customer(customerID, firstName, lastName, email);
     }
 }

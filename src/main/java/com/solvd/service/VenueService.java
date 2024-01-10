@@ -1,6 +1,6 @@
 package com.solvd.service;
 
-import com.solvd.model.Venues;
+import com.solvd.model.Venue;
 import com.solvd.persistence.dao.VenueDAO;
 
 import java.util.List;
@@ -12,20 +12,20 @@ public class VenueService {
         this.venueDAO = venueDAO;
     }
 
-    public Venues getVenuesByID(int venuesID) {
+    public Venue getVenuesByID(int venuesID) {
         return venueDAO.getVenuesByID(venuesID);
     }
 
-    public List<Venues> getAllTickets() {
+    public List<Venue> getAllTickets() {
         return venueDAO.getAllTickets();
     }
 
-    public void addVenues(Venues venues) {
-        venueDAO.addVenues(venues);
+    public void addVenues(Venue venue) {
+        venueDAO.addVenues(venue);
     }
 
-    public void updateVenues(Venues venues) {
-        venueDAO.updateVenues(venues);
+    public void updateVenues(Venue venue) {
+        venueDAO.updateVenues(venue);
     }
 
     public void deleteVenues(int venuesID) {

@@ -1,13 +1,13 @@
 package com.solvd.persistence.dao;
 
-import com.solvd.model.OrderItems;
+import com.solvd.model.OrderItem;
 
 import java.util.List;
 
 public interface OrderItemDAO {
-    OrderItems getOrderItemsByID(int orderItemsID);
-    List<OrderItems> getAllOrderItems();
-    void addOrderItems(OrderItems orderItems);
-    void updateOrderItems(OrderItems orderItems);
+    OrderItem getOrderItemsByID(int orderItemsID);
+    List<OrderItem> getAllOrderItems();
+    void addOrderItems(OrderItem orderItem);
+    void updateOrderItems(OrderItem orderItem);
     void deleteOrderItems(int orderItemsID);
 }

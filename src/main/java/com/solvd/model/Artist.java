@@ -3,7 +3,7 @@ package com.solvd.model;
 import java.util.Date;
 import java.util.Objects;
 
-public class Artists {
+public class Artist {
     private int artistID ;
     private String artistName;
     private String artistSurame;
@@ -11,7 +11,7 @@ public class Artists {
     private String country;
     private int genreID ;
 
-    public Artists(int artistID, String artistName, String artistSurame, Date birthDate, String country, int genreID) {
+    public Artist(int artistID, String artistName, String artistSurame, Date birthDate, String country, int genreID) {
         this.artistID = artistID;
         this.artistName = artistName;
         this.artistSurame = artistSurame;
@@ -86,7 +86,7 @@ public class Artists {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Artists that = (Artists) o;
+        Artist that = (Artist) o;
         return artistID == that.artistID && genreID == that.genreID && Objects.equals(artistName, that.artistName) && Objects.equals(artistSurame, that.artistSurame) && Objects.equals(birthDate, that.birthDate) && Objects.equals(country, that.country);
     }
 

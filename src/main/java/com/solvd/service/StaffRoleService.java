@@ -1,25 +1,25 @@
 package com.solvd.service;
 
-import com.solvd.model.StaffRoles;
+import com.solvd.model.StaffRole;
 import com.solvd.persistence.dao.StaffRoleDAO;
 
 import java.util.List;
 
 public class StaffRoleService {
-    public StaffRoles getStaffRoleByID(int StaffRolesID) {
+    public StaffRole getStaffRoleByID(int StaffRolesID) {
         return staffRoleDAO.getStaffRoleByID(StaffRolesID);
     }
 
-    public List<StaffRoles> getAllStaffRoles() {
+    public List<StaffRole> getAllStaffRoles() {
         return staffRoleDAO.getAllStaffRoles();
     }
 
-    public void addStaffRole(StaffRoles staffRoles) {
-        staffRoleDAO.addStaffRole(staffRoles);
+    public void addStaffRole(StaffRole staffRole) {
+        staffRoleDAO.addStaffRole(staffRole);
     }
 
-    public void updateStaffRole(StaffRoles staffRoles) {
-        staffRoleDAO.updateStaffRole(staffRoles);
+    public void updateStaffRole(StaffRole staffRole) {
+        staffRoleDAO.updateStaffRole(staffRole);
     }
 
     public void deleteStaffRole(int staffRolesID) {

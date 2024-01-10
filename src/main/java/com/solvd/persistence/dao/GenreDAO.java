@@ -1,13 +1,13 @@
 package com.solvd.persistence.dao;
 
-import com.solvd.model.Genres;
+import com.solvd.model.Genre;
 
 import java.util.List;
 
 public interface GenreDAO {
-    Genres getGenreByID(int genreID);
-    List<Genres> getAllGenres();
-    void addGenre(Genres genres);
-    void updateGenre(Genres genres);
+    Genre getGenreByID(int genreID);
+    List<Genre> getAllGenres();
+    void addGenre(Genre genre);
+    void updateGenre(Genre genre);
     void deleteGenre(int genreID);
 }

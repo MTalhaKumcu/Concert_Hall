@@ -1,6 +1,6 @@
 package com.solvd.persistence.daoImpl;
 
-import com.solvd.model.OrderItems;
+import com.solvd.model.OrderItem;
 import com.solvd.persistence.dao.OrderItemDAO;
 
 import java.sql.*;
@@ -15,8 +15,8 @@ public class JdbcOrderItemDAO implements OrderItemDAO {
     }
 
     @Override
-    public OrderItems getOrderItemsByID(int orderItemsID) {
-        OrderItems orderItem = null;
+    public OrderItem getOrderItemsByID(int orderItemsID) {
+        OrderItem orderItem = null;
         String query = "SELECT * FROM OrderItems WHERE OrderItemID = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
@@ -34,15 +34,15 @@ public class JdbcOrderItemDAO implements OrderItemDAO {
     }
 
     @Override
-    public List<OrderItems> getAllOrderItems() {
-        List<OrderItems> orderItems = new ArrayList<>();
+    public List<OrderItem> getAllOrderItems() {
+        List<OrderItem> orderItems = new ArrayList<>();
         String query = "SELECT * FROM OrderItems";
 
         try (Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery(query)) {
 
             while (resultSet.next()) {
-                OrderItems orderItem = mapResultSetToOrderItem(resultSet);
+                OrderItem orderItem = mapResultSetToOrderItem(resultSet);
                 orderItems.add(orderItem);
             }
         } catch (SQLException e) {
@@ -53,14 +53,14 @@ public class JdbcOrderItemDAO implements OrderItemDAO {
     }
 
     @Override
-    public void addOrderItems(OrderItems orderItems) {
+    public void addOrderItems(OrderItem orderItem) {
         String query = "INSERT INTO OrderItems (OrderID, TicketID, Quantity, Subtotal) VALUES (?, ?, ?, ?)";
 
         try (PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
-            statement.setInt(1, orderItems.getOrderID());
-            statement.setInt(2, orderItems.getTicketID());
-            statement.setInt(3, orderItems.getQuantity());
-            statement.setDouble(4, orderItems.getSubTotal());
+            statement.setInt(1, orderItem.getOrderID());
+            statement.setInt(2, orderItem.getTicketID());
+            statement.setInt(3, orderItem.getQuantity());
+            statement.setDouble(4, orderItem.getSubTotal());
 
             int affectedRows = statement.executeUpdate();
 
@@ -70,7 +70,7 @@ public class JdbcOrderItemDAO implements OrderItemDAO {
 
             try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
                 if (generatedKeys.next()) {
-                    orderItems.setOrderItemID(generatedKeys.getInt(1));
+                    orderItem.setOrderItemID(generatedKeys.getInt(1));
                 } else {
                     throw new SQLException("OrderItem creation failed, no ID obtained.");
                 }
@@ -81,15 +81,15 @@ public class JdbcOrderItemDAO implements OrderItemDAO {
     }
 
     @Override
-    public void updateOrderItems(OrderItems orderItems) {
+    public void updateOrderItems(OrderItem orderItem) {
         String query = "UPDATE OrderItems SET OrderID = ?, TicketID = ?, Quantity = ?, Subtotal = ? WHERE OrderItemID = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setInt(1, orderItems.getOrderID());
-            statement.setInt(2, orderItems.getTicketID());
-            statement.setInt(3, orderItems.getQuantity());
-            statement.setDouble(4, orderItems.getSubTotal());
-            statement.setInt(5, orderItems.getOrderItemID());
+            statement.setInt(1, orderItem.getOrderID());
+            statement.setInt(2, orderItem.getTicketID());
+            statement.setInt(3, orderItem.getQuantity());
+            statement.setDouble(4, orderItem.getSubTotal());
+            statement.setInt(5, orderItem.getOrderItemID());
 
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -109,13 +109,13 @@ public class JdbcOrderItemDAO implements OrderItemDAO {
             e.printStackTrace();
         }
     }
-    private OrderItems mapResultSetToOrderItem(ResultSet resultSet) throws SQLException {
+    private OrderItem mapResultSetToOrderItem(ResultSet resultSet) throws SQLException {
         int orderItemID = resultSet.getInt("OrderItemID");
         int orderID = resultSet.getInt("OrderID");
         int ticketID = resultSet.getInt("TicketID");
         int quantity = resultSet.getInt("Quantity");
         int subTotal = resultSet.getInt("Subtotal");
 
-        return new OrderItems(orderItemID, orderID, ticketID, quantity, subTotal);
+        return new OrderItem(orderItemID, orderID, ticketID, quantity, subTotal);
     }
 }

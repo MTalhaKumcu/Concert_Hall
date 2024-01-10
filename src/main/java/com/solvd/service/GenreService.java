@@ -1,6 +1,6 @@
 package com.solvd.service;
 
-import com.solvd.model.Genres;
+import com.solvd.model.Genre;
 import com.solvd.persistence.dao.GenreDAO;
 
 import java.util.List;
@@ -12,20 +12,20 @@ public class GenreService {
         this.genreDAO = genreDAO;
     }
 
-    public Genres getGenreByID(int genreID) {
+    public Genre getGenreByID(int genreID) {
         return genreDAO.getGenreByID(genreID);
     }
 
-    public List<Genres> getAllGenres() {
+    public List<Genre> getAllGenres() {
         return genreDAO.getAllGenres();
     }
 
-    public void addGenre(Genres genres) {
-        genreDAO.addGenre(genres);
+    public void addGenre(Genre genre) {
+        genreDAO.addGenre(genre);
     }
 
-    public void updateGenre(Genres genres) {
-        genreDAO.updateGenre(genres);
+    public void updateGenre(Genre genre) {
+        genreDAO.updateGenre(genre);
     }
 
     public void deleteGenre(int genreID) {

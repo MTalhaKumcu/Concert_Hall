@@ -1,4 +1,4 @@
--- Count the number of events for each venue
+-- Count the number of event for each venue
 SELECT Venue.VenueID, VenueName, COUNT(Events.EventID) AS EventCount
 FROM Venue
 LEFT JOIN Events ON Venue.VenueID = Events.VenueID
@@ -31,11 +31,11 @@ LEFT JOIN Events ON Artists.ArtistID = Events.ArtistID
 LEFT JOIN Tickets ON Events.EventID = Tickets.EventID
 GROUP BY Genres.GenreID;
 
--- Find the maximum capacity among venues
+-- Find the maximum capacity among venue
 SELECT MAX(Capacity) AS MaxCapacity
 FROM Venue;
 
--- Calculate the total number of tickets sold for each event
+-- Calculate the total number of ticket sold for each event
 SELECT Events.EventID, EventName, SUM(OrderItems.Quantity) AS TotalTicketsSold
 FROM Events
 LEFT JOIN Orders ON Events.EventID = Orders.EventID
@@ -92,7 +92,7 @@ FROM Orders
 GROUP BY EventID
 HAVING TotalSales >= 5;
 
--- It shows which events each artist belongs to.
+-- It shows which event each artist belongs to.
 SELECT Artists.ArtistID, ArtistName, EventID, EventName
 FROM Artists
 INNER JOIN Events ON Artists.ArtistID = Events.ArtistID;
@@ -102,7 +102,7 @@ SELECT Events.EventID, EventName, VenueName, Location
 FROM Events
 INNER JOIN Venue ON Events.VenueID = Venue.VenueID;
 
--- Shows the types of tickets sold for each event.
+-- Shows the types of ticket sold for each event.
 SELECT Events.EventID, EventName, TypeName, Description
 FROM Events
 INNER JOIN Tickets ON Events.EventID = Tickets.EventID

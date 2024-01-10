@@ -1,6 +1,6 @@
 package com.solvd.persistence.daoImpl;
 
-import com.solvd.model.Tickets;
+import com.solvd.model.Ticket;
 import com.solvd.persistence.dao.TicketDAO;
 
 import java.sql.*;
@@ -16,8 +16,8 @@ public class JdbcTicketDAO implements TicketDAO {
 
 
     @Override
-    public Tickets getTicketByID(int ticketID) {
-        Tickets ticket = null;
+    public Ticket getTicketByID(int ticketID) {
+        Ticket ticket = null;
         String query = "SELECT * FROM Tickets WHERE TicketID = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
@@ -37,15 +37,15 @@ public class JdbcTicketDAO implements TicketDAO {
 
 
     @Override
-    public List<Tickets> getAllTickets() {
-        List<Tickets> tickets = new ArrayList<>();
+    public List<Ticket> getAllTickets() {
+        List<Ticket> tickets = new ArrayList<>();
         String query = "SELECT * FROM Tickets";
 
         try (Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery(query)) {
 
             while (resultSet.next()) {
-                Tickets ticket = mapResultSetToTicket(resultSet);
+                Ticket ticket = mapResultSetToTicket(resultSet);
                 tickets.add(ticket);
             }
         } catch (SQLException e) {
@@ -56,12 +56,12 @@ public class JdbcTicketDAO implements TicketDAO {
     }
 
     @Override
-    public void addTicket(Tickets tickets) {
+    public void addTicket(Ticket ticket) {
         String query = "INSERT INTO Tickets (EventID, Price, TicketType) VALUES (?, ?, ?)";
 
         try (PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
-            statement.setInt(1, tickets.getTicketEventID());
-            statement.setDouble(2, tickets.getPrice());
+            statement.setInt(1, ticket.getTicketEventID());
+            statement.setDouble(2, ticket.getPrice());
 
             int affectedRows = statement.executeUpdate();
 
@@ -71,7 +71,7 @@ public class JdbcTicketDAO implements TicketDAO {
 
             try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
                 if (generatedKeys.next()) {
-                    tickets.setTicketID(generatedKeys.getInt(1));
+                    ticket.setTicketID(generatedKeys.getInt(1));
                 } else {
                     throw new SQLException("Ticket creation failed, no ID obtained.");
                 }
@@ -82,13 +82,13 @@ public class JdbcTicketDAO implements TicketDAO {
     }
 
     @Override
-    public void updateTicket(Tickets tickets) {
+    public void updateTicket(Ticket ticket) {
         String query = "UPDATE Tickets SET EventID = ?, Price = ?, TicketType = ? WHERE TicketID = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setInt(1, tickets.getTicketEventID());
-            statement.setDouble(2, tickets.getPrice());
-            statement.setInt(4, tickets.getTicketID());
+            statement.setInt(1, ticket.getTicketEventID());
+            statement.setDouble(2, ticket.getPrice());
+            statement.setInt(4, ticket.getTicketID());
 
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -109,12 +109,12 @@ public class JdbcTicketDAO implements TicketDAO {
         }
     }
 
-    private Tickets mapResultSetToTicket(ResultSet resultSet) throws SQLException {
+    private Ticket mapResultSetToTicket(ResultSet resultSet) throws SQLException {
         int ticketID = resultSet.getInt("TicketID");
         int eventID = resultSet.getInt("EventID");
         int price = resultSet.getInt("Price");
 
-        return new Tickets(ticketID, eventID, price);
+        return new Ticket(ticketID, eventID, price);
     }
 
 }

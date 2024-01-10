@@ -1,18 +1,18 @@
 package com.solvd.persistence.dao;
 
-import com.solvd.model.Customers;
+import com.solvd.model.Customer;
 
 import java.util.List;
 
 public interface CustomerDAO {
 
-    Customers getCustomerByID(int customerID);
+    Customer getCustomerByID(int customerID);
 
-    List<Customers> getAllCustomers();
+    List<Customer> getAllCustomers();
 
-    void addCustomers(Customers customers);
+    void addCustomers(Customer customer);
 
-    void updateCustomers(Customers customers);
+    void updateCustomers(Customer customer);
 
     void deleteCustomers(int customerID);
 

@@ -1,6 +1,6 @@
 package com.solvd.persistence.daoImpl;
 
-import com.solvd.model.Events;
+import com.solvd.model.Event;
 import com.solvd.persistence.dao.EventDAO;
 
 import java.sql.*;
@@ -15,8 +15,8 @@ public class JdbcEventDAO implements EventDAO {
     }
 
     @Override
-    public Events getEventByID(int eventsID) {
-        Events event = null;
+    public Event getEventByID(int eventsID) {
+        Event event = null;
         String query = "SELECT * FROM Events WHERE EventID = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
@@ -35,15 +35,15 @@ public class JdbcEventDAO implements EventDAO {
 
 
     @Override
-    public List<Events> getAllEvents() {
-        List<Events> events = new ArrayList<>();
+    public List<Event> getAllEvents() {
+        List<Event> events = new ArrayList<>();
         String query = "SELECT * FROM Events";
 
         try (Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery(query)) {
 
             while (resultSet.next()) {
-                Events event = mapResultSetToEvent(resultSet);
+                Event event = mapResultSetToEvent(resultSet);
                 events.add(event);
             }
         } catch (SQLException e) {
@@ -54,15 +54,15 @@ public class JdbcEventDAO implements EventDAO {
     }
 
     @Override
-    public void addEvent(Events events) {
+    public void addEvent(Event event) {
         String query = "INSERT INTO Events (EventName, VenueID, Date, StartTime, EndTime) VALUES (?, ?, ?, ?, ?)";
 
         try (PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
-            statement.setString(1, events.getEventName());
-            statement.setInt(2, events.getVenueID());
-            statement.setDate(3, new java.sql.Date(events.getEventDate().getTime()));
-            statement.setTime(4, new java.sql.Time(events.getStartTime().getTime()));
-            statement.setTime(5, new java.sql.Time(events.getEndTime().getTime()));
+            statement.setString(1, event.getEventName());
+            statement.setInt(2, event.getVenueID());
+            statement.setDate(3, new java.sql.Date(event.getEventDate().getTime()));
+            statement.setTime(4, new java.sql.Time(event.getStartTime().getTime()));
+            statement.setTime(5, new java.sql.Time(event.getEndTime().getTime()));
 
             long affectedRows = statement.executeUpdate();// cuz of to date and time must be long data type
 
@@ -72,7 +72,7 @@ public class JdbcEventDAO implements EventDAO {
 
             try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
                 if (generatedKeys.next()) {
-                    events.setEventID(generatedKeys.getInt(1));
+                    event.setEventID(generatedKeys.getInt(1));
                 } else {
                     throw new SQLException("Event creation failed, no ID obtained.");
                 }
@@ -83,16 +83,16 @@ public class JdbcEventDAO implements EventDAO {
     }
 
     @Override
-    public void updateEvent(Events events) {
+    public void updateEvent(Event event) {
         String query = "UPDATE Events SET EventName = ?, VenueID = ?, Date = ?, StartTime = ?, EndTime = ? WHERE EventID = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setString(1, events.getEventName());
-            statement.setInt(2, events.getVenueID());
-            statement.setDate(3, new java.sql.Date(events.getEventDate().getTime()));
-            statement.setTime(4, new java.sql.Time(events.getStartTime().getTime()));
-            statement.setTime(5, new java.sql.Time(events.getEndTime().getTime()));
-            statement.setInt(6, events.getEventID());
+            statement.setString(1, event.getEventName());
+            statement.setInt(2, event.getVenueID());
+            statement.setDate(3, new java.sql.Date(event.getEventDate().getTime()));
+            statement.setTime(4, new java.sql.Time(event.getStartTime().getTime()));
+            statement.setTime(5, new java.sql.Time(event.getEndTime().getTime()));
+            statement.setInt(6, event.getEventID());
 
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -114,7 +114,7 @@ public class JdbcEventDAO implements EventDAO {
     }
 
 
-    private Events mapResultSetToEvent(ResultSet resultSet) throws SQLException {
+    private Event mapResultSetToEvent(ResultSet resultSet) throws SQLException {
         int eventID = resultSet.getInt("EventID");
         String eventName = resultSet.getString("EventName");
         int venueID = resultSet.getInt("VenueID");
@@ -122,6 +122,6 @@ public class JdbcEventDAO implements EventDAO {
         Time startTime = resultSet.getTime("StartTime");
         Time endTime = resultSet.getTime("EndTime");
 
-        return new Events(eventID, eventName, venueID, date, startTime, endTime);
+        return new Event(eventID, eventName, venueID, date, startTime, endTime);
     }
 }

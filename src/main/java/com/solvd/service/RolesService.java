@@ -1,6 +1,6 @@
 package com.solvd.service;
 
-import com.solvd.model.Roles;
+import com.solvd.model.Role;
 import com.solvd.persistence.dao.RoleDAO;
 
 import java.util.List;
@@ -12,20 +12,20 @@ public class RolesService {
         this.roleDAO = roleDAO;
     }
 
-    public Roles getRoleByID(int roleID) {
+    public Role getRoleByID(int roleID) {
         return roleDAO.getRoleByID(roleID);
     }
 
-    public List<Roles> getAllRoles() {
+    public List<Role> getAllRoles() {
         return roleDAO.getAllRoles();
     }
 
-    public void addRole(Roles roles) {
-        roleDAO.addRole(roles);
+    public void addRole(Role role) {
+        roleDAO.addRole(role);
     }
 
-    public void updateRole(Roles roles) {
-        roleDAO.updateRole(roles);
+    public void updateRole(Role role) {
+        roleDAO.updateRole(role);
     }
 
     public void deleteRole(int roleID) {

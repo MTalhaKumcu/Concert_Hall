@@ -1,6 +1,6 @@
 package com.solvd.persistence.daoImpl;
 
-import com.solvd.model.Roles;
+import com.solvd.model.Role;
 import com.solvd.persistence.dao.RoleDAO;
 
 import java.sql.*;
@@ -15,8 +15,8 @@ public class JdbcRoleDAO implements RoleDAO {
     }
 
     @Override
-    public Roles getRoleByID(int roleID) {
-        Roles role = null;
+    public Role getRoleByID(int roleID) {
+        Role role = null;
         String query = "SELECT * FROM Roles WHERE RoleID = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
@@ -35,15 +35,15 @@ public class JdbcRoleDAO implements RoleDAO {
 
 
     @Override
-    public List<Roles> getAllRoles() {
-        List<Roles> roles = new ArrayList<>();
+    public List<Role> getAllRoles() {
+        List<Role> roles = new ArrayList<>();
         String query = "SELECT * FROM Roles";
 
         try (Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery(query)) {
 
             while (resultSet.next()) {
-                Roles role = mapResultSetToRole(resultSet);
+                Role role = mapResultSetToRole(resultSet);
                 roles.add(role);
             }
         } catch (SQLException e) {
@@ -55,12 +55,12 @@ public class JdbcRoleDAO implements RoleDAO {
     }
 
     @Override
-    public void addRole(Roles roles) {
+    public void addRole(Role role) {
         String query = "INSERT INTO Roles (RoleName, Description) VALUES (?, ?)";
 
         try (PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
-            statement.setString(1, roles.getRoleName());
-            statement.setString(2, roles.getDescription());
+            statement.setString(1, role.getRoleName());
+            statement.setString(2, role.getDescription());
 
             int affectedRows = statement.executeUpdate();
 
@@ -70,7 +70,7 @@ public class JdbcRoleDAO implements RoleDAO {
 
             try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
                 if (generatedKeys.next()) {
-                    roles.setRoleID(generatedKeys.getInt(1));
+                    role.setRoleID(generatedKeys.getInt(1));
                 } else {
                     throw new SQLException("Role creation failed, no ID obtained.");
                 }
@@ -81,13 +81,13 @@ public class JdbcRoleDAO implements RoleDAO {
     }
 
     @Override
-    public void updateRole(Roles roles) {
+    public void updateRole(Role role) {
         String query = "UPDATE Roles SET RoleName = ?, Description = ? WHERE RoleID = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setString(1, roles.getRoleName());
-            statement.setString(2, roles.getDescription());
-            statement.setInt(3, roles.getRoleID());
+            statement.setString(1, role.getRoleName());
+            statement.setString(2, role.getDescription());
+            statement.setInt(3, role.getRoleID());
 
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -108,13 +108,13 @@ public class JdbcRoleDAO implements RoleDAO {
         }
     }
 
-    private Roles mapResultSetToRole(ResultSet resultSet) throws SQLException {
+    private Role mapResultSetToRole(ResultSet resultSet) throws SQLException {
         {
             int roleID = resultSet.getInt("RoleID");
             String roleName = resultSet.getString("RoleName");
             String description = resultSet.getString("Description");
 
-            return new Roles(roleID, roleName, description);
+            return new Role(roleID, roleName, description);
         }
     }
 }

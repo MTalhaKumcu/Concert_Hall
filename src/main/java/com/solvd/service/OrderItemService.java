@@ -1,6 +1,6 @@
 package com.solvd.service;
 
-import com.solvd.model.OrderItems;
+import com.solvd.model.OrderItem;
 import com.solvd.persistence.dao.OrderItemDAO;
 
 import java.util.List;
@@ -8,20 +8,20 @@ import java.util.List;
 public class OrderItemService {
     private final OrderItemDAO orderItemDAO;
 
-    public OrderItems getOrderItemsByID(int orderItemsID) {
+    public OrderItem getOrderItemsByID(int orderItemsID) {
         return orderItemDAO.getOrderItemsByID(orderItemsID);
     }
 
-    public List<OrderItems> getAllOrderItems() {
+    public List<OrderItem> getAllOrderItems() {
         return orderItemDAO.getAllOrderItems();
     }
 
-    public void addOrderItems(OrderItems orderItems) {
-        orderItemDAO.addOrderItems(orderItems);
+    public void addOrderItems(OrderItem orderItem) {
+        orderItemDAO.addOrderItems(orderItem);
     }
 
-    public void updateOrderItems(OrderItems orderItems) {
-        orderItemDAO.updateOrderItems(orderItems);
+    public void updateOrderItems(OrderItem orderItem) {
+        orderItemDAO.updateOrderItems(orderItem);
     }
 
     public void deleteOrderItems(int orderItemsID) {

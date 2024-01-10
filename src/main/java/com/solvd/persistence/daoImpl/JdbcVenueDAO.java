@@ -1,6 +1,6 @@
 package com.solvd.persistence.daoImpl;
 
-import com.solvd.model.Venues;
+import com.solvd.model.Venue;
 import com.solvd.persistence.dao.VenueDAO;
 
 import java.sql.*;
@@ -19,8 +19,8 @@ public class JdbcVenueDAO implements VenueDAO {
 
 
     @Override
-    public Venues getVenuesByID(int venuesID) {
-        Venues venue = null;
+    public Venue getVenuesByID(int venuesID) {
+        Venue venue = null;
         String query = "SELECT * FROM Venues WHERE VenueID = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
@@ -40,15 +40,15 @@ public class JdbcVenueDAO implements VenueDAO {
 
 
     @Override
-    public List<Venues> getAllTickets() {
-        List<Venues> venues = new ArrayList<>();
+    public List<Venue> getAllTickets() {
+        List<Venue> venues = new ArrayList<>();
         String query = "SELECT * FROM Venues";
 
         try (Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery(query)) {
 
             while (resultSet.next()) {
-                Venues venue = mapResultSetToVenue(resultSet);
+                Venue venue = mapResultSetToVenue(resultSet);
                 venues.add(venue);
             }
         } catch (SQLException e) {
@@ -59,13 +59,13 @@ public class JdbcVenueDAO implements VenueDAO {
     }
 
     @Override
-    public void addVenues(Venues venues) {
+    public void addVenues(Venue venue) {
         String query = "INSERT INTO Venues (VenueName, Capacity, Location) VALUES (?, ?, ?)";
 
         try (PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
-            statement.setString(1, venues.getVenueName());
-            statement.setInt(2, venues.getCapacity());
-            statement.setString(3, venues.getLocation());
+            statement.setString(1, venue.getVenueName());
+            statement.setInt(2, venue.getCapacity());
+            statement.setString(3, venue.getLocation());
 
             int affectedRows = statement.executeUpdate();
 
@@ -75,7 +75,7 @@ public class JdbcVenueDAO implements VenueDAO {
 
             try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
                 if (generatedKeys.next()) {
-                    venues.setVenueID(generatedKeys.getInt(1));
+                    venue.setVenueID(generatedKeys.getInt(1));
                 } else {
                     throw new SQLException("Venue creation failed, no ID obtained.");
                 }
@@ -86,14 +86,14 @@ public class JdbcVenueDAO implements VenueDAO {
     }
 
     @Override
-    public void updateVenues(Venues venues) {
+    public void updateVenues(Venue venue) {
         String query = "UPDATE Venues SET VenueName = ?, Capacity = ?, Location = ? WHERE VenueID = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setString(1, venues.getVenueName());
-            statement.setInt(2, venues.getCapacity());
-            statement.setString(3, venues.getLocation());
-            statement.setInt(4, venues.getVenueID());
+            statement.setString(1, venue.getVenueName());
+            statement.setInt(2, venue.getCapacity());
+            statement.setString(3, venue.getLocation());
+            statement.setInt(4, venue.getVenueID());
 
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -113,12 +113,12 @@ public class JdbcVenueDAO implements VenueDAO {
             e.printStackTrace();
         }
     }
-    private Venues mapResultSetToVenue(ResultSet resultSet) throws SQLException {
+    private Venue mapResultSetToVenue(ResultSet resultSet) throws SQLException {
         int venueID = resultSet.getInt("VenueID");
         String venueName = resultSet.getString("VenueName");
         int capacity = resultSet.getInt("Capacity");
         String location = resultSet.getString("Location");
 
-        return new Venues(venueID, venueName, capacity, location);
+        return new Venue(venueID, venueName, capacity, location);
     }
 }

@@ -1,6 +1,6 @@
 package com.solvd.service;
 
-import com.solvd.model.Events;
+import com.solvd.model.Event;
 import com.solvd.persistence.dao.EventDAO;
 
 import java.util.List;
@@ -12,11 +12,11 @@ public class EventService {
     public EventService(EventDAO eventDAO) {
         this.eventDAO = eventDAO;
     }
-    public void addEvent(Events event) {
+    public void addEvent(Event event) {
         eventDAO.addEvent(event);
     }
 
-    public void updateEvent(Events event) {
+    public void updateEvent(Event event) {
         eventDAO.updateEvent(event);
     }
 
@@ -24,11 +24,11 @@ public class EventService {
         eventDAO.deleteEvent(eventID);
     }
 
-    public Events getEventByID(int eventID) {
+    public Event getEventByID(int eventID) {
         return eventDAO.getEventByID(eventID);
     }
 
-    public List<Events> getAllEvents() {
+    public List<Event> getAllEvents() {
         return eventDAO.getAllEvents();
     }
 

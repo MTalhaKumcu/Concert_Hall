@@ -1,6 +1,6 @@
 package com.solvd.service;
 
-import com.solvd.model.Customers;
+import com.solvd.model.Customer;
 import com.solvd.persistence.dao.CustomerDAO;
 
 import java.util.List;
@@ -11,11 +11,11 @@ public class CustomerService {
     public CustomerService(CustomerDAO customerDAO) {
         this.customerDAO = customerDAO;
     }
-    public void addCustomer(Customers customer) {
+    public void addCustomer(Customer customer) {
         customerDAO.addCustomers(customer);
     }
 
-    public void updateCustomer(Customers customer) {
+    public void updateCustomer(Customer customer) {
         customerDAO.updateCustomers(customer);
     }
 
@@ -23,11 +23,11 @@ public class CustomerService {
         customerDAO.deleteCustomers(customerID);
     }
 
-    public Customers getCustomerByID(int customerID) {
+    public Customer getCustomerByID(int customerID) {
         return customerDAO.getCustomerByID(customerID);
     }
 
-    public List<Customers> getAllCustomers() {
+    public List<Customer> getAllCustomers() {
         return customerDAO.getAllCustomers();
     }
 

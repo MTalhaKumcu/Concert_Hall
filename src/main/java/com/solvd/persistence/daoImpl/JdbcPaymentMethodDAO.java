@@ -1,6 +1,6 @@
 package com.solvd.persistence.daoImpl;
 
-import com.solvd.model.PaymentsMethods;
+import com.solvd.model.PaymentsMethod;
 import com.solvd.persistence.dao.PaymentMethodDAO;
 
 import java.sql.*;
@@ -17,8 +17,8 @@ public class JdbcPaymentMethodDAO implements PaymentMethodDAO {
     }
 
     @Override
-    public PaymentsMethods getPaymentsMethodsByID(int paymentsMethodID) {
-        PaymentsMethods paymentMethod = null;
+    public PaymentsMethod getPaymentsMethodsByID(int paymentsMethodID) {
+        PaymentsMethod paymentMethod = null;
         String query = "SELECT * FROM PaymentMethods WHERE PaymentMethodID = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
@@ -38,15 +38,15 @@ public class JdbcPaymentMethodDAO implements PaymentMethodDAO {
 
 
     @Override
-    public List<PaymentsMethods> getAllPaymentMethods() {
-        List<PaymentsMethods> paymentMethods = new ArrayList<>();
+    public List<PaymentsMethod> getAllPaymentMethods() {
+        List<PaymentsMethod> paymentMethods = new ArrayList<>();
         String query = "SELECT * FROM PaymentMethods";
 
         try (Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery(query)) {
 
             while (resultSet.next()) {
-                PaymentsMethods paymentMethod = mapResultSetToPaymentMethod(resultSet);
+                PaymentsMethod paymentMethod = mapResultSetToPaymentMethod(resultSet);
                 paymentMethods.add(paymentMethod);
             }
         } catch (SQLException e) {
@@ -57,12 +57,12 @@ public class JdbcPaymentMethodDAO implements PaymentMethodDAO {
     }
 
     @Override
-    public void addPaymentMethod(PaymentsMethods paymentsMethods) {
+    public void addPaymentMethod(PaymentsMethod paymentsMethod) {
         String query = "INSERT INTO PaymentMethods (MethodName, Description) VALUES (?, ?)";
 
         try (PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
-            statement.setString(1, PaymentsMethods.getDescription());
-            statement.setString(2, PaymentsMethods.getDescription());
+            statement.setString(1, PaymentsMethod.getDescription());
+            statement.setString(2, PaymentsMethod.getDescription());
 
             int affectedRows = statement.executeUpdate();
 
@@ -72,7 +72,7 @@ public class JdbcPaymentMethodDAO implements PaymentMethodDAO {
 
             try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
                 if (generatedKeys.next()) {
-                    PaymentsMethods.setPaymentMethodID(generatedKeys.getInt(1));
+                    PaymentsMethod.setPaymentMethodID(generatedKeys.getInt(1));
                 } else {
                     throw new SQLException("PaymentMethod creation failed, no ID obtained.");
                 }
@@ -83,13 +83,13 @@ public class JdbcPaymentMethodDAO implements PaymentMethodDAO {
     }
 
     @Override
-    public void updatePaymentMethod(PaymentsMethods paymentsMethods) {
+    public void updatePaymentMethod(PaymentsMethod paymentsMethod) {
         String query = "UPDATE PaymentMethods SET MethodName = ?, Description = ? WHERE PaymentMethodID = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setString(1, PaymentsMethods.getPaymentMethodName());
-            statement.setString(2, PaymentsMethods.getDescription());
-            statement.setInt(3, PaymentsMethods.getPaymentMethodID());
+            statement.setString(1, PaymentsMethod.getPaymentMethodName());
+            statement.setString(2, PaymentsMethod.getDescription());
+            statement.setInt(3, PaymentsMethod.getPaymentMethodID());
 
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -109,11 +109,11 @@ public class JdbcPaymentMethodDAO implements PaymentMethodDAO {
             e.printStackTrace();
         }
     }
-    private PaymentsMethods mapResultSetToPaymentMethod(ResultSet resultSet) throws SQLException {
+    private PaymentsMethod mapResultSetToPaymentMethod(ResultSet resultSet) throws SQLException {
         int paymentMethodID = resultSet.getInt("PaymentMethodID");
         String methodName = resultSet.getString("MethodName");
         String description = resultSet.getString("Description");
 
-        return new PaymentsMethods(paymentMethodID, methodName, description);
+        return new PaymentsMethod(paymentMethodID, methodName, description);
     }
 }

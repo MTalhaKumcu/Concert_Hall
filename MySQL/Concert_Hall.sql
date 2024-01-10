@@ -5,9 +5,9 @@ CREATE SCHEMA IF NOT EXISTS Concert_Hall DEFAULT CHARACTER SET utf8 ;
 USE `concert_hall` ;
 
 -- -----------------------------------------------------
--- Schema artists
+-- Schema artist
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS Concert_Hall.artists (
+CREATE TABLE IF NOT EXISTS Concert_Hall.artist (
 	ArtistID INT PRIMARY KEY,
     ArtistName VARCHAR(255) NOT NULL,
     BirthDate DATE,
@@ -16,9 +16,9 @@ CREATE TABLE IF NOT EXISTS Concert_Hall.artists (
     CONSTRAINT fk_Genre FOREIGN KEY (GenreID) REFERENCES Genres(GenreID)
 );
 -- -----------------------------------------------------
--- Schema genres
+-- Schema genre
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS Concert_Hall.genres (
+CREATE TABLE IF NOT EXISTS Concert_Hall.genre (
 	GenreID INT PRIMARY KEY,
     GenreName VARCHAR(255) NOT NULL
 );
@@ -130,10 +130,10 @@ CREATE TABLE IF NOT EXISTS Concert_Hall.TicketTypes (
     TypeName VARCHAR(50) NOT NULL,
     Description VARCHAR(255)
 );
-SELECT * FROM  Concert_Hall.artists;
+SELECT * FROM  Concert_Hall.artist;
 SELECT * FROM  Concert_Hall.staff;
-SELECT * FROM  Concert_Hall.orders;
-SELECT * FROM  Concert_Hall.customers;
+SELECT * FROM  Concert_Hall.order;
+SELECT * FROM  Concert_Hall.customer;
 SELECT * FROM  Concert_Hall.paymentsmethods;
 SELECT * FROM  Concert_Hall.TicketTypes;
 SELECT * FROM  Concert_Hall.Tickets;

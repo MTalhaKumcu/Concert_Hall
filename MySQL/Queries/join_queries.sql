@@ -10,5 +10,5 @@ JOIN OrderItems ON OrderItems.OrderID = Orders.OrderID
 JOIN StaffRoles ON StaffRoles.StaffID = StaffRoles.StaffID
 JOIN Staff ON Staff.StaffID = StaffRoles.StaffID
 JOIN Roles ON Roles.RoleID = StaffRoles.RoleID
-JOIN Staff ON staff.ArtistID = artists.ArtistID
-JOIN TicketTypes ON tickets.TicketID = TicketTypes.TicketTypeID;
+JOIN Staff ON staff.ArtistID = artist.ArtistID
+JOIN TicketTypes ON ticket.TicketID = TicketTypes.TicketTypeID;

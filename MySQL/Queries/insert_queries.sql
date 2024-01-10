@@ -49,7 +49,7 @@ INSERT INTO Events (EventID, EventName, VenueID, EventDate, StartTime, EndTime, 
 (9, 'ClassicalNight', 9, '2023-11-20', '20:30:00', '23:30:00', '9'),
 (10, 'R&BMagic', 10, '2023-12-01', '21:30:00', '01:00:00', '10');
 
-select * from events;
+select * from event;
 
 -- Tickets
 INSERT INTO Tickets (TicketID, EventID, Price, TicketTypeID) VALUES 

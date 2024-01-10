@@ -1,17 +1,17 @@
 package com.solvd.persistence.dao;
 
-import com.solvd.model.Orders;
+import com.solvd.model.Order;
 
 import java.util.List;
 
 public interface OrderDAO {
-    Orders getOrderByID(int orderID);
+    Order getOrderByID(int orderID);
 
-    List<Orders> getAllOrders();
+    List<Order> getAllOrders();
 
-    void addOrder(Orders orders);
+    void addOrder(Order order);
 
-    void updateOrder(Orders orders);
+    void updateOrder(Order order);
 
     void deleteOrder(int ordersID);
 

@@ -1,18 +1,18 @@
 package com.solvd.persistence.dao;
 
-import com.solvd.model.PaymentsMethods;
+import com.solvd.model.PaymentsMethod;
 
 import java.util.List;
 
 public interface PaymentMethodDAO {
 
-    PaymentsMethods getPaymentsMethodsByID(int paymentsMethodID);
+    PaymentsMethod getPaymentsMethodsByID(int paymentsMethodID);
 
-    List<PaymentsMethods> getAllPaymentMethods();
+    List<PaymentsMethod> getAllPaymentMethods();
 
-    void addPaymentMethod(PaymentsMethods paymentsMethods);
+    void addPaymentMethod(PaymentsMethod paymentsMethod);
 
-    void updatePaymentMethod(PaymentsMethods paymentsMethods);
+    void updatePaymentMethod(PaymentsMethod paymentsMethod);
 
     void deletePaymentMethod(int paymentMethodID);
 }

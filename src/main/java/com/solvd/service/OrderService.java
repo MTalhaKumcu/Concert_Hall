@@ -1,6 +1,6 @@
 package com.solvd.service;
 
-import com.solvd.model.Orders;
+import com.solvd.model.Order;
 import com.solvd.persistence.dao.OrderDAO;
 
 import java.util.List;
@@ -12,11 +12,11 @@ public class OrderService {
     public OrderService(OrderDAO orderDAO) {
         this.orderDAO = orderDAO;
     }
-    public void addOrder(Orders order) {
+    public void addOrder(Order order) {
         orderDAO.addOrder(order);
     }
 
-    public void updateOrder(Orders order) {
+    public void updateOrder(Order order) {
         orderDAO.updateOrder(order);
     }
 
@@ -24,11 +24,11 @@ public class OrderService {
         orderDAO.deleteOrder(orderID);
     }
 
-    public Orders getOrderByID(int orderID) {
+    public Order getOrderByID(int orderID) {
         return orderDAO.getOrderByID(orderID);
     }
 
-    public List<Orders> getAllOrders() {
+    public List<Order> getAllOrders() {
         return orderDAO.getAllOrders();
     }
 

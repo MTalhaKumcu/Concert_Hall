@@ -1,13 +1,13 @@
 package com.solvd.persistence.daoImpl;
 
-import com.solvd.model.Artists;
-import com.solvd.persistence.dao.ArtistsDAO;
+import com.solvd.model.Artist;
+import com.solvd.persistence.dao.ArtistDAO;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JdbcArtistDAO implements ArtistsDAO {
+public class JdbcArtistDAO implements ArtistDAO {
 
     private Connection connection;
 
@@ -16,8 +16,8 @@ public class JdbcArtistDAO implements ArtistsDAO {
     }
 
     @Override
-    public Artists getArtistsByID(int artistID) {
-        Artists artist = null;
+    public Artist getArtistsByID(int artistID) {
+        Artist artist = null;
         String query = "SELECT * FROM Artists WHERE ArtistID = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
@@ -36,15 +36,15 @@ public class JdbcArtistDAO implements ArtistsDAO {
 
 
     @Override
-    public List<Artists> getAllArtists() {
-        List<Artists> artists = new ArrayList<>();
+    public List<Artist> getAllArtists() {
+        List<Artist> artists = new ArrayList<>();
         String query = "SELECT * FROM Artists";
 
         try (Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery(query)) {
 
             while (resultSet.next()) {
-                Artists artist = mapResultSetToArtist(resultSet);
+                Artist artist = mapResultSetToArtist(resultSet);
                 artists.add(artist);
             }
         } catch (SQLException e) {
@@ -56,13 +56,13 @@ public class JdbcArtistDAO implements ArtistsDAO {
 
 
     @Override
-    public void addArtist(Artists artists) {
+    public void addArtist(Artist artist) {
         String query = "INSERT INTO Artists (ArtistName, BirthDate, Country) VALUES (?, ?, ?)";
 
         try (PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
-            statement.setString(1, artists.getArtistName());
-            statement.setDate(2, new java.sql.Date(artists.getBirthDate().getTime()));
-            statement.setString(3, artists.getCountry());
+            statement.setString(1, artist.getArtistName());
+            statement.setDate(2, new java.sql.Date(artist.getBirthDate().getTime()));
+            statement.setString(3, artist.getCountry());
 
             int affectedRows = statement.executeUpdate();
 
@@ -72,7 +72,7 @@ public class JdbcArtistDAO implements ArtistsDAO {
 
             try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
                 if (generatedKeys.next()) {
-                    artists.setArtistID(generatedKeys.getInt(1));
+                    artist.setArtistID(generatedKeys.getInt(1));
                 } else {
                     throw new SQLException("Artist creation failed, no ID obtained.");
                 }
@@ -83,11 +83,11 @@ public class JdbcArtistDAO implements ArtistsDAO {
     }
 
     @Override
-    public void updateArtist(Artists artists) {
+    public void updateArtist(Artist artists) {
         String query = "UPDATE Artists SET ArtistName = ?, BirthDate = ?, Country = ? WHERE ArtistID = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
-            Artists artist;
+            Artist artist;
             statement.setString(1, artists.getArtistName());
             statement.setDate(2, new Date(artists.getBirthDate().getTime()));
             statement.setString(3, artists.getCountry());
@@ -112,7 +112,7 @@ public class JdbcArtistDAO implements ArtistsDAO {
         }
     }
 
-    private Artists mapResultSetToArtist(ResultSet resultSet) throws SQLException {
+    private Artist mapResultSetToArtist(ResultSet resultSet) throws SQLException {
         int artistID = resultSet.getInt("ArtistID");
         String artistName = resultSet.getString("ArtistName");
         String artistSurname = resultSet.getString("ArtistSurame");
@@ -120,6 +120,6 @@ public class JdbcArtistDAO implements ArtistsDAO {
         String country = resultSet.getString("Country");
         int genreID = resultSet.getInt("GenreID");
 
-        return new Artists(artistID, artistName, artistSurname, birthDate, country, genreID);
+        return new Artist(artistID, artistName, artistSurname, birthDate, country, genreID);
     }
 }

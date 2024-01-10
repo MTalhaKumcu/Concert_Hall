@@ -1,6 +1,6 @@
 package com.solvd.persistence.daoImpl;
 
-import com.solvd.model.Orders;
+import com.solvd.model.Order;
 import com.solvd.persistence.dao.OrderDAO;
 
 import java.sql.*;
@@ -15,8 +15,8 @@ public class JdbcOrderDAO implements OrderDAO {
     }
 
     @Override
-    public Orders getOrderByID(int orderID) {
-        Orders order = null;
+    public Order getOrderByID(int orderID) {
+        Order order = null;
         String query = "SELECT * FROM Orders WHERE OrderID = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
@@ -35,15 +35,15 @@ public class JdbcOrderDAO implements OrderDAO {
 
 
     @Override
-    public List<Orders> getAllOrders() {
-        List<Orders> orders = new ArrayList<>();
+    public List<Order> getAllOrders() {
+        List<Order> orders = new ArrayList<>();
         String query = "SELECT * FROM Orders";
 
         try (Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery(query)) {
 
             while (resultSet.next()) {
-                Orders order = mapResultSetToOrder(resultSet);
+                Order order = mapResultSetToOrder(resultSet);
                 orders.add(order);
             }
         } catch (SQLException e) {
@@ -54,14 +54,14 @@ public class JdbcOrderDAO implements OrderDAO {
     }
 
     @Override
-    public void addOrder(Orders orders) {
+    public void addOrder(Order order) {
         String query = "INSERT INTO Orders (CustomerID, EventID, PurchaseDate, TotalAmount) VALUES (?, ?, ?, ?)";
 
         try (PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
-            statement.setInt(1, orders.getCustomerID());
-            statement.setInt(2, orders.getEventID());
-            statement.setDate(3, new java.sql.Date(orders.getPurchaseDate().getTime()));
-            statement.setDouble(4, orders.getTotalAmount());
+            statement.setInt(1, order.getCustomerID());
+            statement.setInt(2, order.getEventID());
+            statement.setDate(3, new java.sql.Date(order.getPurchaseDate().getTime()));
+            statement.setDouble(4, order.getTotalAmount());
 
             int affectedRows = statement.executeUpdate();
 
@@ -71,7 +71,7 @@ public class JdbcOrderDAO implements OrderDAO {
 
             try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
                 if (generatedKeys.next()) {
-                    orders.setOrderID(generatedKeys.getInt(1));
+                    order.setOrderID(generatedKeys.getInt(1));
                 } else {
                     throw new SQLException("Order creation failed, no ID obtained.");
                 }
@@ -82,15 +82,15 @@ public class JdbcOrderDAO implements OrderDAO {
     }
 
     @Override
-    public void updateOrder(Orders orders) {
+    public void updateOrder(Order order) {
         String query = "UPDATE Orders SET CustomerID = ?, EventID = ?, PurchaseDate = ?, TotalAmount = ? WHERE OrderID = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setInt(1, orders.getCustomerID());
-            statement.setInt(2, orders.getEventID());
-            statement.setDate(3, new java.sql.Date(orders.getPurchaseDate().getTime()));
-            statement.setDouble(4, orders.getTotalAmount());
-            statement.setInt(5, orders.getOrderID());
+            statement.setInt(1, order.getCustomerID());
+            statement.setInt(2, order.getEventID());
+            statement.setDate(3, new java.sql.Date(order.getPurchaseDate().getTime()));
+            statement.setDouble(4, order.getTotalAmount());
+            statement.setInt(5, order.getOrderID());
 
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -112,14 +112,14 @@ public class JdbcOrderDAO implements OrderDAO {
     }
 
 
-    private Orders mapResultSetToOrder(ResultSet resultSet) throws SQLException {
+    private Order mapResultSetToOrder(ResultSet resultSet) throws SQLException {
         int orderID = resultSet.getInt("OrderID");
         int customerID = resultSet.getInt("CustomerID");
         int eventID = resultSet.getInt("EventID");
         Date purchaseDate = resultSet.getDate("PurchaseDate");
         int totalAmount = resultSet.getInt("TotalAmount");
         int paymentMethodID = resultSet.getInt("paymentMethodID");
-        return new Orders(orderID, customerID, eventID, purchaseDate, totalAmount, paymentMethodID);
+        return new Order(orderID, customerID, eventID, purchaseDate, totalAmount, paymentMethodID);
 
     }
 }

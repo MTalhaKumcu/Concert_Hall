@@ -1,6 +1,6 @@
 package com.solvd.persistence.daoImpl;
 
-import com.solvd.model.Staffs;
+import com.solvd.model.Staff;
 import com.solvd.persistence.dao.StaffDAO;
 
 import java.sql.*;
@@ -16,8 +16,8 @@ public class JdbcStaffDAO implements StaffDAO {
     }
 
     @Override
-    public Staffs getStaffByID(int StaffID) {
-        Staffs staff = null;
+    public Staff getStaffByID(int StaffID) {
+        Staff staff = null;
         String query = "SELECT * FROM Staff WHERE StaffID = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
@@ -36,15 +36,15 @@ public class JdbcStaffDAO implements StaffDAO {
 
 
     @Override
-    public List<Staffs> getAllStaffs() {
-        List<Staffs> staffList = new ArrayList<>();
+    public List<Staff> getAllStaffs() {
+        List<Staff> staffList = new ArrayList<>();
         String query = "SELECT * FROM Staff";
 
         try (Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery(query)) {
 
             while (resultSet.next()) {
-                Staffs staff = mapResultSetToStaff(resultSet);
+                Staff staff = mapResultSetToStaff(resultSet);
                 staffList.add(staff);
             }
         } catch (SQLException e) {
@@ -54,13 +54,13 @@ public class JdbcStaffDAO implements StaffDAO {
         return staffList;    }
 
     @Override
-    public void addStaff(Staffs staffs) {
+    public void addStaff(Staff staff) {
         String query = "INSERT INTO Staff (FirstName, LastName, Position) VALUES (?, ?, ?)";
 
         try (PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
-            statement.setString(1, staffs.getFirstName());
-            statement.setString(2, staffs.getLastName());
-            statement.setString(3, staffs.getPosition());
+            statement.setString(1, staff.getFirstName());
+            statement.setString(2, staff.getLastName());
+            statement.setString(3, staff.getPosition());
 
             int affectedRows = statement.executeUpdate();
 
@@ -70,7 +70,7 @@ public class JdbcStaffDAO implements StaffDAO {
 
             try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
                 if (generatedKeys.next()) {
-                    staffs.setStaffID(generatedKeys.getInt(1));
+                    staff.setStaffID(generatedKeys.getInt(1));
                 } else {
                     throw new SQLException("Staff creation failed, no ID obtained.");
                 }
@@ -81,14 +81,14 @@ public class JdbcStaffDAO implements StaffDAO {
     }
 
     @Override
-    public void updateStaff(Staffs staffs) {
+    public void updateStaff(Staff staff) {
         String query = "UPDATE Staff SET FirstName = ?, LastName = ?, Position = ? WHERE StaffID = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setString(1, staffs.getFirstName());
-            statement.setString(2, staffs.getLastName());
-            statement.setString(3, staffs.getPosition());
-            statement.setInt(4, staffs.getStaffID());
+            statement.setString(1, staff.getFirstName());
+            statement.setString(2, staff.getLastName());
+            statement.setString(3, staff.getPosition());
+            statement.setInt(4, staff.getStaffID());
 
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -111,12 +111,12 @@ public class JdbcStaffDAO implements StaffDAO {
 
 
 
-    private Staffs mapResultSetToStaff(ResultSet resultSet) throws SQLException{
+    private Staff mapResultSetToStaff(ResultSet resultSet) throws SQLException{
         int staffID = resultSet.getInt("StaffID");
         String firstName = resultSet.getString("FirstName");
         String lastName = resultSet.getString("LastName");
         String position = resultSet.getString("Position");
 
-        return new Staffs(staffID, firstName, lastName, position);
+        return new Staff(staffID, firstName, lastName, position);
     }
 }

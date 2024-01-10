@@ -1,17 +1,17 @@
 package com.solvd.persistence.dao;
 
-import com.solvd.model.Tickets;
+import com.solvd.model.Ticket;
 
 import java.util.List;
 
 public interface TicketDAO {
-    Tickets getTicketByID(int ticketID);
+    Ticket getTicketByID(int ticketID);
 
-    List<Tickets> getAllTickets();
+    List<Ticket> getAllTickets();
 
-    void addTicket(Tickets tickets);
+    void addTicket(Ticket ticket);
 
-    void updateTicket(Tickets tickets);
+    void updateTicket(Ticket ticket);
 
     void deleteTicket(int ticketID);
 

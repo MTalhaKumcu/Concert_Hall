@@ -2,7 +2,7 @@ package com.solvd.model;
 
 import java.util.Objects;
 
-public class OrderItems {
+public class OrderItem {
 
     private int orderItemID ;
     private int orderID;
@@ -10,7 +10,7 @@ public class OrderItems {
     private int quantity;
     private int subTotal;
 
-    public OrderItems(int orderItemID, int orderID, int ticketID, int quantity, int subTotal) {
+    public OrderItem(int orderItemID, int orderID, int ticketID, int quantity, int subTotal) {
         this.orderItemID = orderItemID;
         this.orderID = orderID;
         this.ticketID = ticketID;
@@ -62,7 +62,7 @@ public class OrderItems {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        OrderItems that = (OrderItems) o;
+        OrderItem that = (OrderItem) o;
         return orderItemID == that.orderItemID && orderID == that.orderID && ticketID == that.ticketID && quantity == that.quantity && subTotal == that.subTotal;
     }
 

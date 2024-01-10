@@ -3,7 +3,7 @@ package com.solvd.model;
 import java.util.Date;
 import java.util.Objects;
 
-public class Orders {
+public class Order {
     private int orderID;
     private int customerID;
     private int eventID;
@@ -11,7 +11,7 @@ public class Orders {
     private int totalAmount;
     private int paymentMethodID;
 
-    public Orders(int orderID, int customerID, int eventID, Date purchaseDate, int totalAmount, int paymentMethodID) {
+    public Order(int orderID, int customerID, int eventID, Date purchaseDate, int totalAmount, int paymentMethodID) {
         this.orderID = orderID;
         this.customerID = customerID;
         this.eventID = eventID;
@@ -72,8 +72,8 @@ public class Orders {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Orders ordersDAO = (Orders) o;
-        return orderID == ordersDAO.orderID && customerID == ordersDAO.customerID && eventID == ordersDAO.eventID && totalAmount == ordersDAO.totalAmount && paymentMethodID == ordersDAO.paymentMethodID && Objects.equals(purchaseDate, ordersDAO.purchaseDate);
+        Order orderDAO = (Order) o;
+        return orderID == orderDAO.orderID && customerID == orderDAO.customerID && eventID == orderDAO.eventID && totalAmount == orderDAO.totalAmount && paymentMethodID == orderDAO.paymentMethodID && Objects.equals(purchaseDate, orderDAO.purchaseDate);
     }
 
     @Override

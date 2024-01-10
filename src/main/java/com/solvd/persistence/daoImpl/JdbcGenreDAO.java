@@ -1,6 +1,6 @@
 package com.solvd.persistence.daoImpl;
 
-import com.solvd.model.Genres;
+import com.solvd.model.Genre;
 import com.solvd.persistence.dao.GenreDAO;
 
 import java.sql.*;
@@ -16,8 +16,8 @@ public class JdbcGenreDAO implements GenreDAO {
     }
 
     @Override
-    public Genres getGenreByID(int genreID) {
-        Genres genre = null;
+    public Genre getGenreByID(int genreID) {
+        Genre genre = null;
         String query = "SELECT * FROM Genres WHERE GenreID = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
@@ -36,15 +36,15 @@ public class JdbcGenreDAO implements GenreDAO {
 
 
     @Override
-    public List<Genres> getAllGenres() {
-        List<Genres> genres = new ArrayList<>();
+    public List<Genre> getAllGenres() {
+        List<Genre> genres = new ArrayList<>();
         String query = "SELECT * FROM Genres";
 
         try (Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery(query)) {
 
             while (resultSet.next()) {
-                Genres genre = mapResultSetToGenre(resultSet);
+                Genre genre = mapResultSetToGenre(resultSet);
                 genres.add(genre);
             }
         } catch (SQLException e) {
@@ -55,11 +55,11 @@ public class JdbcGenreDAO implements GenreDAO {
     }
 
     @Override
-    public void addGenre(Genres genres) {
+    public void addGenre(Genre genre) {
         String query = "INSERT INTO Genres (GenreName) VALUES (?)";
 
         try (PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
-            statement.setString(1, genres.getGenreName());
+            statement.setString(1, genre.getGenreName());
 
             int affectedRows = statement.executeUpdate();
 
@@ -69,7 +69,7 @@ public class JdbcGenreDAO implements GenreDAO {
 
             try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
                 if (generatedKeys.next()) {
-                    genres.setGenreID(generatedKeys.getInt(1));
+                    genre.setGenreID(generatedKeys.getInt(1));
                 } else {
                     throw new SQLException("Genre creation failed, no ID obtained.");
                 }
@@ -80,12 +80,12 @@ public class JdbcGenreDAO implements GenreDAO {
     }
 
     @Override
-    public void updateGenre(Genres genres) {
+    public void updateGenre(Genre genre) {
         String query = "UPDATE Genres SET GenreName = ? WHERE GenreID = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setString(1, genres.getGenreName());
-            statement.setInt(2, genres.getGenreID());
+            statement.setString(1, genre.getGenreName());
+            statement.setInt(2, genre.getGenreID());
 
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -106,10 +106,10 @@ public class JdbcGenreDAO implements GenreDAO {
         }
     }
 
-    private Genres mapResultSetToGenre(ResultSet resultSet) throws SQLException {
+    private Genre mapResultSetToGenre(ResultSet resultSet) throws SQLException {
         int genreID = resultSet.getInt("GenreID");
         String genreName = resultSet.getString("GenreName");
 
-        return new Genres(genreID, genreName);
+        return new Genre(genreID, genreName);
     }
 }

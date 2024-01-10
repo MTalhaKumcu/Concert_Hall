@@ -1,17 +1,17 @@
 package com.solvd.persistence.dao;
 
-import com.solvd.model.Roles;
+import com.solvd.model.Role;
 
 import java.util.List;
 
 public interface RoleDAO {
-    Roles getRoleByID(int roleID);
+    Role getRoleByID(int roleID);
 
-    List<Roles> getAllRoles();
+    List<Role> getAllRoles();
 
-    void addRole(Roles roles);
+    void addRole(Role role);
 
-    void updateRole(Roles roles);
+    void updateRole(Role role);
 
     void deleteRole(int roleID);
 }

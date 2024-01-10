@@ -1,14 +1,14 @@
 package com.solvd.persistence.dao;
 
-import com.solvd.model.Events;
+import com.solvd.model.Event;
 
 import java.util.List;
 
 public interface EventDAO {
 
-    Events getEventByID (int eventsID);
-    List<Events> getAllEvents();
-    void addEvent(Events events);
-    void updateEvent(Events events);
+    Event getEventByID (int eventsID);
+    List<Event> getAllEvents();
+    void addEvent(Event event);
+    void updateEvent(Event event);
     void deleteEvent(int eventID);
 }

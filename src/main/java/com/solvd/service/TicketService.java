@@ -1,6 +1,6 @@
 package com.solvd.service;
 
-import com.solvd.model.Tickets;
+import com.solvd.model.Ticket;
 import com.solvd.persistence.dao.TicketDAO;
 
 import java.util.List;
@@ -12,20 +12,20 @@ public class TicketService {
         this.ticketDAO = ticketDAO;
     }
 
-    public Tickets getTicketByID(int ticketID) {
+    public Ticket getTicketByID(int ticketID) {
         return ticketDAO.getTicketByID(ticketID);
     }
 
-    public List<Tickets> getAllTickets() {
+    public List<Ticket> getAllTickets() {
         return ticketDAO.getAllTickets();
     }
 
-    public void addTicket(Tickets tickets) {
-        ticketDAO.addTicket(tickets);
+    public void addTicket(Ticket ticket) {
+        ticketDAO.addTicket(ticket);
     }
 
-    public void updateTicket(Tickets tickets) {
-        ticketDAO.updateTicket(tickets);
+    public void updateTicket(Ticket ticket) {
+        ticketDAO.updateTicket(ticket);
     }
 
     public void deleteTicket(int ticketID) {

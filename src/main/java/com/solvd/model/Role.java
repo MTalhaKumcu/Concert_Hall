@@ -2,13 +2,13 @@ package com.solvd.model;
 
 import java.util.Objects;
 
-public class Roles {
+public class Role {
 
     private int roleID;
     private String roleName;
     private String description;
 
-    public Roles(int roleID, String roleName, String description) {
+    public Role(int roleID, String roleName, String description) {
         this.roleID = roleID;
         this.roleName = roleName;
         this.description = description;
@@ -42,8 +42,8 @@ public class Roles {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Roles roles = (Roles) o;
-        return roleID == roles.roleID && Objects.equals(roleName, roles.roleName) && Objects.equals(description, roles.description);
+        Role role = (Role) o;
+        return roleID == role.roleID && Objects.equals(roleName, role.roleName) && Objects.equals(description, role.description);
     }
 
     @Override

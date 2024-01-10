@@ -1,6 +1,6 @@
 package com.solvd.persistence.daoImpl;
 
-import com.solvd.model.StaffRoles;
+import com.solvd.model.StaffRole;
 import com.solvd.persistence.dao.StaffRoleDAO;
 
 import java.sql.*;
@@ -15,8 +15,8 @@ public class JdbcStaffRoleDAO implements StaffRoleDAO {
         this.connection = connection;
     }
     @Override
-    public StaffRoles getStaffRoleByID(int StaffRolesID) {
-        StaffRoles staffRole = null;
+    public StaffRole getStaffRoleByID(int StaffRolesID) {
+        StaffRole staffRole = null;
         String query = "SELECT * FROM StaffRoles WHERE StaffRoleID = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
@@ -36,15 +36,15 @@ public class JdbcStaffRoleDAO implements StaffRoleDAO {
 
 
     @Override
-    public List<StaffRoles> getAllStaffRoles() {
-        List<StaffRoles> staffRoles = new ArrayList<>();
+    public List<StaffRole> getAllStaffRoles() {
+        List<StaffRole> staffRoles = new ArrayList<>();
         String query = "SELECT * FROM StaffRoles";
 
         try (Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery(query)) {
 
             while (resultSet.next()) {
-                StaffRoles staffRole = mapResultSetToStaffRole(resultSet);
+                StaffRole staffRole = mapResultSetToStaffRole(resultSet);
                 staffRoles.add(staffRole);
             }
         } catch (SQLException e) {
@@ -55,12 +55,12 @@ public class JdbcStaffRoleDAO implements StaffRoleDAO {
     }
 
     @Override
-    public void addStaffRole(StaffRoles staffRoles) {
+    public void addStaffRole(StaffRole staffRole) {
         String query = "INSERT INTO StaffRoles (StaffID, RoleID) VALUES (?, ?)";
 
         try (PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
-            statement.setInt(1, staffRoles.getStaffID());
-            statement.setInt(2, staffRoles.getRoleID());
+            statement.setInt(1, staffRole.getStaffID());
+            statement.setInt(2, staffRole.getRoleID());
 
             int affectedRows = statement.executeUpdate();
 
@@ -70,7 +70,7 @@ public class JdbcStaffRoleDAO implements StaffRoleDAO {
 
             try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
                 if (generatedKeys.next()) {
-                    staffRoles.setStaffRoleID(generatedKeys.getInt(1));
+                    staffRole.setStaffRoleID(generatedKeys.getInt(1));
                 } else {
                     throw new SQLException("StaffRole creation failed, no ID obtained.");
                 }
@@ -81,13 +81,13 @@ public class JdbcStaffRoleDAO implements StaffRoleDAO {
     }
 
     @Override
-    public void updateStaffRole(StaffRoles staffRoles) {
+    public void updateStaffRole(StaffRole staffRole) {
         String query = "UPDATE StaffRoles SET StaffID = ?, RoleID = ? WHERE StaffRoleID = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setInt(1, staffRoles.getStaffID());
-            statement.setInt(2, staffRoles.getRoleID());
-            statement.setInt(3, staffRoles.getStaffRoleID());
+            statement.setInt(1, staffRole.getStaffID());
+            statement.setInt(2, staffRole.getRoleID());
+            statement.setInt(3, staffRole.getStaffRoleID());
 
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -108,11 +108,11 @@ public class JdbcStaffRoleDAO implements StaffRoleDAO {
         }
     }
 
-    private StaffRoles mapResultSetToStaffRole(ResultSet resultSet) throws SQLException{
+    private StaffRole mapResultSetToStaffRole(ResultSet resultSet) throws SQLException{
         int staffRoleID = resultSet.getInt("StaffRoleID");
         int staffID = resultSet.getInt("StaffID");
         int roleID = resultSet.getInt("RoleID");
 
-        return new StaffRoles(staffRoleID, staffID, roleID);
+        return new StaffRole(staffRoleID, staffID, roleID);
     }
 }

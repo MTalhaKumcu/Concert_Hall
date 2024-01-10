@@ -1,23 +1,23 @@
 package com.solvd.service;
 
-import com.solvd.model.Artists;
-import com.solvd.persistence.dao.ArtistsDAO;
+import com.solvd.model.Artist;
+import com.solvd.persistence.dao.ArtistDAO;
 
 import java.util.List;
 
 public class ArtistService {
 
-    private final ArtistsDAO artistDAO;
+    private final ArtistDAO artistDAO;
 
-    public ArtistService(ArtistsDAO artistDAO) {
+    public ArtistService(ArtistDAO artistDAO) {
         this.artistDAO = artistDAO;
     }
 
-    public void addArtist(Artists artist) {
+    public void addArtist(Artist artist) {
         artistDAO.addArtist(artist);
     }
 
-    public void updateArtist(Artists artist) {
+    public void updateArtist(Artist artist) {
         artistDAO.updateArtist(artist);
     }
 
@@ -25,11 +25,11 @@ public class ArtistService {
         artistDAO.deleteArtist(artistID);
     }
 
-    public Artists getArtistByID(int artistID) {
+    public Artist getArtistByID(int artistID) {
         return artistDAO.getArtistsByID(artistID);
     }
 
-    public List<Artists> getAllArtists() {
+    public List<Artist> getAllArtists() {
         return artistDAO.getAllArtists();
     }
 }
