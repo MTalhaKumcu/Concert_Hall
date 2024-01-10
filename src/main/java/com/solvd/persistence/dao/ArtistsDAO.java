@@ -15,4 +15,5 @@ public interface ArtistsDAO {
     void updateArtist(Artists artists);
 
     void deleteArtist(int artistID);
+
 }
