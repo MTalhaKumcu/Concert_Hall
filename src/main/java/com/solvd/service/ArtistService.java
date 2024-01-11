@@ -9,7 +9,7 @@ public class ArtistService {
 
     private final ArtistDAO artistDAO;
 
-    public ArtistService(ArtistDAO artistDAO) {
+    public ArtistService() {
         this.artistDAO = artistDAO;
     }
 

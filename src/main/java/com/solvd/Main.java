@@ -1,44 +1,49 @@
 package com.solvd;
 
+import com.solvd.model.Artist;
+import com.solvd.service.ArtistService;
+import org.apache.logging.log4j.LogManager;
+
 import java.sql.*;
 import java.util.List;
 
+
 public class Main {
+    private static final Logger LOGGER = new Logger();
 
     public static void main(String[] args) throws SQLException {
 
 
-// ArtistService oluşturulur
-        ArtistService artistService = new ArtistService();
+        try {
+            // Sanatçı eklenmesi
+            ArtistService artistService = new ArtistService();
+            Artist newArtist = new Artist(11, "New artist",
+                    "new","1997-1-1","turkey",11);
+            artistService.addArtist(newArtist);
+            LOGGER.log("New artist added: " + newArtist);
 
-        // Yeni bir sanatçı oluşturulur
-        Artist newArtist = new Artist();
-        newArtist.setArtistName("John Doe");
-        newArtist.setBirthDate(java.sql.Date.valueOf("1990-01-01"));
-        newArtist.setCountry("USA");
+            // Tüm sanatçıların listelenmesi
+            List<Artist> allArtists = artistService.getAllArtists();
+            LOGGER.log("All artists:");
+            for (Artist artist : allArtists) {
+                LOGGER.log(artist.toString());
+            }
 
-        // Sanatçı eklenir
-        artistService.addArtist(newArtist);
+            // Bir sanatçının güncellenmesi
+            Artist artistToUpdate = allArtists.get(0);
+            artistToUpdate.setCountry("Updated Country");
+            artistService.updateArtist(artistToUpdate);
+            LOGGER.log("Updated artist: " + artistToUpdate);
 
-        // Tüm sanatçılar listelenir
-        System.out.println("All Artists:");
-        artistService.getAllArtists().forEach(artist -> System.out.println(artist));
-
-        // Sanatçı güncellenir
-        newArtist.setCountry("Canada");
-        artistService.updateArtist(newArtist);
-
-        // Güncellenmiş sanatçıyı tekrar listeler
-        System.out.println("\nUpdated Artist:");
-        artistService.getAllArtists().forEach(artist -> System.out.println(artist));
-
-        // Belirli bir sanatçıyı siler
-        artistService.deleteArtist(newArtist.getArtistID());
-
-        // Sanatçı silindikten sonra tüm sanatçıları tekrar listeler
-        System.out.println("\nAll Artists After Deletion:");
-        artistService.getAllArtists().forEach(artist -> System.out.println(artist));
-    }
+        } catch (Exception e) {
+            LOGGER.log("An error occurred: " + e.getMessage());
+        }
     }
 
+    private static class Logger {
+        void log(String message) {
+            System.out.println(message);
+        }
+    }
 }
+
