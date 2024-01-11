@@ -4,10 +4,10 @@ import java.util.Objects;
 
 public class StaffRole {
     private int staffRoleID;
-    private int staffID;
-    private int roleID;
+    private Staff staffID;
+    private Role roleID;
 
-    public StaffRole(int staffRoleID, int staffID, int roleID) {
+    public StaffRole(int staffRoleID, Staff staffID, Role roleID) {
         this.staffRoleID = staffRoleID;
         this.staffID = staffID;
         this.roleID = roleID;
@@ -21,19 +21,19 @@ public class StaffRole {
         this.staffRoleID = staffRoleID;
     }
 
-    public int getStaffID() {
+    public Staff getStaffID() {
         return staffID;
     }
 
-    public void setStaffID(int staffID) {
+    public void setStaffID(Staff staffID) {
         this.staffID = staffID;
     }
 
-    public int getRoleID() {
+    public Role getRoleID() {
         return roleID;
     }
 
-    public void setRoleID(int roleID) {
+    public void setRoleID(Role roleID) {
         this.roleID = roleID;
     }
 
@@ -41,8 +41,8 @@ public class StaffRole {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        StaffRole that = (StaffRole) o;
-        return staffRoleID == that.staffRoleID && staffID == that.staffID && roleID == that.roleID;
+        StaffRole staffRole = (StaffRole) o;
+        return staffRoleID == staffRole.staffRoleID && Objects.equals(staffID, staffRole.staffID) && Objects.equals(roleID, staffRole.roleID);
     }
 
     @Override
@@ -52,7 +52,7 @@ public class StaffRole {
 
     @Override
     public String toString() {
-        return "StaffRolesDAO{" +
+        return "StaffRole{" +
                 "staffRoleID=" + staffRoleID +
                 ", staffID=" + staffID +
                 ", roleID=" + roleID +

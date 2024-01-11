@@ -9,9 +9,9 @@ public class Artist {
     private String artistSurame;
     private Date birthDate ;
     private String country;
-    private int genreID ;
+    private Genre genreID ;
 
-    public Artist(int artistID, String artistName, String artistSurame, Date birthDate, String country, int genreID) {
+    public Artist(int artistID, String artistName, String artistSurame, Date birthDate, String country, Genre genreID) {
         this.artistID = artistID;
         this.artistName = artistName;
         this.artistSurame = artistSurame;
@@ -19,8 +19,6 @@ public class Artist {
         this.country = country;
         this.genreID = genreID;
     }
-
-
 
     public int getArtistID() {
         return artistID;
@@ -62,11 +60,11 @@ public class Artist {
         this.country = country;
     }
 
-    public int getGenreID() {
+    public Genre getGenreID() {
         return genreID;
     }
 
-    public void setGenreID(int genreID) {
+    public void setGenreID(Genre genreID) {
         this.genreID = genreID;
     }
 
@@ -86,8 +84,8 @@ public class Artist {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Artist that = (Artist) o;
-        return artistID == that.artistID && genreID == that.genreID && Objects.equals(artistName, that.artistName) && Objects.equals(artistSurame, that.artistSurame) && Objects.equals(birthDate, that.birthDate) && Objects.equals(country, that.country);
+        Artist artist = (Artist) o;
+        return artistID == artist.artistID && Objects.equals(artistName, artist.artistName) && Objects.equals(artistSurame, artist.artistSurame) && Objects.equals(birthDate, artist.birthDate) && Objects.equals(country, artist.country) && Objects.equals(genreID, artist.genreID);
     }
 
     @Override

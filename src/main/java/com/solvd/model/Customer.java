@@ -4,24 +4,23 @@ import java.util.Objects;
 
 public class Customer {
 
-    private int customerID;
+    private Customer customerID;
     private String firstName;
     private String lastName;
     private String email;
 
-    public Customer(int customerID, String firstName, String lastName, String email) {
+    public Customer(Customer customerID, String firstName, String lastName, String email) {
         this.customerID = customerID;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
     }
 
-
-    public int getCustomerID() {
+    public Customer getCustomerID() {
         return customerID;
     }
 
-    public void setCustomerID(int customerID) {
+    public void setCustomerID(Customer customerID) {
         this.customerID = customerID;
     }
 
@@ -50,11 +49,21 @@ public class Customer {
     }
 
     @Override
+    public String toString() {
+        return "Customer{" +
+                "customerID=" + customerID +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Customer that = (Customer) o;
-        return customerID == that.customerID && Objects.equals(firstName, that.firstName) && Objects.equals(lastName, that.lastName) && Objects.equals(email, that.email);
+        Customer customer = (Customer) o;
+        return Objects.equals(customerID, customer.customerID) && Objects.equals(firstName, customer.firstName) && Objects.equals(lastName, customer.lastName) && Objects.equals(email, customer.email);
     }
 
     @Override
@@ -62,13 +71,4 @@ public class Customer {
         return Objects.hash(customerID, firstName, lastName, email);
     }
 
-    @Override
-    public String toString() {
-        return "CustomersDAO{" +
-                "customerID=" + customerID +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                '}';
-    }
 }

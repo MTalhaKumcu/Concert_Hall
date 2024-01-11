@@ -4,13 +4,13 @@ import java.util.Objects;
 
 public class OrderItem {
 
-    private int orderItemID ;
-    private int orderID;
-    private int ticketID;
+    private OrderItem orderItemID ;
+    private Order orderID;
+    private Ticket ticketID;
     private int quantity;
     private int subTotal;
 
-    public OrderItem(int orderItemID, int orderID, int ticketID, int quantity, int subTotal) {
+    public OrderItem(OrderItem orderItemID, Order orderID, Ticket ticketID, int quantity, int subTotal) {
         this.orderItemID = orderItemID;
         this.orderID = orderID;
         this.ticketID = ticketID;
@@ -18,27 +18,27 @@ public class OrderItem {
         this.subTotal = subTotal;
     }
 
-    public int getOrderItemID() {
+    public OrderItem getOrderItemID() {
         return orderItemID;
     }
 
-    public void setOrderItemID(int orderItemID) {
+    public void setOrderItemID(OrderItem orderItemID) {
         this.orderItemID = orderItemID;
     }
 
-    public int getOrderID() {
+    public Order getOrderID() {
         return orderID;
     }
 
-    public void setOrderID(int orderID) {
+    public void setOrderID(Order orderID) {
         this.orderID = orderID;
     }
 
-    public int getTicketID() {
+    public Ticket getTicketID() {
         return ticketID;
     }
 
-    public void setTicketID(int ticketID) {
+    public void setTicketID(Ticket ticketID) {
         this.ticketID = ticketID;
     }
 
@@ -58,12 +58,13 @@ public class OrderItem {
         this.subTotal = subTotal;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        OrderItem that = (OrderItem) o;
-        return orderItemID == that.orderItemID && orderID == that.orderID && ticketID == that.ticketID && quantity == that.quantity && subTotal == that.subTotal;
+        OrderItem orderItem = (OrderItem) o;
+        return quantity == orderItem.quantity && subTotal == orderItem.subTotal && Objects.equals(orderItemID, orderItem.orderItemID) && Objects.equals(orderID, orderItem.orderID) && Objects.equals(ticketID, orderItem.ticketID);
     }
 
     @Override

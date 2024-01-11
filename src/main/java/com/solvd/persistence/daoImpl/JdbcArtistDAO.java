@@ -1,6 +1,7 @@
 package com.solvd.persistence.daoImpl;
 
 import com.solvd.model.Artist;
+import com.solvd.model.Genre;
 import com.solvd.persistence.dao.ArtistDAO;
 
 import java.sql.*;
@@ -118,7 +119,7 @@ public class JdbcArtistDAO implements ArtistDAO {
         String artistSurname = resultSet.getString("ArtistSurame");
         Date birthDate = resultSet.getDate("BirthDate");
         String country = resultSet.getString("Country");
-        int genreID = resultSet.getInt("GenreID");
+        Object genreID = resultSet.getObject("GenreID");
 
         return new Artist(artistID, artistName, artistSurname, birthDate, country, genreID);
     }

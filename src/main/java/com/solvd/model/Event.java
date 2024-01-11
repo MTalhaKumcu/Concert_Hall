@@ -6,16 +6,14 @@ import java.util.Objects;
 
 public class Event {
 
-    private int eventID;
     private String eventName;
     private Date eventDate;
     private Date startTime;
     private Date endTime;
-    private int venueID;
+    private Venue venueID;
 
 
-    public Event(int eventID, String eventName, int venueID, java.sql.Date date, Time startTime, Time endTime) {
-        this.eventID = eventID;
+    public Event(String eventName, Venue venueID, Date eventDate, Time startTime, Time endTime) {
         this.eventName = eventName;
         this.eventDate = eventDate;
         this.startTime = startTime;
@@ -24,13 +22,6 @@ public class Event {
     }
 
 
-    public int getEventID() {
-        return eventID;
-    }
-
-    public void setEventID(int eventID) {
-        this.eventID = eventID;
-    }
 
     public String getEventName() {
         return eventName;
@@ -64,12 +55,23 @@ public class Event {
         this.endTime = endTime;
     }
 
-    public int getVenueID() {
+    public Venue getVenueID() {
         return venueID;
     }
 
-    public void setVenueID(int venueID) {
+    public void setVenueID(Venue venueID) {
         this.venueID = venueID;
+    }
+
+    @Override
+    public String toString() {
+        return "Event{" +
+                "eventName='" + eventName + '\'' +
+                ", eventDate=" + eventDate +
+                ", startTime=" + startTime +
+                ", endTime=" + endTime +
+                ", venueID=" + venueID +
+                '}';
     }
 
     @Override
@@ -77,25 +79,11 @@ public class Event {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Event event = (Event) o;
-        return eventID == event.eventID && venueID == event.venueID && Objects.equals(eventName, event.eventName) && Objects.equals(eventDate, event.eventDate) && Objects.equals(startTime, event.startTime) && Objects.equals(endTime, event.endTime);
+        return Objects.equals(eventName, event.eventName) && Objects.equals(eventDate, event.eventDate) && Objects.equals(startTime, event.startTime) && Objects.equals(endTime, event.endTime) && Objects.equals(venueID, event.venueID);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(eventID, eventName, eventDate, startTime, endTime, venueID);
+        return Objects.hash(eventName, eventDate, startTime, endTime, venueID);
     }
-
-    @Override
-    public String toString() {
-        return "EventsDAO{" +
-                "eventID=" + eventID +
-                ", eventName='" + eventName + '\'' +
-                ", eventDate='" + eventDate + '\'' +
-                ", startTime='" + startTime + '\'' +
-                ", endTime='" + endTime + '\'' +
-                ", venueID=" + venueID +
-                '}';
-    }
-
-
 }

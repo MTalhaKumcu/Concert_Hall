@@ -60,7 +60,7 @@ public class JdbcTicketDAO implements TicketDAO {
         String query = "INSERT INTO Tickets (EventID, Price, TicketType) VALUES (?, ?, ?)";
 
         try (PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
-            statement.setInt(1, ticket.getTicketEventID());
+            statement.setInt(1, ticket.getEventID());
             statement.setDouble(2, ticket.getPrice());
 
             int affectedRows = statement.executeUpdate();
@@ -86,7 +86,7 @@ public class JdbcTicketDAO implements TicketDAO {
         String query = "UPDATE Tickets SET EventID = ?, Price = ?, TicketType = ? WHERE TicketID = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setInt(1, ticket.getTicketEventID());
+            statement.setInt(1, ticket.getEventID());
             statement.setDouble(2, ticket.getPrice());
             statement.setInt(4, ticket.getTicketID());
 

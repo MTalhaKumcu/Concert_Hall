@@ -5,14 +5,13 @@ import java.util.Objects;
 public class Ticket {
 
     private int ticketID;
-    private int ticketEventID;
+    private Event eventID;
     private int price;
 
-    public Ticket(int ticketID, int ticketEventID, int price) {
+    public Ticket(int ticketID, Event eventID, int price) {
         this.ticketID = ticketID;
-        this.ticketEventID = ticketEventID;
+        this.eventID = eventID;
         this.price = price;
-
     }
 
     public int getTicketID() {
@@ -23,12 +22,12 @@ public class Ticket {
         this.ticketID = ticketID;
     }
 
-    public int getTicketEventID() {
-        return ticketEventID;
+    public Event getEventID() {
+        return eventID;
     }
 
-    public void setTicketEventID(int ticketEventID) {
-        this.ticketEventID = ticketEventID;
+    public void setEventID(Event eventID) {
+        this.eventID = eventID;
     }
 
     public int getPrice() {
@@ -39,25 +38,25 @@ public class Ticket {
         this.price = price;
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Ticket ticket = (Ticket) o;
-        return ticketID == ticket.ticketID && ticketEventID == ticket.ticketEventID && price == ticket.price;
+        return ticketID == ticket.ticketID && price == ticket.price && Objects.equals(eventID, ticket.eventID);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(ticketID, ticketEventID, price);
+        return Objects.hash(ticketID, eventID, price);
     }
 
     @Override
     public String toString() {
-        return "TicketsDAO " +
+        return "Ticket{" +
                 "ticketID=" + ticketID +
-                ", eventID=" + ticketEventID +
-                ", price=" + price ;
+                ", eventID=" + eventID +
+                ", price=" + price +
+                '}';
     }
 }
