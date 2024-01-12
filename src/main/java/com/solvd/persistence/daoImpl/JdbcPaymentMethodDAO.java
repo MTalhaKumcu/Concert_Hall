@@ -1,6 +1,7 @@
 package com.solvd.persistence.daoImpl;
 
 import com.solvd.model.PaymentsMethod;
+import com.solvd.persistence.connection.ConnectionPool;
 import com.solvd.persistence.dao.PaymentMethodDAO;
 
 import java.sql.*;
@@ -9,20 +10,20 @@ import java.util.List;
 
 public class JdbcPaymentMethodDAO implements PaymentMethodDAO {
 
-    private Connection connection;
+    private final ConnectionPool connectionPool;
 
-
-    public JdbcPaymentMethodDAO(Connection connection) {
-        this.connection = connection;
+    public JdbcPaymentMethodDAO(ConnectionPool connectionPool) {
+        this.connectionPool = connectionPool;
     }
-
     @Override
-    public PaymentsMethod getPaymentsMethodsByID(int paymentsMethodID) {
+    public PaymentsMethod getPaymentsMethodsByID(int paymentMethodID) {
         PaymentsMethod paymentMethod = null;
         String query = "SELECT * FROM PaymentMethods WHERE PaymentMethodID = ?";
 
-        try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setInt(1, paymentsMethodID);
+        try (Connection connection = connectionPool.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+
+            statement.setInt(1, paymentMethodID);
             ResultSet resultSet = statement.executeQuery();
 
             if (resultSet.next()) {
@@ -32,9 +33,7 @@ public class JdbcPaymentMethodDAO implements PaymentMethodDAO {
             e.printStackTrace();
         }
 
-        return paymentMethod;
-    }
-
+        return paymentMethod;    }
 
 
     @Override
@@ -42,7 +41,8 @@ public class JdbcPaymentMethodDAO implements PaymentMethodDAO {
         List<PaymentsMethod> paymentMethods = new ArrayList<>();
         String query = "SELECT * FROM PaymentMethods";
 
-        try (Statement statement = connection.createStatement();
+        try (Connection connection = connectionPool.getConnection();
+             Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery(query)) {
 
             while (resultSet.next()) {
@@ -53,16 +53,17 @@ public class JdbcPaymentMethodDAO implements PaymentMethodDAO {
             e.printStackTrace();
         }
 
-        return paymentMethods;
-    }
+        return paymentMethods;    }
 
     @Override
-    public void addPaymentMethod(PaymentsMethod paymentsMethod) {
+    public void addPaymentMethod(PaymentsMethod paymentMethod) {
         String query = "INSERT INTO PaymentMethods (MethodName, Description) VALUES (?, ?)";
 
-        try (PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
-            statement.setString(1, PaymentsMethod.getDescription());
-            statement.setString(2, PaymentsMethod.getDescription());
+        try (Connection connection = connectionPool.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
+
+            statement.setString(1, paymentMethod.getPaymentMethodName());
+            statement.setString(2, paymentMethod.getDescription());
 
             int affectedRows = statement.executeUpdate();
 
@@ -72,7 +73,8 @@ public class JdbcPaymentMethodDAO implements PaymentMethodDAO {
 
             try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
                 if (generatedKeys.next()) {
-                    PaymentsMethod.setPaymentMethodID(generatedKeys.getInt(1));
+                    // Assuming PaymentMethodID is an auto-generated key in the database
+                    paymentMethod.setPaymentMethodID(generatedKeys.getInt(1));
                 } else {
                     throw new SQLException("PaymentMethod creation failed, no ID obtained.");
                 }
@@ -83,13 +85,15 @@ public class JdbcPaymentMethodDAO implements PaymentMethodDAO {
     }
 
     @Override
-    public void updatePaymentMethod(PaymentsMethod paymentsMethod) {
+    public void updatePaymentMethod(PaymentsMethod paymentMethod) {
         String query = "UPDATE PaymentMethods SET MethodName = ?, Description = ? WHERE PaymentMethodID = ?";
 
-        try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setString(1, PaymentsMethod.getPaymentMethodName());
-            statement.setString(2, PaymentsMethod.getDescription());
-            statement.setInt(3, PaymentsMethod.getPaymentMethodID());
+        try (Connection connection = connectionPool.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+
+            statement.setString(1, paymentMethod.getPaymentMethodName());
+            statement.setString(2, paymentMethod.getDescription());
+            statement.setInt(3, paymentMethod.getPaymentMethodID());
 
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -101,7 +105,9 @@ public class JdbcPaymentMethodDAO implements PaymentMethodDAO {
     public void deletePaymentMethod(int paymentMethodID) {
         String query = "DELETE FROM PaymentMethods WHERE PaymentMethodID = ?";
 
-        try (PreparedStatement statement = connection.prepareStatement(query)) {
+        try (Connection connection = connectionPool.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+
             statement.setInt(1, paymentMethodID);
 
             statement.executeUpdate();
@@ -115,5 +121,7 @@ public class JdbcPaymentMethodDAO implements PaymentMethodDAO {
         String description = resultSet.getString("Description");
 
         return new PaymentsMethod(paymentMethodID, methodName, description);
+
     }
+
 }

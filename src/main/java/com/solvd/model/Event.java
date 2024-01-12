@@ -5,23 +5,37 @@ import java.util.Date;
 import java.util.Objects;
 
 public class Event {
-
+    private int eventID;
     private String eventName;
     private Date eventDate;
-    private Date startTime;
-    private Date endTime;
+    private Time startTime;
+    private Time endTime;
     private Venue venueID;
 
 
-    public Event(String eventName, Venue venueID, Date eventDate, Time startTime, Time endTime) {
+    public Event(int eventID, String eventName, Venue venueID, Date eventDate, Time startTime, Time endTime) {
+        this.eventID = eventID;
         this.eventName = eventName;
         this.eventDate = eventDate;
         this.startTime = startTime;
         this.endTime = endTime;
         this.venueID = venueID;
     }
+    public Event(int eventID, String eventName, Date eventDate, Time startTime, Time endTime) {
+        this.eventID = eventID;
+        this.eventName = eventName;
+        this.eventDate = eventDate;
+        this.startTime = startTime;
+        this.endTime = endTime;
+    }
 
+    public int getEventID() {
+        return eventID;
+    }
 
+    public void setEventID(int eventID) {
+        this.eventID = eventID;
+    }
 
     public String getEventName() {
         return eventName;
@@ -39,19 +53,19 @@ public class Event {
         this.eventDate = eventDate;
     }
 
-    public Date getStartTime() {
+    public Time getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(Date startTime) {
+    public void setStartTime(Time startTime) {
         this.startTime = startTime;
     }
 
-    public Date getEndTime() {
+    public Time getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(Date endTime) {
+    public void setEndTime(Time endTime) {
         this.endTime = endTime;
     }
 
@@ -66,7 +80,8 @@ public class Event {
     @Override
     public String toString() {
         return "Event{" +
-                "eventName='" + eventName + '\'' +
+                "eventID=" + eventID +
+                ", eventName='" + eventName + '\'' +
                 ", eventDate=" + eventDate +
                 ", startTime=" + startTime +
                 ", endTime=" + endTime +
@@ -79,11 +94,11 @@ public class Event {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Event event = (Event) o;
-        return Objects.equals(eventName, event.eventName) && Objects.equals(eventDate, event.eventDate) && Objects.equals(startTime, event.startTime) && Objects.equals(endTime, event.endTime) && Objects.equals(venueID, event.venueID);
+        return eventID == event.eventID && Objects.equals(eventName, event.eventName) && Objects.equals(eventDate, event.eventDate) && Objects.equals(startTime, event.startTime) && Objects.equals(endTime, event.endTime) && Objects.equals(venueID, event.venueID);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(eventName, eventDate, startTime, endTime, venueID);
+        return Objects.hash(eventID, eventName, eventDate, startTime, endTime, venueID);
     }
 }

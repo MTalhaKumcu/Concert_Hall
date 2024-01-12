@@ -36,7 +36,7 @@ public class ConnectionPool {
         pool = new ArrayBlockingQueue<>(size);
         sourceConnections = new ArrayList<>(size);
         for (int i = 0; i < size; i++) {
-            Connection connection = open();
+            Connection connection = openConnection();
             Connection proxyConnections = (Connection) Proxy.newProxyInstance(ConnectionPool.class.getClassLoader(),
                     new Class[]{Connection.class},
                     (proxy, method, args) -> method.getName().equals("close") ? pool.add((Connection) proxy)
@@ -46,7 +46,7 @@ public class ConnectionPool {
         }
     }
 
-    private static Connection open() {
+    private static Connection openConnection() {
         try {
             return DriverManager.getConnection(DBpropertiesUtil.get(URL_KEY),
                     DBpropertiesUtil.get(USER_KEY),
@@ -66,7 +66,7 @@ public class ConnectionPool {
             throw new RuntimeException(e);
         }
     }
-    public static Connection get() {
+    public static Connection getConnection() {
         try {
             return pool.take();
         } catch (InterruptedException e) {
@@ -86,5 +86,6 @@ public class ConnectionPool {
             throw new RuntimeException(e);
         }
     }
+
 }
 

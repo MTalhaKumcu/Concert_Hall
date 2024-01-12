@@ -4,23 +4,27 @@ import java.util.Objects;
 
 public class Customer {
 
-    private Customer customerID;
+    private int customerID;
     private String firstName;
     private String lastName;
     private String email;
 
-    public Customer(Customer customerID, String firstName, String lastName, String email) {
+    public Customer(int customerID, String firstName, String lastName, String email) {
         this.customerID = customerID;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
     }
 
-    public Customer getCustomerID() {
+    public Customer() {
+
+    }
+
+    public int getCustomerID() {
         return customerID;
     }
 
-    public void setCustomerID(Customer customerID) {
+    public void setCustomerID(int customerID) {
         this.customerID = customerID;
     }
 

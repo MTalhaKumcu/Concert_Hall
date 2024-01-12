@@ -58,12 +58,13 @@ public class JdbcArtistDAO implements ArtistDAO {
 
     @Override
     public void addArtist(Artist artist) {
-        String query = "INSERT INTO Artists (ArtistName, BirthDate, Country) VALUES (?, ?, ?)";
+        String query = "INSERT INTO Artists (ArtistName ,ArtistSurname ,BirthDate, Country) VALUES (?, ?, ?, ?)";
 
         try (PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
             statement.setString(1, artist.getArtistName());
-            statement.setDate(2, new java.sql.Date(artist.getBirthDate().getTime()));
-            statement.setString(3, artist.getCountry());
+            statement.setString(2, artist.getArtistSurame());
+            statement.setDate(3, new java.sql.Date(artist.getBirthDate().getTime()));
+            statement.setString(4, artist.getCountry());
 
             int affectedRows = statement.executeUpdate();
 
@@ -85,14 +86,16 @@ public class JdbcArtistDAO implements ArtistDAO {
 
     @Override
     public void updateArtist(Artist artists) {
-        String query = "UPDATE Artists SET ArtistName = ?, BirthDate = ?, Country = ? WHERE ArtistID = ?";
+        String query = "UPDATE Artists SET ArtistName = ?, ArtistSurname = ?, BirthDate = ?, Country = ? WHERE ArtistID = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
             Artist artist;
             statement.setString(1, artists.getArtistName());
-            statement.setDate(2, new Date(artists.getBirthDate().getTime()));
-            statement.setString(3, artists.getCountry());
-            statement.setInt(4, artists.getArtistID());
+            statement.setString(2, artists.getArtistName());
+            statement.setDate(3, new Date(artists.getBirthDate().getTime()));
+            statement.setString(4, artists.getCountry());
+            statement.setInt(5, artists.getArtistID());
+
 
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -119,8 +122,7 @@ public class JdbcArtistDAO implements ArtistDAO {
         String artistSurname = resultSet.getString("ArtistSurame");
         Date birthDate = resultSet.getDate("BirthDate");
         String country = resultSet.getString("Country");
-        Object genreID = resultSet.getObject("GenreID");
 
-        return new Artist(artistID, artistName, artistSurname, birthDate, country, genreID);
+        return new Artist(artistID, artistName, artistSurname, birthDate, country);
     }
 }

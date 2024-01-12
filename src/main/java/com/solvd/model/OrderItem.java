@@ -4,13 +4,13 @@ import java.util.Objects;
 
 public class OrderItem {
 
-    private OrderItem orderItemID ;
+    private int orderItemID;
     private Order orderID;
     private Ticket ticketID;
     private int quantity;
     private int subTotal;
 
-    public OrderItem(OrderItem orderItemID, Order orderID, Ticket ticketID, int quantity, int subTotal) {
+    public OrderItem(int orderItemID, Order orderID, Ticket ticketID, int quantity, int subTotal) {
         this.orderItemID = orderItemID;
         this.orderID = orderID;
         this.ticketID = ticketID;
@@ -18,11 +18,11 @@ public class OrderItem {
         this.subTotal = subTotal;
     }
 
-    public OrderItem getOrderItemID() {
+    public int getOrderItemID() {
         return orderItemID;
     }
 
-    public void setOrderItemID(OrderItem orderItemID) {
+    public void setOrderItemID(int orderItemID) {
         this.orderItemID = orderItemID;
     }
 
@@ -58,13 +58,12 @@ public class OrderItem {
         this.subTotal = subTotal;
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         OrderItem orderItem = (OrderItem) o;
-        return quantity == orderItem.quantity && subTotal == orderItem.subTotal && Objects.equals(orderItemID, orderItem.orderItemID) && Objects.equals(orderID, orderItem.orderID) && Objects.equals(ticketID, orderItem.ticketID);
+        return orderItemID == orderItem.orderItemID && quantity == orderItem.quantity && subTotal == orderItem.subTotal && Objects.equals(orderID, orderItem.orderID) && Objects.equals(ticketID, orderItem.ticketID);
     }
 
     @Override

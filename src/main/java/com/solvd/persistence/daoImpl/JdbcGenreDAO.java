@@ -1,6 +1,7 @@
 package com.solvd.persistence.daoImpl;
 
 import com.solvd.model.Genre;
+import com.solvd.persistence.connection.ConnectionPool;
 import com.solvd.persistence.dao.GenreDAO;
 
 import java.sql.*;
@@ -9,18 +10,19 @@ import java.util.List;
 
 public class JdbcGenreDAO implements GenreDAO {
 
-    private Connection connection;
+    private final ConnectionPool connectionPool;
 
-    public JdbcGenreDAO(Connection connection) {
-        this.connection = connection;
+    public JdbcGenreDAO(ConnectionPool connectionPool) {
+        this.connectionPool = connectionPool;
     }
-
     @Override
     public Genre getGenreByID(int genreID) {
         Genre genre = null;
-        String query = "SELECT * FROM Genres WHERE GenreID = ?";
+        String query = "SELECT * FROM Genres WHERE GenreName = ?";
 
-        try (PreparedStatement statement = connection.prepareStatement(query)) {
+        try (Connection connection = connectionPool.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+
             statement.setInt(1, genreID);
             ResultSet resultSet = statement.executeQuery();
 
@@ -34,13 +36,13 @@ public class JdbcGenreDAO implements GenreDAO {
         return genre;
     }
 
-
     @Override
     public List<Genre> getAllGenres() {
         List<Genre> genres = new ArrayList<>();
         String query = "SELECT * FROM Genres";
 
-        try (Statement statement = connection.createStatement();
+        try (Connection connection = connectionPool.getConnection();
+             Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery(query)) {
 
             while (resultSet.next()) {
@@ -58,7 +60,9 @@ public class JdbcGenreDAO implements GenreDAO {
     public void addGenre(Genre genre) {
         String query = "INSERT INTO Genres (GenreName) VALUES (?)";
 
-        try (PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
+        try (Connection connection = connectionPool.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
+
             statement.setString(1, genre.getGenreName());
 
             int affectedRows = statement.executeUpdate();
@@ -69,6 +73,7 @@ public class JdbcGenreDAO implements GenreDAO {
 
             try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
                 if (generatedKeys.next()) {
+                    // Assuming GenreID is an auto-generated key in the database
                     genre.setGenreID(generatedKeys.getInt(1));
                 } else {
                     throw new SQLException("Genre creation failed, no ID obtained.");
@@ -83,7 +88,9 @@ public class JdbcGenreDAO implements GenreDAO {
     public void updateGenre(Genre genre) {
         String query = "UPDATE Genres SET GenreName = ? WHERE GenreID = ?";
 
-        try (PreparedStatement statement = connection.prepareStatement(query)) {
+        try (Connection connection = connectionPool.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+
             statement.setString(1, genre.getGenreName());
             statement.setInt(2, genre.getGenreID());
 
@@ -97,7 +104,9 @@ public class JdbcGenreDAO implements GenreDAO {
     public void deleteGenre(int genreID) {
         String query = "DELETE FROM Genres WHERE GenreID = ?";
 
-        try (PreparedStatement statement = connection.prepareStatement(query)) {
+        try (Connection connection = connectionPool.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+
             statement.setInt(1, genreID);
 
             statement.executeUpdate();
@@ -105,7 +114,6 @@ public class JdbcGenreDAO implements GenreDAO {
             e.printStackTrace();
         }
     }
-
     private Genre mapResultSetToGenre(ResultSet resultSet) throws SQLException {
         int genreID = resultSet.getInt("GenreID");
         String genreName = resultSet.getString("GenreName");

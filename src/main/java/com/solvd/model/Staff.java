@@ -4,18 +4,18 @@ import java.util.Objects;
 
 public class Staff {
     private int staffID ;
-    private Staff staffArtistID;
+    private Artist staffArtistID;
     private String firstName;
     private String lastName;
     private String position;
 
-    public Staff(int staffID, Staff staffArtistID, String firstName, String lastName, String position) {
+    public Staff(int staffID, String firstName, String lastName, String position) {
         this.staffID = staffID;
-        this.staffArtistID = staffArtistID;
         this.firstName = firstName;
         this.lastName = lastName;
         this.position = position;
     }
+
 
     public int getStaffID() {
         return staffID;
@@ -25,11 +25,11 @@ public class Staff {
         this.staffID = staffID;
     }
 
-    public Staff getStaffArtistID() {
+    public Artist getStaffArtistID() {
         return staffArtistID;
     }
 
-    public void setStaffArtistID(Staff staffArtistID) {
+    public void setStaffArtistID(Artist staffArtistID) {
         this.staffArtistID = staffArtistID;
     }
 
@@ -74,7 +74,6 @@ public class Staff {
     public String toString() {
         return "Staff{" +
                 "staffID=" + staffID +
-                ", staffArtistID=" + staffArtistID +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", position='" + position + '\'' +

@@ -4,12 +4,12 @@ import java.util.Date;
 import java.util.Objects;
 
 public class Artist {
-    private int artistID ;
+    private int artistID;
     private String artistName;
     private String artistSurame;
-    private Date birthDate ;
+    private Date birthDate;
     private String country;
-    private Genre genreID ;
+    private Genre genreID;
 
     public Artist(int artistID, String artistName, String artistSurame, Date birthDate, String country, Genre genreID) {
         this.artistID = artistID;
@@ -18,6 +18,14 @@ public class Artist {
         this.birthDate = birthDate;
         this.country = country;
         this.genreID = genreID;
+    }
+
+    public Artist(int artistID, String artistName, String artistSurame, Date birthDate, String country) {
+        this.artistID = artistID;
+        this.artistName = artistName;
+        this.artistSurame = artistSurame;
+        this.birthDate = birthDate;
+        this.country = country;
     }
 
     public int getArtistID() {
