@@ -17,7 +17,7 @@ public class VenueService {
     }
 
     public List<Venue> getAllTickets() {
-        return venueDAO.getAllTickets();
+        return venueDAO.getAllVenues();
     }
 
     public void addVenues(Venue venue) {

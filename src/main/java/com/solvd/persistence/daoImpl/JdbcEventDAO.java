@@ -1,6 +1,7 @@
 package com.solvd.persistence.daoImpl;
 
 import com.solvd.model.Event;
+import com.solvd.model.Venue;
 import com.solvd.persistence.connection.ConnectionPool;
 import com.solvd.persistence.dao.EventDAO;
 
@@ -128,9 +129,12 @@ public class JdbcEventDAO implements EventDAO {
         Date eventDate = resultSet.getDate("EventDate");
         Time startTime = resultSet.getTime("StartTime");
         Time endTime = resultSet.getTime("EndTime");
+        int venueID = resultSet.getInt("VenueID");
+
+        Venue venue = getEventByID(venueID).getVenueID();
 
 
-        return new Event(eventID, eventName ,eventDate, startTime, endTime);
+        return new Event(eventID, eventName,venue ,eventDate, startTime, endTime);
 
     }
 }

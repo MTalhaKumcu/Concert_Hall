@@ -1,6 +1,7 @@
 package com.solvd.persistence.daoImpl;
 
 import com.solvd.model.Venue;
+import com.solvd.persistence.connection.ConnectionPool;
 import com.solvd.persistence.dao.VenueDAO;
 
 import java.sql.*;
@@ -9,42 +10,41 @@ import java.util.List;
 
 public class JdbcVenueDAO implements VenueDAO {
 
-    private Connection connection;
+    private final ConnectionPool connectionPool;
 
-    // Constructor: JDBC bağlantısı alınır.
-    public JdbcVenueDAO(Connection connection) {
-        this.connection = connection;
+    public JdbcVenueDAO(ConnectionPool connectionPool) {
+        this.connectionPool = connectionPool;
+
     }
 
 
-
     @Override
-    public Venue getVenuesByID(int venuesID) {
+    public Venue getVenuesByID(int venueID) {
         Venue venue = null;
         String query = "SELECT * FROM Venues WHERE VenueID = ?";
 
-        try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setInt(1, venuesID);
+        try (Connection connection = connectionPool.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+
+            statement.setInt(1, venueID);
             ResultSet resultSet = statement.executeQuery();
 
             if (resultSet.next()) {
                 venue = mapResultSetToVenue(resultSet);
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
 
-        return venue;
-    }
-
-
+        return venue;    }
 
     @Override
-    public List<Venue> getAllTickets() {
+    public List<Venue> getAllVenues() {
         List<Venue> venues = new ArrayList<>();
         String query = "SELECT * FROM Venues";
 
-        try (Statement statement = connection.createStatement();
+        try (Connection connection = connectionPool.getConnection();
+             Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery(query)) {
 
             while (resultSet.next()) {
@@ -55,14 +55,15 @@ public class JdbcVenueDAO implements VenueDAO {
             e.printStackTrace();
         }
 
-        return venues;
-    }
+        return venues;    }
 
     @Override
     public void addVenues(Venue venue) {
         String query = "INSERT INTO Venues (VenueName, Capacity, Location) VALUES (?, ?, ?)";
 
-        try (PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
+        try (Connection connection = connectionPool.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
+
             statement.setString(1, venue.getVenueName());
             statement.setInt(2, venue.getCapacity());
             statement.setString(3, venue.getLocation());
@@ -75,6 +76,7 @@ public class JdbcVenueDAO implements VenueDAO {
 
             try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
                 if (generatedKeys.next()) {
+                    // Assuming VenueID is an auto-generated key in the database
                     venue.setVenueID(generatedKeys.getInt(1));
                 } else {
                     throw new SQLException("Venue creation failed, no ID obtained.");
@@ -89,7 +91,9 @@ public class JdbcVenueDAO implements VenueDAO {
     public void updateVenues(Venue venue) {
         String query = "UPDATE Venues SET VenueName = ?, Capacity = ?, Location = ? WHERE VenueID = ?";
 
-        try (PreparedStatement statement = connection.prepareStatement(query)) {
+        try (Connection connection = connectionPool.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+
             statement.setString(1, venue.getVenueName());
             statement.setInt(2, venue.getCapacity());
             statement.setString(3, venue.getLocation());
@@ -102,11 +106,13 @@ public class JdbcVenueDAO implements VenueDAO {
     }
 
     @Override
-    public void deleteVenues(int venuesID) {
+    public void deleteVenues(int venueID) {
         String query = "DELETE FROM Venues WHERE VenueID = ?";
 
-        try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setInt(1, venuesID);
+        try (Connection connection = connectionPool.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+
+            statement.setInt(1, venueID);
 
             statement.executeUpdate();
         } catch (SQLException e) {

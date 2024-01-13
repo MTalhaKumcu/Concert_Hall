@@ -1,6 +1,7 @@
 package com.solvd.persistence.daoImpl;
 
 import com.solvd.model.Customer;
+import com.solvd.persistence.connection.ConnectionPool;
 import com.solvd.persistence.dao.CustomerDAO;
 
 import java.sql.*;
@@ -9,17 +10,19 @@ import java.util.List;
 
 public class JdbcCustomerDAO implements CustomerDAO {
 
-    private Connection connection;
+    private final ConnectionPool connectionPool;
 
-    public JdbcCustomerDAO(Connection connection) {
-        this.connection = connection;
+    public JdbcCustomerDAO(ConnectionPool connectionPool) {
+        this.connectionPool = connectionPool;
     }
+
     @Override
     public Customer getCustomerByID(int customerID) {
         Customer customer = null;
         String query = "SELECT * FROM Customers WHERE CustomerID = ?";
 
-        try (PreparedStatement statement = connection.prepareStatement(query)) {
+        try (Connection connection = connectionPool.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setInt(1, customerID);
             ResultSet resultSet = statement.executeQuery();
 
@@ -34,13 +37,13 @@ public class JdbcCustomerDAO implements CustomerDAO {
     }
 
 
-
     @Override
     public List<Customer> getAllCustomers() {
         List<Customer> customers = new ArrayList<>();
         String query = "SELECT * FROM Customers";
 
-        try (Statement statement = connection.createStatement();
+        try (Connection connection = connectionPool.getConnection();
+             Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery(query)) {
 
             while (resultSet.next()) {
@@ -58,7 +61,8 @@ public class JdbcCustomerDAO implements CustomerDAO {
     public void addCustomers(Customer customer) {
         String query = "INSERT INTO Customers (FirstName, LastName, Email, PhoneNumber) VALUES (?, ?, ?, ?)";
 
-        try (PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
+        try (Connection connection = connectionPool.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
             statement.setString(1, customer.getFirstName());
             statement.setString(2, customer.getLastName());
             statement.setString(3, customer.getEmail());
@@ -85,7 +89,8 @@ public class JdbcCustomerDAO implements CustomerDAO {
     public void updateCustomers(Customer customer) {
         String query = "UPDATE Customers SET FirstName = ?, LastName = ?, Email = ? WHERE CustomerID = ?";
 
-        try (PreparedStatement statement = connection.prepareStatement(query)) {
+        try (Connection connection = connectionPool.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setString(1, customer.getFirstName());
             statement.setString(2, customer.getLastName());
             statement.setString(3, customer.getEmail());
@@ -101,7 +106,8 @@ public class JdbcCustomerDAO implements CustomerDAO {
     public void deleteCustomers(int customerID) {
         String query = "DELETE FROM Customers WHERE CustomerID = ?";
 
-        try (PreparedStatement statement = connection.prepareStatement(query)) {
+        try (Connection connection = connectionPool.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setInt(1, customerID);
 
             statement.executeUpdate();
@@ -109,7 +115,6 @@ public class JdbcCustomerDAO implements CustomerDAO {
             e.printStackTrace();
         }
     }
-
 
 
     private Customer mapResultSetToCustomer(ResultSet resultSet) throws SQLException {

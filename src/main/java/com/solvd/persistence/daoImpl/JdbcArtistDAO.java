@@ -2,6 +2,7 @@ package com.solvd.persistence.daoImpl;
 
 import com.solvd.model.Artist;
 import com.solvd.model.Genre;
+import com.solvd.persistence.connection.ConnectionPool;
 import com.solvd.persistence.dao.ArtistDAO;
 
 import java.sql.*;
@@ -10,10 +11,11 @@ import java.util.List;
 
 public class JdbcArtistDAO implements ArtistDAO {
 
-    private Connection connection;
+    private final ConnectionPool connectionPool;
 
-    public JdbcArtistDAO(Connection connection) {
-        this.connection = connection;
+
+    public JdbcArtistDAO(ConnectionPool connectionPool) {
+        this.connectionPool = connectionPool;
     }
 
     @Override
@@ -21,7 +23,8 @@ public class JdbcArtistDAO implements ArtistDAO {
         Artist artist = null;
         String query = "SELECT * FROM Artists WHERE ArtistID = ?";
 
-        try (PreparedStatement statement = connection.prepareStatement(query)) {
+        try (Connection connection = connectionPool.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setInt(1, artistID);
             ResultSet resultSet = statement.executeQuery();
 
@@ -41,7 +44,8 @@ public class JdbcArtistDAO implements ArtistDAO {
         List<Artist> artists = new ArrayList<>();
         String query = "SELECT * FROM Artists";
 
-        try (Statement statement = connection.createStatement();
+        try (Connection connection = connectionPool.getConnection();
+             Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery(query)) {
 
             while (resultSet.next()) {
@@ -60,7 +64,8 @@ public class JdbcArtistDAO implements ArtistDAO {
     public void addArtist(Artist artist) {
         String query = "INSERT INTO Artists (ArtistName ,ArtistSurname ,BirthDate, Country) VALUES (?, ?, ?, ?)";
 
-        try (PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
+        try (Connection connection = connectionPool.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
             statement.setString(1, artist.getArtistName());
             statement.setString(2, artist.getArtistSurame());
             statement.setDate(3, new java.sql.Date(artist.getBirthDate().getTime()));
@@ -88,7 +93,9 @@ public class JdbcArtistDAO implements ArtistDAO {
     public void updateArtist(Artist artists) {
         String query = "UPDATE Artists SET ArtistName = ?, ArtistSurname = ?, BirthDate = ?, Country = ? WHERE ArtistID = ?";
 
-        try (PreparedStatement statement = connection.prepareStatement(query)) {
+        try (
+                Connection connection = connectionPool.getConnection();
+                PreparedStatement statement = connection.prepareStatement(query)) {
             Artist artist;
             statement.setString(1, artists.getArtistName());
             statement.setString(2, artists.getArtistName());
@@ -107,7 +114,8 @@ public class JdbcArtistDAO implements ArtistDAO {
     public void deleteArtist(int artistID) {
         String query = "DELETE FROM Artists WHERE ArtistID = ?";
 
-        try (PreparedStatement statement = connection.prepareStatement(query)) {
+        try (Connection connection = connectionPool.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setInt(1, artistID);
 
             statement.executeUpdate();

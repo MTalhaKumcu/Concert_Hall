@@ -7,11 +7,13 @@ public class Ticket {
     private int ticketID;
     private Event eventID;
     private int price;
+    private TicketsType ticketType;
 
-    public Ticket(int ticketID, Event eventID, int price) {
+    public Ticket(int ticketID, Event eventID, int price, TicketsType ticketType) {
         this.ticketID = ticketID;
         this.eventID = eventID;
         this.price = price;
+        this.ticketType = ticketType;
     }
 
     public int getTicketID() {
@@ -38,25 +40,35 @@ public class Ticket {
         this.price = price;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Ticket ticket = (Ticket) o;
-        return ticketID == ticket.ticketID && price == ticket.price && Objects.equals(eventID, ticket.eventID);
+    public TicketsType getTicketType() {
+        return ticketType;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(ticketID, eventID, price);
+    public void setTicketType(TicketsType ticketType) {
+        this.ticketType = ticketType;
     }
-
     @Override
     public String toString() {
         return "Ticket{" +
                 "ticketID=" + ticketID +
                 ", eventID=" + eventID +
                 ", price=" + price +
+                ", ticketType=" + ticketType +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Ticket ticket = (Ticket) o;
+        return ticketID == ticket.ticketID && price == ticket.price && Objects.equals(eventID, ticket.eventID) && Objects.equals(ticketType, ticket.ticketType);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(ticketID, eventID, price, ticketType);
+    }
+
+
 }

@@ -16,17 +16,10 @@ public class Event {
     public Event(int eventID, String eventName, Venue venueID, Date eventDate, Time startTime, Time endTime) {
         this.eventID = eventID;
         this.eventName = eventName;
-        this.eventDate = eventDate;
-        this.startTime = startTime;
-        this.endTime = endTime;
         this.venueID = venueID;
-    }
-    public Event(int eventID, String eventName, Date eventDate, Time startTime, Time endTime) {
-        this.eventID = eventID;
-        this.eventName = eventName;
-        this.eventDate = eventDate;
         this.startTime = startTime;
         this.endTime = endTime;
+        this.eventDate = eventDate;
     }
 
     public int getEventID() {

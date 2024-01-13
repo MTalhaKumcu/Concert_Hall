@@ -13,7 +13,7 @@ public class DBpropertiesUtil {
     }
 
     private static void loadProperties() {
-        try (InputStream stream = DBpropertiesUtil.class.getClassLoader().getResourceAsStream("src/main/resources/mapper/config.properties")){
+        try (InputStream stream = DBpropertiesUtil.class.getClassLoader().getResourceAsStream("config.properties")){
             PROPERTIES.load(stream);
         } catch (IOException ex) {
             throw new RuntimeException(ex);

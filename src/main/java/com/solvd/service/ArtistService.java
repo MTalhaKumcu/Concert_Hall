@@ -7,7 +7,7 @@ import java.util.List;
 
 public class ArtistService {
 
-    private final ArtistDAO artistDAO;
+    private ArtistDAO artistDAO;
 
     public ArtistService() {
         this.artistDAO = artistDAO;

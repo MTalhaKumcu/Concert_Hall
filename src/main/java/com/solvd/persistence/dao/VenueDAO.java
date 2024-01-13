@@ -9,7 +9,7 @@ public interface VenueDAO {
 
     Venue getVenuesByID(int venuesID);
 
-    List<Venue>getAllTickets();
+    List<Venue> getAllVenues();
 
     void addVenues(Venue venue);
 
