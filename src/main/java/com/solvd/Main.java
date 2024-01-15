@@ -36,7 +36,7 @@ public class Main {
             StaffRoleDAO staffRoleDAO = new JdbcStaffRoleDAO(connectionPool);
 
             // Example operations with ArtistDAO
-            LOGGER.debug("Fetching all artists:");
+            LOGGER.info("Fetching all artists:");
             List<Artist> artists = artistDAO.getAllArtists();
             artists.forEach(artist -> LOGGER.info(artist));
 
