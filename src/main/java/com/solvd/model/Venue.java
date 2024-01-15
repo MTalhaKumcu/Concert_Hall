@@ -15,6 +15,10 @@ public class Venue {
         this.location = location;
     }
 
+    public Venue() {
+
+    }
+
     public int getVenueID() {
         return venueID;
     }

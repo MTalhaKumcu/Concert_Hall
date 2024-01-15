@@ -7,7 +7,7 @@ import java.util.List;
 public interface TicketDAO {
     Ticket getTicketByID(int ticketID);
 
-    List<Ticket> getAllTickets();
+    List<Ticket> getAllTicket();
 
     void addTicket(Ticket ticket);
 

@@ -26,8 +26,8 @@ ALTER TABLE Staff ADD COLUMN  ArtistID INT;
 ALTER TABLE Staff ADD CONSTRAINT fk_ArtistStaff FOREIGN KEY (ArtistID) REFERENCES Artists(ArtistID);
 
 -- Add a column to order table and foreign key
-ALTER TABLE order ADD COLUMN  PaymentMethodID INT;
-ALTER TABLE order ADD CONSTRAINT fk_paymentMethod FOREIGN KEY (PaymentMethodID) REFERENCES PaymentMethods(PaymentMethodID);
+ALTER TABLE orders ADD COLUMN  PaymentMethodID INT;
+ALTER TABLE orders ADD CONSTRAINT fk_paymentMethod FOREIGN KEY (PaymentMethodID) REFERENCES PaymentMethods(PaymentMethodID);
 
 -- Drop a column to Ticket in TickeTypes 
 ALTER TABLE Tickets DROP COLUMN TicketType;

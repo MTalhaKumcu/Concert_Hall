@@ -17,7 +17,7 @@ public class TicketService {
     }
 
     public List<Ticket> getAllTickets() {
-        return ticketDAO.getAllTickets();
+        return ticketDAO.getAllTicket();
     }
 
     public void addTicket(Ticket ticket) {

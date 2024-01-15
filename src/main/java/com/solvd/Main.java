@@ -61,7 +61,7 @@ public class Main {
 
             // Example operations with TicketDAO
             LOGGER.info("Fetching all tickets:");
-            List<Ticket> tickets = ticketDAO.getAllTickets();
+            List<Ticket> tickets = ticketDAO.getAllTicket();
             tickets.forEach(ticket -> LOGGER.info(ticket));
 
             // Example operations with TicketTypeDAO
@@ -104,6 +104,9 @@ public class Main {
             List<StaffRole> staffRoles = staffRoleDAO.getAllStaffRoles();
             staffRoles.forEach(staffRole -> LOGGER.info(staffRole));
 
+        } catch (Exception e) {
+            LOGGER.error("An error occurred: {}", e.getMessage());
+            e.printStackTrace();
         } finally {
             // Close the connection pool
             ConnectionPool.closeConnectionPool();

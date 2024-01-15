@@ -131,7 +131,7 @@ public class JdbcEventDAO implements EventDAO {
         Time endTime = resultSet.getTime("EndTime");
         int venueID = resultSet.getInt("VenueID");
 
-        Venue venue = getEventByID(venueID).getVenueID();
+        Venue venue = new Venue();
 
 
         return new Event(eventID, eventName,venue ,eventDate, startTime, endTime);

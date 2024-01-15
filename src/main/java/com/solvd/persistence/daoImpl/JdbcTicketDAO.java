@@ -16,6 +16,7 @@ public class JdbcTicketDAO implements TicketDAO {
     public JdbcTicketDAO(ConnectionPool connectionPool) {
         this.connectionPool = connectionPool;
     }
+
     @Override
     public Ticket getTicketByID(int ticketID) {
         Ticket ticket = null;
@@ -34,10 +35,11 @@ public class JdbcTicketDAO implements TicketDAO {
             e.printStackTrace();
         }
 
-        return ticket;    }
+        return ticket;
+    }
 
     @Override
-    public List<Ticket> getAllTickets() {
+    public List<Ticket> getAllTicket() {
         List<Ticket> tickets = new ArrayList<>();
         String query = "SELECT * FROM Tickets";
 
@@ -53,7 +55,8 @@ public class JdbcTicketDAO implements TicketDAO {
             e.printStackTrace();
         }
 
-        return tickets;    }
+        return tickets;
+    }
 
     @Override
     public void addTicket(Ticket ticket) {
@@ -64,7 +67,7 @@ public class JdbcTicketDAO implements TicketDAO {
 
             statement.setInt(1, ticket.getEventID().getEventID());
             statement.setDouble(2, ticket.getPrice());
-            statement.setString(3, String.valueOf(ticket.getTicketType()));
+            statement.setInt(3, ticket.getTicketTypeID().getTicketTypeID());
 
             int affectedRows = statement.executeUpdate();
 
@@ -94,7 +97,7 @@ public class JdbcTicketDAO implements TicketDAO {
 
             statement.setInt(1, ticket.getEventID().getEventID());
             statement.setDouble(2, ticket.getPrice());
-            statement.setString(3, String.valueOf(ticket.getTicketType()));
+            statement.setInt(3, ticket.getTicketTypeID().getTicketTypeID());
             statement.setInt(4, ticket.getTicketID());
 
             statement.executeUpdate();
@@ -117,15 +120,18 @@ public class JdbcTicketDAO implements TicketDAO {
             e.printStackTrace();
         }
     }
+
     private Ticket mapResultSetToTicket(ResultSet resultSet) throws SQLException {
         int ticketID = resultSet.getInt("TicketID");
         int eventID = resultSet.getInt("EventID");
-        int price = resultSet.getInt("Price");
-        int ticketType = resultSet.getInt("ticketype");
-        Event event = getTicketByID(eventID).getEventID();
-        TicketsType ticketsType = getTicketByID(ticketType).getTicketType();
+        double price = resultSet.getDouble("Price");
+        int ticketTypeID = resultSet.getInt("TicketTypeID");
 
-        return new Ticket(ticketID, event , price, ticketsType);
+
+        Event event = getTicketByID(eventID).getEventID();
+        TicketsType ticketsType = getTicketByID(ticketTypeID).getTicketTypeID();
+
+        return new Ticket(ticketID, event, price, ticketsType);
 
     }
 }

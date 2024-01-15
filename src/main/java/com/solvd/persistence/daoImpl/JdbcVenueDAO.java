@@ -41,7 +41,7 @@ public class JdbcVenueDAO implements VenueDAO {
     @Override
     public List<Venue> getAllVenues() {
         List<Venue> venues = new ArrayList<>();
-        String query = "SELECT * FROM Venues";
+        String query = "SELECT * FROM Venue";
 
         try (Connection connection = connectionPool.getConnection();
              Statement statement = connection.createStatement();

@@ -15,6 +15,7 @@ CREATE TABLE IF NOT EXISTS Concert_Hall.artist (
     GenreID INT,
     CONSTRAINT fk_Genre FOREIGN KEY (GenreID) REFERENCES Genres(GenreID)
 );
+
 -- -----------------------------------------------------
 -- Schema genre
 -- -----------------------------------------------------
@@ -53,9 +54,9 @@ CREATE TABLE IF NOT EXISTS Concert_Hall.Tickets (
 	TicketID INT PRIMARY KEY,
     EventID INT,
     Price DECIMAL (10,2) NOT NULL,
-    TicketType VARCHAR(50),
     CONSTRAINT fk_Event FOREIGN KEY (EventID) REFERENCES Events(EventID)
 );
+select * from Tickets;
 -- -----------------------------------------------------
 -- Schema Customers
 -- -----------------------------------------------------

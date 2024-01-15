@@ -5,22 +5,20 @@ import java.util.Objects;
 
 public class Order {
     private int orderID;
-    private String customerName;
-    private String eventName;
+    private Customer customerID;
+    private Event eventID;
     private Date purchaseDate;
     private int totalAmount;
     private PaymentsMethod paymentMethodID;
 
-    public Order(int orderID, String customerName, String eventName, Date purchaseDate, int totalAmount) {
+    public Order(int orderID, Customer customerID, Event eventID, Date purchaseDate, int totalAmount) {
         this.orderID = orderID;
-        this.customerName = customerName;
-        this.eventName = eventName;
+        this.customerID = customerID;
+        this.eventID = eventID;
         this.purchaseDate = purchaseDate;
         this.totalAmount = totalAmount;
     }
 
-    public Order(int orderID, String customerName, String eventName, java.sql.Date purchaseDate, int totalAmount) {
-    }
 
 
     public int getOrderID() {
@@ -56,20 +54,20 @@ public class Order {
         this.paymentMethodID = paymentMethodID;
     }
 
-    public String getCustomerName() {
-        return customerName;
+    public Customer getCustomerID() {
+        return customerID;
     }
 
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
+    public void setCustomerID(Customer customerID) {
+        this.customerID = customerID;
     }
 
-    public String getEventName() {
-        return eventName;
+    public Event getEventID() {
+        return eventID;
     }
 
-    public void setEventName(String eventName) {
-        this.eventName = eventName;
+    public void setEventID(Event eventID) {
+        this.eventID = eventID;
     }
 
     @Override
@@ -77,20 +75,20 @@ public class Order {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Order order = (Order) o;
-        return orderID == order.orderID && totalAmount == order.totalAmount && Objects.equals(customerName, order.customerName) && Objects.equals(eventName, order.eventName) && Objects.equals(purchaseDate, order.purchaseDate) && Objects.equals(paymentMethodID, order.paymentMethodID);
+        return orderID == order.orderID && totalAmount == order.totalAmount && Objects.equals(customerID, order.customerID) && Objects.equals(eventID, order.eventID) && Objects.equals(purchaseDate, order.purchaseDate) && Objects.equals(paymentMethodID, order.paymentMethodID);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(orderID, customerName, eventName, purchaseDate, totalAmount, paymentMethodID);
+        return Objects.hash(orderID, customerID, eventID, purchaseDate, totalAmount, paymentMethodID);
     }
 
     @Override
     public String toString() {
         return "OrdersDAO{" +
                 "orderID=" + orderID +
-                ", customerID=" + customerName +
-                ", eventID=" + eventName +
+                ", customerID=" + customerID +
+                ", eventID=" + eventID +
                 ", purchaseDate='" + purchaseDate + '\'' +
                 ", totalAmount=" + totalAmount +
                 ", paymentMethodID=" + paymentMethodID +

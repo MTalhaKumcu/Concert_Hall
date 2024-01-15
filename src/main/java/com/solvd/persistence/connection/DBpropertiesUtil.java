@@ -8,12 +8,13 @@ import java.io.InputStream;
 public class DBpropertiesUtil {
 
     private static final Properties PROPERTIES = new Properties();
+
     static {
         loadProperties();
     }
 
     private static void loadProperties() {
-        try (InputStream stream = DBpropertiesUtil.class.getClassLoader().getResourceAsStream("config.properties")){
+        try (InputStream stream = DBpropertiesUtil.class.getClassLoader().getResourceAsStream("mapper/config.properties")) {
             PROPERTIES.load(stream);
         } catch (IOException ex) {
             throw new RuntimeException(ex);

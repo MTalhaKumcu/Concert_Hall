@@ -6,15 +6,17 @@ public class Ticket {
 
     private int ticketID;
     private Event eventID;
-    private int price;
-    private TicketsType ticketType;
+    private double price;
+    private TicketsType ticketTypeID;
 
-    public Ticket(int ticketID, Event eventID, int price, TicketsType ticketType) {
+
+    public Ticket(int ticketID, Event eventID, double price, TicketsType ticketTypeID) {
         this.ticketID = ticketID;
         this.eventID = eventID;
         this.price = price;
-        this.ticketType = ticketType;
+        this.ticketTypeID = ticketTypeID;
     }
+
 
     public int getTicketID() {
         return ticketID;
@@ -24,36 +26,39 @@ public class Ticket {
         this.ticketID = ticketID;
     }
 
+
     public Event getEventID() {
         return eventID;
+    }
+
+    public TicketsType getTicketTypeID() {
+        return ticketTypeID;
+    }
+
+    public void setTicketTypeID(TicketsType ticketTypeID) {
+        this.ticketTypeID = ticketTypeID;
     }
 
     public void setEventID(Event eventID) {
         this.eventID = eventID;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
-    public TicketsType getTicketType() {
-        return ticketType;
-    }
 
-    public void setTicketType(TicketsType ticketType) {
-        this.ticketType = ticketType;
-    }
     @Override
     public String toString() {
         return "Ticket{" +
                 "ticketID=" + ticketID +
                 ", eventID=" + eventID +
                 ", price=" + price +
-                ", ticketType=" + ticketType +
+                ", ticketType=" + ticketTypeID +
                 '}';
     }
 
@@ -62,13 +67,11 @@ public class Ticket {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Ticket ticket = (Ticket) o;
-        return ticketID == ticket.ticketID && price == ticket.price && Objects.equals(eventID, ticket.eventID) && Objects.equals(ticketType, ticket.ticketType);
+        return ticketID == ticket.ticketID && price == ticket.price && Objects.equals(eventID, ticket.eventID) && Objects.equals(ticketTypeID, ticket.ticketTypeID);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(ticketID, eventID, price, ticketType);
+        return Objects.hash(ticketID, eventID, price, ticketTypeID);
     }
-
-
 }

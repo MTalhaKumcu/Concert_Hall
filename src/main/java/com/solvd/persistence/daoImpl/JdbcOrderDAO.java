@@ -1,5 +1,7 @@
 package com.solvd.persistence.daoImpl;
 
+import com.solvd.model.Customer;
+import com.solvd.model.Event;
 import com.solvd.model.Order;
 import com.solvd.persistence.connection.ConnectionPool;
 import com.solvd.persistence.dao.OrderDAO;
@@ -63,8 +65,8 @@ public class JdbcOrderDAO implements OrderDAO {
         try (Connection connection = connectionPool.getConnection();
              PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
 
-            statement.setObject(1, order.getCustomerName());
-            statement.setObject(2, order.getEventName());
+            statement.setObject(1, order.getCustomerID());
+            statement.setObject(2, order.getEventID());
             statement.setDate(3, new java.sql.Date(order.getPurchaseDate().getTime()));
             statement.setDouble(4, order.getTotalAmount());
 
@@ -94,8 +96,8 @@ public class JdbcOrderDAO implements OrderDAO {
         try (Connection connection = connectionPool.getConnection();
              PreparedStatement statement = connection.prepareStatement(query)) {
 
-            statement.setObject(1, order.getCustomerName());
-            statement.setObject(2, order.getEventName());
+            statement.setObject(1, order.getCustomerID());
+            statement.setObject(2, order.getEventID());
             statement.setDate(3, new java.sql.Date(order.getPurchaseDate().getTime()));
             statement.setDouble(4, order.getTotalAmount());
             statement.setInt(5, order.getOrderID());
@@ -123,13 +125,16 @@ public class JdbcOrderDAO implements OrderDAO {
 
     private Order mapResultSetToOrder(ResultSet resultSet) throws SQLException {
         int orderID = resultSet.getInt("OrderID");
-        String customerName = resultSet.getString("customerName");
-        String eventName = resultSet.getString("eventName");
+        int customerID = resultSet.getInt("CustomerID");
+        int eventID = resultSet.getInt("EventID");
         Date purchaseDate = resultSet.getDate("PurchaseDate");
         int totalAmount = resultSet.getInt("TotalAmount");
 
+        Customer customer = getOrderByID(customerID).getCustomerID();
+        Event event = getOrderByID(eventID).getEventID();
 
-        return new Order(orderID, customerName, eventName, purchaseDate, totalAmount);
+        return new Order(orderID, customer, event, purchaseDate, totalAmount);
+
     }
 
 }

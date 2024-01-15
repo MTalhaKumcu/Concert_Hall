@@ -9,8 +9,8 @@ public class TicketsType {
     private String description;
 
     public TicketsType(int ticketTypeID, String ticketTypeName, String description) {
-        this.ticketTypeName = ticketTypeName;
         this.ticketTypeID = ticketTypeID;
+        this.ticketTypeName = ticketTypeName;
         this.description = description;
     }
 
@@ -58,6 +58,6 @@ public class TicketsType {
         return "TicketTypesDAO" +
                 "ticketTypeID=" + ticketTypeID +
                 ", ticketTypeName='" + ticketTypeName +
-                ", description='" + description ;
+                ", description='" + description;
     }
 }

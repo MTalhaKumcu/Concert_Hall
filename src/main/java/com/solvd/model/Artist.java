@@ -11,14 +11,6 @@ public class Artist {
     private String country;
     private Genre genreID;
 
-    public Artist(int artistID, String artistName, String artistSurame, Date birthDate, String country, Genre genreID) {
-        this.artistID = artistID;
-        this.artistName = artistName;
-        this.artistSurame = artistSurame;
-        this.birthDate = birthDate;
-        this.country = country;
-        this.genreID = genreID;
-    }
 
     public Artist(int artistID, String artistName, String artistSurame, Date birthDate, String country) {
         this.artistID = artistID;
