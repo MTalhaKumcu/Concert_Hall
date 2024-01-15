@@ -36,14 +36,17 @@ public class Main {
             StaffRoleDAO staffRoleDAO = new JdbcStaffRoleDAO(connectionPool);
 
             // Example operations with ArtistDAO
-            LOGGER.info("Fetching all artists:");
+            LOGGER.debug("Fetching all artists:");
             List<Artist> artists = artistDAO.getAllArtists();
             artists.forEach(artist -> LOGGER.info(artist));
+
+            System.out.println(artists);
 
             // Example operations with GenreDAO
             LOGGER.info("Fetching all genres:");
             List<Genre> genres = genreDAO.getAllGenres();
             genres.forEach(genre -> LOGGER.info(genre));
+
             System.out.println(genres);
 
             // Example operations with EventDAO

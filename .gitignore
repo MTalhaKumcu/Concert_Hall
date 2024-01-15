@@ -1,4 +1,5 @@
 .idea
+/logs/app.log
 target/
 src/main/resources/mapper/config.properties
 
