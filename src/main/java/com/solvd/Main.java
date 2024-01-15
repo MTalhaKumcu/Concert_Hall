@@ -40,14 +40,11 @@ public class Main {
             List<Artist> artists = artistDAO.getAllArtists();
             artists.forEach(artist -> LOGGER.info(artist));
 
-            LOGGER.info("Fetching artist with ID 1:");
-            Artist artist = artistDAO.getArtistsByID(1);
-            LOGGER.info(artist);
-
             // Example operations with GenreDAO
             LOGGER.info("Fetching all genres:");
             List<Genre> genres = genreDAO.getAllGenres();
             genres.forEach(genre -> LOGGER.info(genre));
+            System.out.println(genres);
 
             // Example operations with EventDAO
             LOGGER.info("Fetching all events:");
