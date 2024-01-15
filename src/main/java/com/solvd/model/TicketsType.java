@@ -14,6 +14,12 @@ public class TicketsType {
         this.description = description;
     }
 
+    public TicketsType(int ticketTypeID) {
+        this.ticketTypeID = ticketTypeID;
+
+    }
+
+
     public int getTicketTypeID() {
         return ticketTypeID;
     }

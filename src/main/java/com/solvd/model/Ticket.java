@@ -17,6 +17,10 @@ public class Ticket {
         this.ticketTypeID = ticketTypeID;
     }
 
+    public Ticket(int ticketID) {
+        this.ticketID = ticketID;
+    }
+
 
     public int getTicketID() {
         return ticketID;

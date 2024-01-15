@@ -125,11 +125,15 @@ public class JdbcOrderItemDAO implements OrderItemDAO {
     }
     private OrderItem mapResultSetToOrderItem(ResultSet resultSet) throws SQLException {
         int orderItemID = resultSet.getInt("OrderItemID");
-        Order orderID = (Order) resultSet.getObject("OrderID");
-        Ticket ticketID = (Ticket) resultSet.getObject("TicketID");
+        int orderID = resultSet.getInt("OrderID");
+        int ticketID = resultSet.getInt("TicketID");
         int quantity = resultSet.getInt("Quantity");
         int subtotal = resultSet.getInt("Subtotal");
-        return new OrderItem(orderItemID, orderID, ticketID, quantity, subtotal);
+
+        Order order = new Order(orderID);
+        Ticket ticket = new Ticket(ticketID);
+
+        return new OrderItem(orderItemID, order, ticket, quantity, subtotal);
 
     }
 }

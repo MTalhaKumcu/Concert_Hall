@@ -19,6 +19,9 @@ public class Order {
         this.totalAmount = totalAmount;
     }
 
+    public Order(int orderID) {
+        this.orderID = orderID;
+    }
 
 
     public int getOrderID() {

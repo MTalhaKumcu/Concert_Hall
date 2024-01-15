@@ -128,9 +128,9 @@ public class JdbcTicketDAO implements TicketDAO {
         int ticketTypeID = resultSet.getInt("TicketTypeID");
 
 
-        Event event = getTicketByID(eventID).getEventID();
-        TicketsType ticketsType = getTicketByID(ticketTypeID).getTicketTypeID();
 
+        Event event = new Event(eventID);
+        TicketsType ticketsType = new TicketsType(ticketTypeID);
         return new Ticket(ticketID, event, price, ticketsType);
 
     }

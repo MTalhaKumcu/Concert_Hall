@@ -22,6 +22,10 @@ public class Event {
         this.eventDate = eventDate;
     }
 
+    public Event(int eventID) {
+        this.eventID = eventID;
+    }
+
     public int getEventID() {
         return eventID;
     }

@@ -20,6 +20,11 @@ public class Customer {
 
     }
 
+    public Customer(int customerID) {
+        this.customerID = customerID;
+
+    }
+
     public int getCustomerID() {
         return customerID;
     }

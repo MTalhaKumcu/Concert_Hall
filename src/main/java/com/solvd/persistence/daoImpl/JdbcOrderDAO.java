@@ -130,8 +130,8 @@ public class JdbcOrderDAO implements OrderDAO {
         Date purchaseDate = resultSet.getDate("PurchaseDate");
         int totalAmount = resultSet.getInt("TotalAmount");
 
-        Customer customer = getOrderByID(customerID).getCustomerID();
-        Event event = getOrderByID(eventID).getEventID();
+        Customer customer = new Customer(customerID);
+        Event event = new Event(eventID);
 
         return new Order(orderID, customer, event, purchaseDate, totalAmount);
 
