@@ -8,20 +8,22 @@ import com.solvd.persistence.daoImpl.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.sql.*;
+
+
 import java.util.List;
 
 
 public class Main {
     private static final Logger LOGGER = LogManager.getLogger(Main.class);
 
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) {
 
         ConnectionPool connectionPool = new ConnectionPool();
 
         try {
             // Create DAO instances
             ArtistDAO artistDAO = new JdbcArtistDAO(connectionPool);
+
             GenreDAO genreDAO = new JdbcGenreDAO(connectionPool);
             EventDAO eventDAO = new JdbcEventDAO(connectionPool);
             VenueDAO venueDAO = new JdbcVenueDAO(connectionPool);
@@ -41,6 +43,7 @@ public class Main {
             artists.forEach(artist -> LOGGER.info(artist));
 
             System.out.println(artists);
+
 
             // Example operations with GenreDAO
             LOGGER.info("Fetching all genres:");
