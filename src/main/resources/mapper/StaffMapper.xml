@@ -1,0 +1,40 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.solvd.persistence.dao.StaffDAO">
+
+    <resultMap id="staffResultMap" type="com.solvd.model.Staff">
+        <id column="StaffId" property="staffId"/>
+        <result column="StaffArtistID" property="staffArtistID"/>
+        <result column="FirstName" property="firstName"/>
+        <result column="LastName" property="lastName"/>
+        <result column="Position" property="position"/>
+    </resultMap>
+
+    <select id="getStaffById" resultMap="staffResultMap">
+        SELECT * FROM Staffs WHERE StaffId = #{staffId}
+    </select>
+
+    <select id="getAllStaff" resultMap="staffResultMap">
+        SELECT * FROM Staffs
+    </select>
+
+    <insert id="addStaff" parameterType="com.solvd.model.Staff" useGeneratedKeys="true" keyProperty="staffId">
+        INSERT INTO Staffs (StaffArtistID, FirstName, LastName, Position)
+        VALUES (#{staffArtistID}, #{firstName}, #{lastName}, #{position})
+    </insert>
+
+    <update id="updateStaff">
+        UPDATE Staffs SET
+        StaffArtistID = #{staffArtistID},
+        FirstName = #{firstName},
+        LastName = #{lastName},
+        Position = #{position}
+        WHERE StaffId = #{staffId}
+    </update>
+
+    <delete id="deleteStaff">
+        DELETE FROM Staffs WHERE StaffId = #{staffId}
+    </delete>
+
+</mapper>

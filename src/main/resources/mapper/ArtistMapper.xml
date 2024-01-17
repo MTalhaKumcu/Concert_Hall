@@ -1,0 +1,41 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.persistence.dao.ArtistDAO">
+    <resultMap id="artistResultMap" type="com.solvd.model.Artist">
+        <id column="ArtistID" property="artistID"/>
+        <result column="ArtistName" property="artistName"/>
+        <result column="ArtistSurname" property="artistSurname"/>
+        <result column="BirthDate" property="birthdate"/>
+        <result column="Country" property="country"/>
+    </resultMap>
+
+    <select id="getArtistByID" resultMap="artistResultMap">
+        SELECT * FROM Artists WHERE ArtistID = #{artistID}
+    </select>
+    <select id="getAllArtists" resultMap="artistResultMap">
+        SELECT * FROM Artists
+    </select>
+    <insert id="addArtist" parameterType="com.solvd.model.Artist" useGeneratedKeys="true" keyProperty="artistID">
+
+        INSERT INTO Artists (ArtistName, ArtistSurname, BirthDate, Country)
+        VALUES (#{artistName}, #{artistSurname}, #{birthDate}, #{country})
+
+    </insert>
+
+    <update id="updateArtist">
+
+        UPDATE Artist SET
+        ArtistName = #{artistName},
+        ArtistSurname = #{artistSurname},
+        BirthDate = #{birthDate},
+        Country = #{country}
+        WHERE ArtistID = #{artistID}
+
+    </update>
+
+    <delete id="deleteArtist">
+
+        DELETE FROM Artists WHERE ArtistID = #{artistID}
+
+    </delete>
+</mapper>

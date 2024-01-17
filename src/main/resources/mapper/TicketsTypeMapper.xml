@@ -1,0 +1,36 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.solvd.persistence.dao.TicketTypeDAO">
+
+    <resultMap id="ticketTypeResultMap" type="com.solvd.model.TicketType">
+        <id column="TicketTypeId" property="ticketTypeId"/>
+        <result column="TicketTypeName" property="TicketTypeName"/>
+        <result column="Description" property="description"/>
+
+    </resultMap>
+
+    <select id="getTicketTypeById" resultMap="ticketTypeResultMap">
+        SELECT * FROM TicketTypes WHERE TicketTypeId = #{ticketTypeId}
+    </select>
+
+    <select id="getAllTicketTypes" resultMap="ticketTypeResultMap">
+        SELECT * FROM TicketTypes
+    </select>
+
+    <insert id="addTicketType" parameterType="com.solvd.model.TicketType" useGeneratedKeys="true" keyProperty="ticketTypeId">
+        INSERT INTO TicketTypes (TicketTypeName)
+        VALUES (#{ticketTypeName})
+    </insert>
+
+    <update id="updateTicketType">
+        UPDATE TicketTypes SET
+        TicketTypeName = #{ticketTypeName}
+        WHERE TicketTypeId = #{ticketTypeId}
+    </update>
+
+    <delete id="deleteTicketType">
+        DELETE FROM TicketTypes WHERE TicketTypeId = #{ticketTypeId}
+    </delete>
+
+</mapper>

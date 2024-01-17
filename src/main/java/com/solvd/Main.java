@@ -42,9 +42,6 @@ public class Main {
             List<Artist> artists = artistDAO.getAllArtists();
             artists.forEach(artist -> LOGGER.info(artist));
 
-            System.out.println(artists);
-
-
             // Example operations with GenreDAO
             LOGGER.info("Fetching all genres:");
             List<Genre> genres = genreDAO.getAllGenres();

@@ -1,4 +1,4 @@
-package com.solvd.service;
+package com.solvd.service.JdbcDaoService;
 
 import com.solvd.model.Venue;
 import com.solvd.persistence.dao.VenueDAO;

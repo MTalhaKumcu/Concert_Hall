@@ -1,0 +1,36 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.solvd.persistence.dao.StaffRoleDAO">
+
+    <resultMap id="staffRoleResultMap" type="com.solvd.model.StaffRole">
+        <id column="StaffRoleId" property="staffRoleId"/>
+        <result column="StaffID" property="staffID"/>
+        <result column="RoleID" property="roleID"/>
+    </resultMap>
+
+    <select id="getStaffRoleById" resultMap="staffRoleResultMap">
+        SELECT * FROM StaffRoles WHERE StaffRoleId = #{staffRoleId}
+    </select>
+
+    <select id="getAllStaffRoles" resultMap="staffRoleResultMap">
+        SELECT * FROM StaffRoles
+    </select>
+
+    <insert id="addStaffRole" parameterType="com.solvd.model.StaffRole" useGeneratedKeys="true" keyProperty="staffRoleId">
+        INSERT INTO StaffRoles (StaffID ,RoleID)
+        VALUES (#(staffID), #{roleID})
+    </insert>
+
+    <update id="updateStaffRole">
+        UPDATE StaffRoles SET
+        RoleName = #{roleName},
+        StaffID = #(staffID)
+        WHERE StaffRoleId = #{staffRoleId}
+    </update>
+
+    <delete id="deleteStaffRole">
+        DELETE FROM StaffRoles WHERE StaffRoleId = #{staffRoleId}
+    </delete>
+
+</mapper>

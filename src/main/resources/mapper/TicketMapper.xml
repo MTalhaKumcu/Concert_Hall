@@ -1,0 +1,38 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.solvd.persistence.dao.TicketDAO">
+
+    <resultMap id="ticketResultMap" type="com.solvd.model.Ticket">
+        <id column="TicketId" property="ticketId"/>
+        <result column="EventID" property="eventID"/>
+        <result column="Price" property="price"/>
+        <result column="TicketTypeID" property="ticketTypeID"/>
+    </resultMap>
+
+    <select id="getTicketById" resultMap="ticketResultMap">
+        SELECT * FROM Tickets WHERE TicketId = #{ticketId}
+    </select>
+
+    <select id="getAllTickets" resultMap="ticketResultMap">
+        SELECT * FROM Tickets
+    </select>
+
+    <insert id="addTicket" parameterType="com.solvd.model.Ticket" useGeneratedKeys="true" keyProperty="ticketId">
+        INSERT INTO Tickets (EventID, Price, TicketTypeID)
+        VALUES (#{eventID}, #{price}, #{ticketTypeID})
+    </insert>
+
+    <update id="updateTicket">
+        UPDATE Tickets SET
+        EventID = #{eventID},
+        Price = #{price},
+        TicketTypeID = #{ticketTypeID}
+        WHERE TicketId = #{ticketId}
+    </update>
+
+    <delete id="deleteTicket">
+        DELETE FROM Tickets WHERE TicketId = #{ticketId}
+    </delete>
+
+</mapper>

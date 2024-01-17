@@ -1,0 +1,40 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.solvd.persistence.dao.OrderItemDAO">
+
+    <resultMap id="orderItemResultMap" type="com.solvd.model.OrderItem">
+        <id column="OrderItemId" property="orderItemId"/>
+        <result column="OrderId" property="orderId"/>
+        <result column="TicketID" property="ticketID"/>
+        <result column="Quantity" property="quantity"/>
+        <result column="TicketID" property="subTotal"/>
+    </resultMap>
+
+    <select id="getOrderItemById" resultMap="orderItemResultMap">
+        SELECT * FROM OrderItems WHERE OrderItemId = #{orderItemId}
+    </select>
+
+    <select id="getAllOrderItems" resultMap="orderItemResultMap">
+        SELECT * FROM OrderItems
+    </select>
+
+    <insert id="addOrderItem" parameterType="com.solvd.model.OrderItem" useGeneratedKeys="true" keyProperty="orderItemId">
+        INSERT INTO OrderItems (OrderId, TicketID, Quantity, SubTotal)
+        VALUES (#{orderId}, #{ticketID}, #{quantity}, #{subTotal})
+    </insert>
+
+    <update id="updateOrderItem">
+        UPDATE OrderItems SET
+        OrderId = #{orderId},
+        TicketID = #{ticketID},
+        Quantity = #{quantity},
+        SubTotal = #{subTotal}
+        WHERE OrderItemId = #{orderItemId}
+    </update>
+
+    <delete id="deleteOrderItem">
+        DELETE FROM OrderItems WHERE OrderItemId = #{orderItemId}
+    </delete>
+
+</mapper>

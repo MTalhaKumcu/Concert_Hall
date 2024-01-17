@@ -18,6 +18,8 @@
         </environment>
     </environments>g
     <mappers>
-        <mapper resource="src/main/resources/mapper/my-Batis.xml" />
+
+        <mapper resource="com/solvd/persistence/dao/ArtistMapper.xml"/>
+
     </mappers>
 </configuration>

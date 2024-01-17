@@ -1,4 +1,4 @@
-package com.solvd.service;
+package com.solvd.service.JdbcDaoService;
 
 import com.solvd.model.OrderItem;
 import com.solvd.persistence.dao.OrderItemDAO;

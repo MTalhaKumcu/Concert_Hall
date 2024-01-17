@@ -1,0 +1,43 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.solvd.persistence.dao.OrderDAO">
+
+    <resultMap id="orderResultMap" type="com.solvd.model.Order">
+        <id column="OrderId" property="orderId"/>
+        <result column="CustomerId" property="customerId"/>
+        <result column="EventID" property="eventID"/>
+        <result column="PurchaseDate" property="purchaseDate"/>
+        <result column="TotalAmount" property="totalAmount"/>
+        <result column="PaymentsMethod" property="paymentsMethod"/>
+    </resultMap>
+
+    <select id="getOrderById" resultMap="orderResultMap">
+        SELECT * FROM Orders WHERE OrderId = #{orderId}
+    </select>
+
+    <select id="getAllOrders" resultMap="orderResultMap">
+        SELECT * FROM Orders
+    </select>
+
+    <insert id="addOrder" parameterType="com.solvd.model.Order" useGeneratedKeys="true" keyProperty="orderId">
+        INSERT INTO Orders (CustomerId, EventID, PurchaseDate, TotalAmount, paymentsMethod)
+        VALUES (#{customerId}, #{eventID}, #{purchaseDate}, #{totalAmount}, #{paymentsMethod})
+    </insert>
+
+    <update id="updateOrder">
+        UPDATE Orders SET
+        CustomerId = #{customerId},
+        OrderDate = #{orderDate},
+        EventID = #{eventID},
+        PurchaseDate = #{purchaseDate},
+        TotalAmount = #{totalAmount},
+        PaymentsMethod = #{paymentsMethod}
+        WHERE OrderId = #{orderId}
+    </update>
+
+    <delete id="deleteOrder">
+        DELETE FROM Orders WHERE OrderId = #{orderId}
+    </delete>
+
+</mapper>

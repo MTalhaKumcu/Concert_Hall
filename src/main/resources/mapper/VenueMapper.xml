@@ -1,0 +1,38 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.solvd.persistence.dao.VenueDAO">
+
+    <resultMap id="venueResultMap" type="com.solvd.model.Venue">
+        <id column="VenueId" property="venueId"/>
+        <result column="VenueName" property="venueName"/>
+        <result column="Capacity" property="capacity"/>
+        <result column="Location" property="location"/>
+    </resultMap>
+
+    <select id="getVenueById" resultMap="venueResultMap">
+        SELECT * FROM Venues WHERE VenueId = #{venueId}
+    </select>
+
+    <select id="getAllVenues" resultMap="venueResultMap">
+        SELECT * FROM Venues
+    </select>
+
+    <insert id="addVenue" parameterType="com.solvd.model.Venue" useGeneratedKeys="true" keyProperty="venueId">
+        INSERT INTO Venues (VenueName, Capacity, Location)
+        VALUES (#{venueName}, #{capacity}, #{location})
+    </insert>
+
+    <update id="updateVenue">
+        UPDATE Venues SET
+        VenueName = #{venueName},
+        Capacity = #{capacity},
+        Location = #{location}
+        WHERE VenueId = #{venueId}
+    </update>
+
+    <delete id="deleteVenue">
+        DELETE FROM Venues WHERE VenueId = #{venueId}
+    </delete>
+
+</mapper>

@@ -1,0 +1,36 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.solvd.persistence.dao.PaymentMethodDAO">
+
+    <resultMap id="paymentMethodResultMap" type="com.solvd.model.PaymentMethod">
+        <id column="PaymentMethodId" property="paymentMethodId"/>
+        <result column="PaymentMethodName" property="paymentMethodName"/>
+        <result column="Description" property="description"/>
+
+    </resultMap>
+
+    <select id="getPaymentMethodById" resultMap="paymentMethodResultMap">
+        SELECT * FROM PaymentMethods WHERE PaymentMethodId = #{paymentMethodId}
+    </select>
+
+    <select id="getAllPaymentMethods" resultMap="paymentMethodResultMap">
+        SELECT * FROM PaymentMethods
+    </select>
+
+    <insert id="addPaymentMethod" parameterType="com.solvd.model.PaymentMethod" useGeneratedKeys="true" keyProperty="paymentMethodId">
+        INSERT INTO PaymentMethods (PaymentMethodName)
+        VALUES (#{paymentMethodName})
+    </insert>
+
+    <update id="updatePaymentMethod">
+        UPDATE PaymentMethods SET
+        PaymentMethodName = #{paymentMethodName}
+        WHERE PaymentMethodId = #{paymentMethodId}
+    </update>
+
+    <delete id="deletePaymentMethod">
+        DELETE FROM PaymentMethods WHERE PaymentMethodId = #{paymentMethodId}
+    </delete>
+
+</mapper>

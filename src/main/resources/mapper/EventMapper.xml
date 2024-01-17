@@ -1,0 +1,42 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.solvd.persistence.dao.EventDAO">
+
+    <resultMap id="eventResultMap" type="com.solvd.model.Event">
+        <id column="EventId" property="eventId"/>
+        <result column="EventName" property="eventName"/>
+        <result column="EventDate" property="eventDate"/>
+        <result column="StartTime" property="startTime"/>
+        <result column="startTime" property="endTime"/>
+        <result column="VenueID" property="venueID"/>
+    </resultMap>
+
+    <select id="getEventById" resultMap="eventResultMap">
+        SELECT * FROM Events WHERE EventId = #{eventId}
+    </select>
+
+    <select id="getAllEvents" resultMap="eventResultMap">
+        SELECT * FROM Events
+    </select>
+
+    <insert id="addEvent" parameterType="com.solvd.model.Event" useGeneratedKeys="true" keyProperty="eventId">
+        INSERT INTO Events (EventName, EventDate, StartTime, EndTime ,VenueID)
+        VALUES (#{eventName}, #{eventDate}, #{startTime}, #{endTime}, #{venueID})
+    </insert>
+
+    <update id="updateEvent">
+        UPDATE Events SET
+        EventName = #{eventName},
+        EventDate = #{eventDate},
+        StartTime = #{startTime}
+        EndTime = #{endTime}
+        VenueID =-#{venueID}
+        WHERE EventId = #{eventId}
+    </update>
+
+    <delete id="deleteEvent">
+        DELETE FROM Events WHERE EventId = #{eventId}
+    </delete>
+
+</mapper>

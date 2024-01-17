@@ -1,0 +1,48 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.solvd.persistence.dao.CustomerDAO">
+
+    <resultMap id="customerResultMap" type="com.solvd.model.Customer">
+
+        <id column="CustomerID" property="customerID"/>
+        <id column="FirstName" property="firstName"/>
+        <id column="LastName" property="lastName"/>
+        <id column="Email" property="email"/>
+
+    </resultMap>
+
+    <select id="getCustomerByID" resultMap="customerResultMap">
+
+        SELECT * FROM Customers WHERE CustomerId = #{customerId}
+
+    </select>
+
+    <select id="getAllCustomers" resultMap="customerResultMap">
+
+        SELECT * FROM Customers
+
+    </select>
+
+    <insert id="addCustomer" parameterType="com.solvd.model.Customer" useGeneratedKeys="true" keyProperty="customerId">
+
+        INSERT INTO Customers (FirstName, LastName, Email)
+        VALUES (#{firstName}, #{lastName}, #{email})
+
+    </insert>
+
+    <update id="updateCustomer">
+
+        UPDATE Customers SET
+        FirstName = #{firstName},
+        LastName = #{lastName},
+        Email = #{email}
+        WHERE CustomerId = #{customerId}
+
+    </update>
+
+    <delete id="deleteCustomer">
+        DELETE FROM Customers WHERE CustomerId = #{customerId}
+    </delete>
+
+</mapper>
