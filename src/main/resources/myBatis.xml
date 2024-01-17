@@ -19,7 +19,20 @@
     </environments>g
     <mappers>
 
-        <mapper resource="com/solvd/persistence/dao/ArtistMapper.xml"/>
+        <mapper resource="mappers/ArtistMapper.xml"/>
+        <mapper resource="mappers/CustomerMapper.xml"/>
+        <mapper resource="mappers/EventMapper.xml"/>
+        <mapper resource="mappers/GenreMapper.xml"/>
+        <mapper resource="mappers/OrderMapper.xml"/>
+        <mapper resource="mappers/OrderItemMapper.xml"/>
+        <mapper resource="mappers/PaymentsMethodMapper.xml"/>
+        <mapper resource="mappers/RoleMapper.xml"/>
+        <mapper resource="mappers/StaffMapper.xml"/>
+        <mapper resource="mappers/StaffRoleMapper.xml"/>
+        <mapper resource="mappers/TicketMapper.xml"/>
+        <mapper resource="mappers/TicketstypeMapper.xml"/>
+        <mapper resource="mappers/VenueMapper.xml"/>
+
 
     </mappers>
 </configuration>
