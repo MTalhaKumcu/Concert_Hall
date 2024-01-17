@@ -22,8 +22,11 @@ public class Event {
         this.eventDate = eventDate;
     }
 
+    public Event() {
+
+    }
+
     public Event(int eventID) {
-        this.eventID = eventID;
     }
 
     public int getEventID() {
@@ -97,5 +100,12 @@ public class Event {
     @Override
     public int hashCode() {
         return Objects.hash(eventID, eventName, eventDate, startTime, endTime, venueID);
+    }
+
+
+    public void setStartTime(int hour, int min, int sec) {
+    }
+
+    public void setEndTime(int hour, int min, int sec) {
     }
 }

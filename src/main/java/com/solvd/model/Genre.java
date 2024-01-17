@@ -12,6 +12,10 @@ public class Genre {
         this.genreName = genreName;
     }
 
+    public Genre() {
+
+    }
+
     public int getGenreID() {
         return genreID;
     }
@@ -23,7 +27,7 @@ public class Genre {
     public String getGenreName(){
         return  genreName;
     }
-    public void setGenreName(){
+    public void setGenreName(String countryMusic){
         this.genreName = genreName;
     }
 

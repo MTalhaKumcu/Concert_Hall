@@ -19,6 +19,10 @@ public class TicketsType {
 
     }
 
+    public TicketsType() {
+
+    }
+
 
     public int getTicketTypeID() {
         return ticketTypeID;

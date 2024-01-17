@@ -13,6 +13,10 @@ public class StaffRole {
         this.roleID = roleID;
     }
 
+    public StaffRole() {
+
+    }
+
     public int getStaffRoleID() {
         return staffRoleID;
     }

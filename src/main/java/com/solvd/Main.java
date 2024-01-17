@@ -9,7 +9,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 
-
+import java.sql.Date;
+import java.sql.Time;
+import java.time.LocalTime;
 import java.util.List;
 
 
@@ -37,22 +39,45 @@ public class Main {
             RoleDAO roleDAO = new JdbcRoleDAO(connectionPool);
             StaffRoleDAO staffRoleDAO = new JdbcStaffRoleDAO(connectionPool);
 
+
+            Artist newArtist = new Artist();
+            newArtist.setArtistName("Mehmet");
+            newArtist.setArtistSurame("Kumcu");
+            newArtist.setBirthDate(new Date(1997,3,31)); // Set birth date accordingly
+            newArtist.setCountry("TURKEY");
+            artistDAO.addArtist(newArtist);
+            LOGGER.info("New artist added: ", newArtist);
+
+
             // Example operations with ArtistDAO
             LOGGER.info("Fetching all artists:");
             List<Artist> artists = artistDAO.getAllArtists();
             artists.forEach(artist -> LOGGER.info(artist));
+
+            Genre newGenre = new Genre();
+            newGenre.setGenreID(15);
+            newGenre.setGenreName("country music");
+            LOGGER.info("New genre added:", newGenre);
+
 
             // Example operations with GenreDAO
             LOGGER.info("Fetching all genres:");
             List<Genre> genres = genreDAO.getAllGenres();
             genres.forEach(genre -> LOGGER.info(genre));
 
-            System.out.println(genres);
-
             // Example operations with EventDAO
             LOGGER.info("Fetching all events:");
             List<Event> events = eventDAO.getAllEvents();
             events.forEach(event -> LOGGER.info(event));
+
+            Venue newVenue = new Venue();
+            newVenue.setVenueID(20);
+            newVenue.setVenueName("Solvd Main Saloon");
+            newVenue.setCapacity(200);
+            newVenue.setLocation("Aleja Jerozolimskie 98");
+
+            LOGGER.info("New venue added:", newVenue);
+
 
             // Example operations with VenueDAO
             LOGGER.info("Fetching all venues:");
@@ -63,6 +88,7 @@ public class Main {
             LOGGER.info("Fetching all tickets:");
             List<Ticket> tickets = ticketDAO.getAllTicket();
             tickets.forEach(ticket -> LOGGER.info(ticket));
+
 
             // Example operations with TicketTypeDAO
             LOGGER.info("Fetching all ticket types:");
@@ -105,12 +131,15 @@ public class Main {
             staffRoles.forEach(staffRole -> LOGGER.info(staffRole));
 
         } catch (Exception e) {
-            LOGGER.error("An error occurred: {}", e.getMessage());
+            LOGGER.error("An error occurred: ", e.getMessage());
             e.printStackTrace();
         } finally {
             // Close the connection pool
             ConnectionPool.closeConnectionPool();
         }
+
+
+
     }
 
 }
