@@ -23,12 +23,11 @@ public class TicketsType {
 
     }
 
-
     public int getTicketTypeID() {
         return ticketTypeID;
     }
 
-    public void setTicketTypeID(int ticketsTypeID) {
+    public void setTicketTypeID(int ticketTypeID) {
         this.ticketTypeID = ticketTypeID;
     }
 
@@ -36,7 +35,7 @@ public class TicketsType {
         return ticketTypeName;
     }
 
-    public void setTicketTypeName() {
+    public void setTicketTypeName(String ticketTypeName) {
         this.ticketTypeName = ticketTypeName;
     }
 
@@ -44,7 +43,7 @@ public class TicketsType {
         return description;
     }
 
-    public void setDescription() {
+    public void setDescription(String description) {
         this.description = description;
     }
 

@@ -12,6 +12,9 @@
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <log4jversion>2.21.1</log4jversion>
+        <jaxbversion>4.0.4</jaxbversion>
+        <jacksonversion>2.16.1</jacksonversion>
     </properties>
 
     <dependencies>

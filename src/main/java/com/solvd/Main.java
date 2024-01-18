@@ -5,6 +5,7 @@ import com.solvd.model.*;
 import com.solvd.persistence.connection.ConnectionPool;
 import com.solvd.persistence.dao.*;
 import com.solvd.persistence.daoImpl.*;
+import com.solvd.persistence.mybatis.CustomerMybatis;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -49,16 +50,43 @@ public class Main {
             LOGGER.info("New artist added: ", newArtist);
 
 
-            // Example operations with ArtistDAO
-            LOGGER.info("Fetching all artists:");
-            List<Artist> artists = artistDAO.getAllArtists();
-            artists.forEach(artist -> LOGGER.info(artist));
-
             Genre newGenre = new Genre();
             newGenre.setGenreID(15);
             newGenre.setGenreName("country music");
             LOGGER.info("New genre added:", newGenre);
 
+            Venue newVenue = new Venue();
+            newVenue.setVenueID(20);
+            newVenue.setVenueName("Solvd Main Saloon");
+            newVenue.setCapacity(200);
+            newVenue.setLocation("Aleja Jerozolimskie 98");
+            LOGGER.info("New venue added:", newVenue);
+
+
+            TicketsType newTicketsType = new TicketsType();
+            newTicketsType.setTicketTypeID(20);
+            newTicketsType.setTicketTypeName("new disable status");
+            newTicketsType.setDescription("Autism person");
+            LOGGER.info("new ticket type added",newTicketsType);
+
+            PaymentsMethod newPaymentsMethod = new PaymentsMethod();
+            newPaymentsMethod.setPaymentMethodID(6);
+            newPaymentsMethod.setPaymentMethodName("exchange method");
+            newPaymentsMethod.setDescription("exchange method is new payments way to pay");
+            LOGGER.info("new payment method added",newPaymentsMethod);
+
+            Customer newCustomer = new Customer();
+            newCustomer.setCustomerID(123);
+            newCustomer.setFirstName("deniz");
+            newCustomer.setLastName("gunduz");
+            newCustomer.setEmail("deniz@solvd.com");
+            LOGGER.info("new customer added", newCustomer);
+
+
+            // Example operations with ArtistDAO
+            LOGGER.info("Fetching all artists:");
+            List<Artist> artists = artistDAO.getAllArtists();
+            artists.forEach(artist -> LOGGER.info(artist));
 
             // Example operations with GenreDAO
             LOGGER.info("Fetching all genres:");
@@ -70,15 +98,6 @@ public class Main {
             List<Event> events = eventDAO.getAllEvents();
             events.forEach(event -> LOGGER.info(event));
 
-            Venue newVenue = new Venue();
-            newVenue.setVenueID(20);
-            newVenue.setVenueName("Solvd Main Saloon");
-            newVenue.setCapacity(200);
-            newVenue.setLocation("Aleja Jerozolimskie 98");
-
-            LOGGER.info("New venue added:", newVenue);
-
-
             // Example operations with VenueDAO
             LOGGER.info("Fetching all venues:");
             List<Venue> venues = venueDAO.getAllVenues();
@@ -88,7 +107,6 @@ public class Main {
             LOGGER.info("Fetching all tickets:");
             List<Ticket> tickets = ticketDAO.getAllTicket();
             tickets.forEach(ticket -> LOGGER.info(ticket));
-
 
             // Example operations with TicketTypeDAO
             LOGGER.info("Fetching all ticket types:");

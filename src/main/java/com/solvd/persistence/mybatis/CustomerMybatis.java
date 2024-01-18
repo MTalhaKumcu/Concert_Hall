@@ -9,7 +9,7 @@ import java.util.List;
 
 public class CustomerMybatis implements CustomerDAO {
     @Override
-    public Customer getCustomerByID(int customerID) {
+    public  Customer getCustomerByID(int customerID) {
        try (SqlSession  session = MyBatisConnection.getSqlSessionFactory().openSession()){
            return session.selectOne("com.solvd.persistence.dao.CustomerDAO.getCustomerByID",customerID);
        }

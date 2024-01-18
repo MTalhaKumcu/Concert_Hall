@@ -2,41 +2,49 @@ package com.solvd.model;
 
 public class PaymentsMethod {
 
-    private static int paymentMethodID;
-    private static String paymentMethodName;
-    private static String description;
+    private int paymentMethodID;
+    private String paymentMethodName;
+    private String description;
 
     public PaymentsMethod(int paymentMethodID, String paymentMethodName, String description) {
 
-        PaymentsMethod.paymentMethodID = paymentMethodID;
-        PaymentsMethod.paymentMethodName = paymentMethodName;
-        PaymentsMethod.description = description;
+        this.paymentMethodID = paymentMethodID;
+        this.paymentMethodName = paymentMethodName;
+        this.description = description;
         // it did not find non-static intance variable cuz of i made it
 
     }
 
-    public static int getPaymentMethodID() {
+    public PaymentsMethod() {
+
+    }
+
+    public int getPaymentMethodID() {
         return paymentMethodID;
     }
 
-    public static int setPaymentMethodID(int paymentSetMethodID) {
+    public int setPaymentMethodID(int paymentMethodID) {
         return paymentMethodID = paymentMethodID;
     }
     // Warning
 
-    public static String getPaymentMethodName() {
+    public void setPaymentMethodName(String paymentMethodName) {
+        this.paymentMethodName = paymentMethodName;
+    }
+
+    public String getPaymentMethodName() {
         return paymentMethodName;
     }
 
-    public void paymentMethodName() {
+    public void paymentMethodName(String paymentMethodName) {
         paymentMethodName = paymentMethodName;
     }
 
-    public static String getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription() {
+    public void setDescription(String description) {
         this.description = description;
     }
 }

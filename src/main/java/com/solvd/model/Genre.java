@@ -27,7 +27,7 @@ public class Genre {
     public String getGenreName(){
         return  genreName;
     }
-    public void setGenreName(String countryMusic){
+    public void setGenreName(String genreName){
         this.genreName = genreName;
     }
 
