@@ -1,24 +1,30 @@
-<xs:schema xmlns="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:element name="Artist">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="artistID" type="xs:int"/>
-                <xs:element name="artistName" type="xs:String"/>
-                <xs:element name="artistSurame" type="xs:String"/>
-                <xs:element name="birthDate" type="xs:Date"/>
-                <xs:element name="country" type="xs:String"/>
-                <xs:element name="genreID" type="xs:int"/>
+                <xs:element name="artistName" type="xs:string"/>
+                <xs:element name="artistSurame" type="xs:string"/>
+                <xs:element name="birthDate" type="xs:date"/>
+                <xs:element name="country" type="xs:string"/>
+                <xs:element name="genreID" type="Genre"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+
+    <xs:complexType name="Genre">
+        <xs:sequence>
+            <xs:element name="GenreID" type="Genre"/>
+        </xs:sequence>
+    </xs:complexType>
 
     <xs:element name="Venue">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="venueID" type="xs:int"/>
-                <xs:element name="venueName" type="xs:String"/>
+                <xs:element name="venueName" type="xs:string"/>
                 <xs:element name="capacity" type="xs:int"/>
-                <xs:element name="location" type="xs:String"/>
+                <xs:element name="location" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -27,8 +33,8 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="ticketTypeID" type="xs:int"/>
-                <xs:element name="ticketTypeName" type="xs:String"/>
-                <xs:element name="description" type="xs:String"/>
+                <xs:element name="ticketTypeName" type="xs:string"/>
+                <xs:element name="description" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -37,18 +43,18 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="customerID" type="xs:int"/>
-                <xs:element name="firstName" type="xs:String"/>
-                <xs:element name="lastName" type="xs:String"/>
-                <xs:element name="email" type="xs:String"/>
+                <xs:element name="firstName" type="xs:string"/>
+                <xs:element name="lastName" type="xs:string"/>
+                <xs:element name="email" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
 
-    <xs:element name="Customer">
+    <xs:element name="Genre">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="genreID" type="xs:int"/>
-                <xs:element name="genreName" type="xs:String"/>
+                <xs:element name="genreName" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -57,8 +63,8 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="paymentMethodID" type="xs:int"/>
-                <xs:element name="paymentMethodName" type="xs:String"/>
-                <xs:element name="description" type="xs:String"/>
+                <xs:element name="paymentMethodName" type="xs:string"/>
+                <xs:element name="description" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
