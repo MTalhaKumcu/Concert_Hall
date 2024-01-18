@@ -1,11 +1,19 @@
 package com.solvd.model;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import java.util.Objects;
 
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Venue {
+    @XmlElement
     private int venueID;
+    @XmlElement
     private String venueName;
+    @XmlElement
     private int capacity;
+    @XmlElement
     private String location;
 
     public Venue(int venueID, String venueName, int capacity, String location) {

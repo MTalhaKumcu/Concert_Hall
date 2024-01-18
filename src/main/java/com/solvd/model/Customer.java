@@ -1,12 +1,18 @@
 package com.solvd.model;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import java.util.Objects;
-
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Customer {
-
+    @XmlElement
     private int customerID;
+    @XmlElement
     private String firstName;
+    @XmlElement
     private String lastName;
+    @XmlElement
     private String email;
 
     public Customer(int customerID, String firstName, String lastName, String email) {

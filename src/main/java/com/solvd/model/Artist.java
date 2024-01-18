@@ -1,14 +1,24 @@
 package com.solvd.model;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import java.util.Date;
 import java.util.Objects;
 
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Artist {
+    @XmlElement
     private int artistID;
+    @XmlElement
     private String artistName;
+    @XmlElement
     private String artistSurame;
+    @XmlElement
     private Date birthDate;
+    @XmlElement
     private String country;
+
     private Genre genreID;
 
 

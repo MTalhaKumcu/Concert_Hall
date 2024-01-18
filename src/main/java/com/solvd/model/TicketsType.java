@@ -1,11 +1,17 @@
 package com.solvd.model;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import java.util.Objects;
 
+@XmlAccessorType(XmlAccessType.FIELD)
 public class TicketsType {
-
+    @XmlElement
     private int ticketTypeID;
+    @XmlElement
     private String ticketTypeName;
+    @XmlElement
     private String description;
 
     public TicketsType(int ticketTypeID, String ticketTypeName, String description) {

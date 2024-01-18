@@ -1,9 +1,16 @@
 package com.solvd.model;
 
-public class PaymentsMethod {
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 
+@XmlAccessorType(XmlAccessType.FIELD)
+public class PaymentsMethod {
+    @XmlElement
     private int paymentMethodID;
+    @XmlElement
     private String paymentMethodName;
+    @XmlElement
     private String description;
 
     public PaymentsMethod(int paymentMethodID, String paymentMethodName, String description) {

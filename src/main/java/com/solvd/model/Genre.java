@@ -1,10 +1,15 @@
 package com.solvd.model;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import java.util.Objects;
 
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Genre {
-
+    @XmlElement
     private int genreID;
+    @XmlElement
     private String genreName;
 
     public Genre(int genreID , String genreName){
