@@ -7,16 +7,10 @@
                 <xs:element name="artistSurame" type="xs:string"/>
                 <xs:element name="birthDate" type="xs:date"/>
                 <xs:element name="country" type="xs:string"/>
-                <xs:element name="genreID" type="Genre"/>
+                <xs:element name="genreID" type="GenreType"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-
-    <xs:complexType name="Genre">
-        <xs:sequence>
-            <xs:element name="GenreID" type="Genre"/>
-        </xs:sequence>
-    </xs:complexType>
 
     <xs:element name="Venue">
         <xs:complexType>
@@ -58,6 +52,12 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+
+    <xs:complexType name="GenreType">
+        <xs:sequence>
+            <xs:element name="Genre" type="GenreType"/>
+        </xs:sequence>
+    </xs:complexType>
 
     <xs:element name="PaymentsMethod">
         <xs:complexType>

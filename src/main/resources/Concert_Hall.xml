@@ -1,7 +1,7 @@
-<root>
+<root >
 
-    <Concert_Hall xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                  xsi:noNamespaceSchemaLocation="Concert_hall.xsd">
+    <Concert_Hall  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:noNamespaceSchemaLocation="Concert_hall.xsd" >
         <artist>
             <artistID>1</artistID>
             <artistName>Mehmet</artistName>
