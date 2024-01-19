@@ -25,7 +25,6 @@ public class XMLParser {
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document document = builder.parse(xmlFile);
 
-
             Element rootElement = document.getDocumentElement();
             LOGGER.info("Root element => ", rootElement.getNodeName());
 
@@ -39,7 +38,6 @@ public class XMLParser {
                 }
 
             }
-
 
         } catch (ParserConfigurationException e) {
             throw new RuntimeException(e);
