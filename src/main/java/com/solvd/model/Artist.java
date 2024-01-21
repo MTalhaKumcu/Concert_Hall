@@ -37,7 +37,6 @@ public class Artist {
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @JsonSerialize(using = LocalDateTimeSerializer.class)
     @JsonProperty("birthDate")
-
     @XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
     private Date birthDate;
 
