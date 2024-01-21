@@ -1,5 +1,6 @@
 package com.solvd.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.xml.bind.annotation.XmlRootElement;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -11,10 +12,15 @@ import java.util.Objects;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class TicketsType {
     @XmlElement
+    @JsonProperty("ticketTypeID")
     private int ticketTypeID;
+
     @XmlElement
+    @JsonProperty("ticketTypeName")
     private String ticketTypeName;
+
     @XmlElement
+    @JsonProperty("description")
     private String description;
 
     public TicketsType(int ticketTypeID, String ticketTypeName, String description) {

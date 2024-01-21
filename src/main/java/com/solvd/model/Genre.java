@@ -1,5 +1,6 @@
 package com.solvd.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.xml.bind.annotation.XmlRootElement;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -11,8 +12,10 @@ import java.util.Objects;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Genre {
     @XmlElement
+    @JsonProperty("genreID")
     private int genreID;
     @XmlElement
+    @JsonProperty("genreName")
     private String genreName;
 
     public Genre(int genreID , String genreName){

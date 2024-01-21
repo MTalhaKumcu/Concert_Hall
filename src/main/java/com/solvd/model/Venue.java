@@ -1,5 +1,7 @@
 package com.solvd.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -10,12 +12,19 @@ import java.util.Objects;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Venue {
     @XmlElement
+    @JsonProperty("venueID")
     private int venueID;
+
     @XmlElement
+    @JsonProperty("venueName")
     private String venueName;
+
     @XmlElement
+    @JsonProperty("capacity")
     private int capacity;
+
     @XmlElement
+    @JsonProperty("location")
     private String location;
 
     public Venue(int venueID, String venueName, int capacity, String location) {

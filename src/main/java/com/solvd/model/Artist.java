@@ -1,8 +1,13 @@
 package com.solvd.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.solvd.jaxb.LocalDateTimeAdapter;
-import javax.xml.bind.annotation.adapters.XmlAdapter;
+import com.solvd.json.LocalDateTimeDeserializer;
+import com.solvd.json.LocalDateTimeSerializer;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -15,18 +20,28 @@ import java.util.Objects;
 public class Artist {
 
     @XmlElement
+    @JsonProperty("artistID")
     private int artistID;
 
     @XmlElement
+    @JsonProperty("artistName")
+
     private String artistName;
 
     @XmlElement
+    @JsonProperty("artistSurame")
+
     private String artistSurame;
+
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
+    @JsonSerialize(using = LocalDateTimeSerializer.class)
+    @JsonProperty("birthDate")
 
     @XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
     private LocalDateTime birthDate;
 
     @XmlElement
+    @JsonProperty("country")
     private String country;
 
     private Genre genreID;

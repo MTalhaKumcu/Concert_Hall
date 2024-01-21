@@ -1,0 +1,38 @@
+{
+  "concertHall": {
+
+    "artist": {
+      "artistID": 1,
+      "artistName": "Mehmet",
+      "artistSurname": "Kumcu",
+      "birthDate": "1997-03-31",
+      "country": "TURKEY",
+      "genreID": {
+        "genreID": 15,
+        "genreName": "country music"
+      }
+    },
+    "venue": {
+      "venueID": 20,
+      "venueName": "Solvd Main Saloon",
+      "capacity": 200,
+      "location": "Aleja Jerozolimskie 98"
+    },
+    "ticketsType": {
+      "ticketTypeID": 20,
+      "ticketTypeName": "new disable status",
+      "description": "Autism person"
+    },
+    "paymentsMethod": {
+      "paymentMethodID": 6,
+      "paymentMethodName": "exchange method",
+      "description": "exchange method is a new payment way to pay"
+    },
+    "customer": {
+      "customerID": 123,
+      "firstName": "deniz",
+      "lastName": "gunduz",
+      "email": "deniz@solvd.com"
+    }
+  }
+}
