@@ -1,18 +1,19 @@
 package com.solvd.model;
 
-import java.time.LocalDateTime;
+import java.sql.Time;
+import java.util.Date;
 import java.util.Objects;
 
 public class Event {
     private int eventID;
     private String eventName;
-    private LocalDateTime eventDate;
-    private LocalDateTime startTime;
-    private LocalDateTime endTime;
+    private Date eventDate;
+    private Time startTime;
+    private Time endTime;
     private Venue venueID;
 
 
-    public Event(int eventID, String eventName, Venue venueID, LocalDateTime eventDate, LocalDateTime startTime, LocalDateTime endTime) {
+    public Event(int eventID, String eventName, Venue venueID, Date eventDate, Time startTime, Time endTime) {
         this.eventID = eventID;
         this.eventName = eventName;
         this.venueID = venueID;
@@ -44,27 +45,27 @@ public class Event {
         this.eventName = eventName;
     }
 
-    public LocalDateTime getEventDate() {
+    public Date getEventDate() {
         return eventDate;
     }
 
-    public void setEventDate(LocalDateTime eventDate) {
+    public void setEventDate(Date eventDate) {
         this.eventDate = eventDate;
     }
 
-    public LocalDateTime getStartTime() {
+    public Time getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(LocalDateTime startTime) {
+    public void setStartTime(Time startTime) {
         this.startTime = startTime;
     }
 
-    public LocalDateTime getEndTime() {
+    public Time getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(LocalDateTime endTime) {
+    public void setEndTime(Time endTime) {
         this.endTime = endTime;
     }
 

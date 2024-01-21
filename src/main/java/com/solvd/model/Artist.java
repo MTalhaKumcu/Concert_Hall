@@ -12,6 +12,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.sql.Date;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -38,7 +39,7 @@ public class Artist {
     @JsonProperty("birthDate")
 
     @XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
-    private LocalDateTime birthDate;
+    private Date birthDate;
 
     @XmlElement
     @JsonProperty("country")
@@ -47,7 +48,7 @@ public class Artist {
     private Genre genreID;
 
 
-    public Artist(int artistID, String artistName, String artistSurame, LocalDateTime birthDate, String country) {
+    public Artist(int artistID, String artistName, String artistSurame, Date birthDate, String country) {
         this.artistID = artistID;
         this.artistName = artistName;
         this.artistSurame = artistSurame;
@@ -83,11 +84,11 @@ public class Artist {
         this.artistSurame = artistSurame;
     }
 
-    public LocalDateTime getBirthDate() {
+    public Date getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(LocalDateTime birthDate) {
+    public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
 
