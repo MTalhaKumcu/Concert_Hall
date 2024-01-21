@@ -1,9 +1,12 @@
 package com.solvd.model;
 
+import jakarta.xml.bind.annotation.XmlRootElement;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 
+@XmlRootElement(name = "PaymentsMethod")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class PaymentsMethod {
     @XmlElement
@@ -18,7 +21,6 @@ public class PaymentsMethod {
         this.paymentMethodID = paymentMethodID;
         this.paymentMethodName = paymentMethodName;
         this.description = description;
-        // it did not find non-static intance variable cuz of i made it
 
     }
 

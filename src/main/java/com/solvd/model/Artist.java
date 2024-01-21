@@ -1,21 +1,32 @@
 package com.solvd.model;
 
+import com.solvd.jaxb.LocalDateTimeAdapter;
+import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Objects;
 
+@XmlRootElement(name = "Artist")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Artist {
+
     @XmlElement
     private int artistID;
+
     @XmlElement
     private String artistName;
+
     @XmlElement
     private String artistSurame;
-    @XmlElement
+
+    @XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
     private Date birthDate;
+
     @XmlElement
     private String country;
 

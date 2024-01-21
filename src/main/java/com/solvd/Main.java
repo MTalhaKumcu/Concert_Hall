@@ -5,18 +5,15 @@ import com.solvd.model.*;
 import com.solvd.persistence.connection.ConnectionPool;
 import com.solvd.persistence.dao.*;
 import com.solvd.persistence.daoImpl.*;
-import com.solvd.persistence.mybatis.CustomerMybatis;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-
 import java.sql.Date;
-import java.sql.Time;
-import java.time.LocalTime;
 import java.util.List;
 
 
 public class Main {
+
     private static final Logger LOGGER = LogManager.getLogger(Main.class);
 
     public static void main(String[] args) {
