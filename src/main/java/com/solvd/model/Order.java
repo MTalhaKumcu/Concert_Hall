@@ -1,17 +1,17 @@
 package com.solvd.model;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Order {
     private int orderID;
     private Customer customerID;
     private Event eventID;
-    private Date purchaseDate;
+    private LocalDateTime purchaseDate;
     private int totalAmount;
     private PaymentsMethod paymentMethodID;
 
-    public Order(int orderID, Customer customerID, Event eventID, Date purchaseDate, int totalAmount) {
+    public Order(int orderID, Customer customerID, Event eventID, LocalDateTime purchaseDate, int totalAmount) {
         this.orderID = orderID;
         this.customerID = customerID;
         this.eventID = eventID;
@@ -33,11 +33,11 @@ public class Order {
     }
 
 
-    public Date getPurchaseDate() {
+    public LocalDateTime getPurchaseDate() {
         return purchaseDate;
     }
 
-    public void setPurchaseDate(Date purchaseDate) {
+    public void setPurchaseDate(LocalDateTime purchaseDate) {
         this.purchaseDate = purchaseDate;
     }
 

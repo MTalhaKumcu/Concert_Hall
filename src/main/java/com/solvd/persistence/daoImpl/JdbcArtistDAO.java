@@ -1,7 +1,7 @@
 package com.solvd.persistence.daoImpl;
 
 import com.solvd.model.Artist;
-import com.solvd.model.Genre;
+
 import com.solvd.persistence.connection.ConnectionPool;
 import com.solvd.persistence.dao.ArtistDAO;
 

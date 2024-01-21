@@ -1,14 +1,13 @@
 package com.solvd.model;
 
 import com.solvd.jaxb.LocalDateTimeAdapter;
+import javax.xml.bind.annotation.adapters.XmlAdapter;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.Objects;
 
 @XmlRootElement(name = "Artist")
@@ -25,7 +24,7 @@ public class Artist {
     private String artistSurame;
 
     @XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
-    private Date birthDate;
+    private LocalDateTime birthDate;
 
     @XmlElement
     private String country;
@@ -33,7 +32,7 @@ public class Artist {
     private Genre genreID;
 
 
-    public Artist(int artistID, String artistName, String artistSurame, Date birthDate, String country) {
+    public Artist(int artistID, String artistName, String artistSurame, LocalDateTime birthDate, String country) {
         this.artistID = artistID;
         this.artistName = artistName;
         this.artistSurame = artistSurame;
@@ -69,11 +68,11 @@ public class Artist {
         this.artistSurame = artistSurame;
     }
 
-    public Date getBirthDate() {
+    public LocalDateTime getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(LocalDateTime birthDate) {
         this.birthDate = birthDate;
     }
 
