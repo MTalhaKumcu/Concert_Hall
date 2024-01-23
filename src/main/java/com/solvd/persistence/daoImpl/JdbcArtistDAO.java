@@ -85,6 +85,7 @@ public class JdbcArtistDAO implements ArtistDAO {
                 }
             }
         } catch (SQLException e) {
+
             e.printStackTrace();
         }
     }

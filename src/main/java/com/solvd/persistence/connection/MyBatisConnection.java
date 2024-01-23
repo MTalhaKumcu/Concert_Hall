@@ -17,10 +17,10 @@ public class MyBatisConnection {
             sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
         } catch (IOException e) {
             throw new RuntimeException("SqlSessionFactory sqlSessionFactory", e);
-
         }
     }
-    public static SqlSessionFactory getSqlSessionFactory(){
-        return  sqlSessionFactory;
+
+    public static SqlSessionFactory getSqlSessionFactory() {
+        return sqlSessionFactory;
     }
 }
