@@ -3,9 +3,9 @@ package com.solvd.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.DateSerializer;
 import com.solvd.jaxb.DateAdapter;
-import com.solvd.json.LocalDateTimeDeserializer;
-import com.solvd.json.LocalDateTimeSerializer;
+import com.solvd.json.DateDeserializer;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -25,17 +25,15 @@ public class Artist {
 
     @XmlElement
     @JsonProperty("artistName")
-
     private String artistName;
 
     @XmlElement
     @JsonProperty("artistSurame")
-
     private String artistSurame;
 
-    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
-    @JsonSerialize(using = LocalDateTimeSerializer.class)
     @JsonProperty("birthDate")
+    @JsonDeserialize(using = DateDeserializer.class)
+    @JsonSerialize(using = DateSerializer.class)
     @XmlJavaTypeAdapter(DateAdapter.class)
     private Date birthDate;
 

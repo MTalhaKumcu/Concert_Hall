@@ -1,4 +1,4 @@
-<Concert_Hall xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<Artist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:NamespaceSchemaLocation="Concert_hall.xsd">
     <artist>
         <artistID>1</artistID>
@@ -41,4 +41,4 @@
         <email>deniz@solvd.com</email>
     </customer>
 
-</Concert_Hall>
+</Artist>

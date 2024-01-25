@@ -9,10 +9,11 @@ import org.apache.logging.log4j.Logger;
 import java.io.File;
 import java.io.IOException;
 
-public class LocalDateTimeSerializer {
+public class DateSerializer {
     private static final Logger LOGGER = LogManager.getLogger(Main.class);
-    public static void main(String[] args){
-        File file = new File("com/solvd/json/JsonParser.java");
+
+    public static void main(String[] args) {
+        File file = new File("src/java/main/com/solvd/json/JsonParser.java");
 
         ObjectMapper objectMapper = new ObjectMapper();
         Artist artist;
@@ -25,4 +26,5 @@ public class LocalDateTimeSerializer {
         LOGGER.info("New json Serializer queue artist: ", artist);
 
     }
+
 }

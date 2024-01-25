@@ -1485,3 +1485,5 @@
 2024-01-19 01:11:45.480 [main] INFO  c.s.Main - RolesDAO{roleID=3, roleName='Manager', description='Manager role with specific privileges'}
 2024-01-19 01:11:45.480 [main] INFO  c.s.Main - RolesDAO{roleID=4, roleName='Artist', description='Artists role with special role'}
 2024-01-19 01:11:45.480 [main] INFO  c.s.Main - Fetching all staff roles:
+2024-01-25 14:53:26.542 [main] INFO  c.s.Main - ArtistsDAO{artistID=0, artistName='null', artistSurame='null', birthDate='null', country='null', genreID=null}
+2024-01-25 14:57:38.746 [main] INFO  c.s.Main - ArtistsDAO{artistID=0, artistName='null', artistSurame='null', birthDate='null', country='null', genreID=null}
