@@ -3,9 +3,9 @@ package com.solvd.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.ser.std.DateSerializer;
 import com.solvd.jaxb.DateAdapter;
 import com.solvd.json.DateDeserializer;
+import com.solvd.json.DateSerializer;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import javax.xml.bind.annotation.XmlAccessType;

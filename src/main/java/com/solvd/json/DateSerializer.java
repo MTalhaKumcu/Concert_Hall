@@ -1,30 +1,30 @@
 package com.solvd.json;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.databind.JsonSerializer;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.solvd.Main;
-import com.solvd.model.Artist;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-public class DateSerializer {
+public class DateSerializer extends JsonSerializer<Date> {
+
+
     private static final Logger LOGGER = LogManager.getLogger(Main.class);
+    private static final String CUSTOM_FORMAT_STRING = "yyyy-MM-dd";
 
-    public static void main(String[] args) {
-        File file = new File("src/java/main/com/solvd/json/JsonParser.java");
-
-        ObjectMapper objectMapper = new ObjectMapper();
-        Artist artist;
+    @Override
+    public void serialize(Date value, JsonGenerator gen, SerializerProvider serializers) throws IOException {
         try {
-            artist = objectMapper.readValue(file,Artist.class);
-        }catch (IOException e)
-        {
-            throw new RuntimeException();
+            LOGGER.debug("Serializing Date: {}", value);
+            gen.writeString(new SimpleDateFormat(CUSTOM_FORMAT_STRING).format(value));
+        } catch (Exception e) {
+            LOGGER.error("Error occurred during Date serialization.", e);
         }
-        LOGGER.info("New json Serializer queue artist: ", artist);
-
     }
 
 }
