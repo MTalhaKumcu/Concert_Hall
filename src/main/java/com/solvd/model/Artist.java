@@ -15,6 +15,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.sql.Date;
 import java.util.Objects;
 
+
 @XmlRootElement(name = "Artist")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Artist {

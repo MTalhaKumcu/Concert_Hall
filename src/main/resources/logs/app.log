@@ -1489,3 +1489,4 @@
 2024-01-25 14:57:38.746 [main] INFO  c.s.Main - ArtistsDAO{artistID=0, artistName='null', artistSurame='null', birthDate='null', country='null', genreID=null}
 2024-01-25 15:03:03.387 [main] INFO  c.s.Main - ArtistsDAO{artistID=0, artistName='null', artistSurame='null', birthDate='null', country='null', genreID=null}
 2024-01-25 15:10:36.666 [main] INFO  c.s.Main - ArtistsDAO{artistID=0, artistName='null', artistSurame='null', birthDate='null', country='null', genreID=null}
+2024-01-25 19:41:44.160 [main] INFO  c.s.Main - ArtistsDAO{artistID=0, artistName='null', artistSurame='null', birthDate='null', country='null', genreID=null}
