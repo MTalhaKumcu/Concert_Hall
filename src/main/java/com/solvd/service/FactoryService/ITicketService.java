@@ -1,9 +1,9 @@
 package com.solvd.service.FactoryService;
 
-import com.solvd.model.Artist;
+import com.solvd.model.Ticket;
 
 public interface ITicketService {
-    Artist addArtist(Artist artist);
+    Ticket createTicket(Ticket ticket);
 
-    Artist getArtistByID(int artistID);
+    Ticket getTicketByID(int ticketID);
 }

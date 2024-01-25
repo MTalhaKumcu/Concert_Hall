@@ -1,9 +1,9 @@
 package com.solvd.service.FactoryService;
 
-import com.solvd.model.Artist;
+import com.solvd.model.Customer;
 
 public interface ICustomerService {
-    Artist addArtist(Artist artist);
+  Customer createCustomer(Customer customer);
 
-    Artist getArtistByID(int artistID);
+  Customer getCustomerByID(int CustomerID);
 }

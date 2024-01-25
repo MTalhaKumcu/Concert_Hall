@@ -1,9 +1,9 @@
 package com.solvd.service.FactoryService;
 
-import com.solvd.model.Artist;
+import com.solvd.model.Genre;
 
 public interface IGenreService {
-    Artist addArtist(Artist artist);
+    Genre createGenre(Genre genre);
 
-    Artist getArtistByID(int artistID);
+    Genre getGenreByID(int genreID);
 }

@@ -1,9 +1,9 @@
 package com.solvd.service.FactoryService;
 
-import com.solvd.model.Artist;
+import com.solvd.model.Role;
 
 public interface IRoleService {
-    Artist addArtist(Artist artist);
+    Role createRole(Role role);
 
-    Artist getArtistByID(int artistID);
+    Role getRoleByID(int roleID);
 }

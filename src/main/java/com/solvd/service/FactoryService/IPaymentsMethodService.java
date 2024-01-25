@@ -1,9 +1,9 @@
 package com.solvd.service.FactoryService;
 
-import com.solvd.model.Artist;
+import com.solvd.model.PaymentsMethod;
 
 public interface IPaymentsMethodService {
-    Artist addArtist(Artist artist);
+    PaymentsMethod createPaymentsMethod(PaymentsMethod PpymentsMethod);
 
-    Artist getArtistByID(int artistID);
+    PaymentsMethod getPaymentsMethodByID(int paymentsMethodID);
 }

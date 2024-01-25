@@ -1,9 +1,9 @@
 package com.solvd.service.FactoryService;
 
-import com.solvd.model.Artist;
+import com.solvd.model.StaffRole;
 
 public interface IStaffRoleService {
-    Artist addArtist(Artist artist);
+    StaffRole createStaffRole(StaffRole staffRole);
 
-    Artist getArtistByID(int artistID);
+    StaffRole getStaffRoleByID(int staffRoleID);
 }

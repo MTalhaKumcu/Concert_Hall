@@ -1,9 +1,10 @@
 package com.solvd.service.FactoryService;
 
-import com.solvd.model.Artist;
+
+import com.solvd.model.OrderItem;
 
 public interface IOrderItemService {
-    Artist addArtist(Artist artist);
+    OrderItem createOrderItem(OrderItem orderItem);
 
-    Artist getArtistByID(int artistID);
+    OrderItem getOrderItemByID(int orderItemID);
 }

@@ -1,9 +1,9 @@
 package com.solvd.service.FactoryService;
 
-import com.solvd.model.Artist;
+import com.solvd.model.Venue;
 
 public interface IVenueService {
-    Artist addArtist(Artist artist);
+    Venue createVenue(Venue venue);
 
-    Artist getArtistByID(int artistID);
+    Venue getVenueByID(int venueID);
 }
