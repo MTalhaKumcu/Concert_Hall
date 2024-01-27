@@ -31,14 +31,20 @@ public class Main {
             artistService.getAllArtists();
             LOGGER.info(artistService);
 
-
             CustomerService customerService = FactoryService.customerService();
             customerService.addCustomer(new Customer(1234));
-            LOGGER.info("customer added from factory",customerService);
+            LOGGER.info("customer added from factory", customerService);
 
-            GenreService genreService = FactoryService.genreService();             
-            genreService.updateGenre(new Genre(30,"new genre type from factory!!!"));
-            LOGGER.info("genre updated from factory",genreService);
+            GenreService genreService = FactoryService.genreService();
+            genreService.updateGenre(new Genre(30, "new genre type from factory!!!"));
+            LOGGER.info("genre updated from factory", genreService);
+
+          /*  Staff staffBuilder = new Staff(25, "Mehmet", "Builder", "new tester");
+            staffBuilder.setStaff(staffBuilder);
+            LOGGER.info("staff builder staff added", staffBuilder);*/
+
+            Staff staff = new Staff.StaffBuilder(25,"builder Mehmet","kumcu" ,"devops tester").build();
+            LOGGER.info("staff added from builder", staff);
 
             // Create DAO instances
             ArtistDAO artistDAO = new JdbcArtistDAO(connectionPool);
@@ -58,7 +64,7 @@ public class Main {
             Artist newArtist = new Artist();
             newArtist.setArtistName("Mehmet");
             newArtist.setArtistSurame("Kumcu");
-            newArtist.setBirthDate(new Date(1997,3,31)); // Set birth date accordingly
+            newArtist.setBirthDate(new Date(1997, 3, 31)); // Set birth date accordingly
             newArtist.setCountry("TURKEY");
             artistDAO.addArtist(newArtist);
             LOGGER.info("New artist added: ", newArtist);
@@ -80,13 +86,13 @@ public class Main {
             newTicketsType.setTicketTypeID(20);
             newTicketsType.setTicketTypeName("new disable status");
             newTicketsType.setDescription("Autism person");
-            LOGGER.info("new ticket type added",newTicketsType);
+            LOGGER.info("new ticket type added", newTicketsType);
 
             PaymentsMethod newPaymentsMethod = new PaymentsMethod();
             newPaymentsMethod.setPaymentMethodID(6);
             newPaymentsMethod.setPaymentMethodName("exchange method");
             newPaymentsMethod.setDescription("exchange method is new payments way to pay");
-            LOGGER.info("new payment method added",newPaymentsMethod);
+            LOGGER.info("new payment method added", newPaymentsMethod);
 
             Customer newCustomer = new Customer();
             newCustomer.setCustomerID(123);
@@ -96,7 +102,7 @@ public class Main {
             LOGGER.info("new customer added", newCustomer);
 
 
-           // Example operations with ArtistDAO
+            // Example operations with ArtistDAO
             LOGGER.info("Fetching all artists:");
             List<Artist> artists = artistDAO.getAllArtists();
             artists.forEach(artist -> LOGGER.info(artist));
@@ -146,11 +152,6 @@ public class Main {
             List<OrderItem> orderItems = orderItemDAO.getAllOrderItems();
             orderItems.forEach(orderItem -> LOGGER.info(orderItem));
 
-            // Example operations with StaffDAO
-            LOGGER.info("Fetching all staff:");
-            List<Staff> staffList = staffDAO.getAllStaffs();
-            staffList.forEach(staff -> LOGGER.info(staff));
-
             // Example operations with RoleDAO
             LOGGER.info("Fetching all roles:");
             List<Role> roles = roleDAO.getAllRoles();
@@ -168,7 +169,6 @@ public class Main {
             // Close the connection pool
             ConnectionPool.closeConnectionPool();
         }
-
 
 
     }

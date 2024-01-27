@@ -57,6 +57,9 @@ public class Artist {
 
     }
 
+    public Artist(int staffArtistID) {
+    }
+
     public int getArtistID() {
         return artistID;
     }

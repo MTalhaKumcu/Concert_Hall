@@ -1,15 +1,24 @@
 package com.solvd.model;
 
-import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Objects;
 
-@Builder
+
 public class Staff {
+    @Getter
+    @Setter
     private int staffID;
     private Artist staffArtistID;
+    @Getter
+    @Setter
     private String firstName;
+    @Getter
+    @Setter
     private String lastName;
+    @Getter
+    @Setter
     private String position;
 
     public Staff(int staffID, String firstName, String lastName, String position) {
@@ -17,14 +26,6 @@ public class Staff {
         this.firstName = firstName;
         this.lastName = lastName;
         this.position = position;
-    }
-
-    public int getStaffID() {
-        return staffID;
-    }
-
-    public void setStaffID(int staffID) {
-        this.staffID = staffID;
     }
 
     public Artist getStaffArtistID() {
@@ -35,41 +36,17 @@ public class Staff {
         this.staffArtistID = staffArtistID;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getPosition() {
-        return position;
-    }
-
-    public void setPosition(String position) {
-        this.position = position;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Staff staff = (Staff) o;
-        return staffID == staff.staffID && Objects.equals(staffArtistID, staff.staffArtistID) && Objects.equals(firstName, staff.firstName) && Objects.equals(lastName, staff.lastName) && Objects.equals(position, staff.position);
+        return staffID == staff.staffID && Objects.equals(firstName, staff.firstName) && Objects.equals(lastName, staff.lastName) && Objects.equals(position, staff.position);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(staffID, staffArtistID, firstName, lastName, position);
+        return Objects.hash(staffID, firstName, lastName, position);
     }
 
     @Override
@@ -81,18 +58,7 @@ public class Staff {
                 ", position='" + position + '\'' +
                 '}';
     }
-// if you would like to add lombok dependency ,
-// meanwhile you should upload lombok plugin
-    Staff staff = Staff.builder()
-            .staffID(20)
-            .firstName("Sergey")
-            .lastName("Builder")
-            .position("Test Manager")
-            .build();
 
-    // its for builder class but I used to
-    // lombok dependency to automatically build my staff
-/*
     public static class StaffBuilder {
         private int builderStaffID;
         private Artist builderStaffArtistID;
@@ -107,6 +73,7 @@ public class Staff {
             this.builderLastName = builderLastName;
             this.builderPosition = position;
         }
+
 
         public StaffBuilder builderStaffID(int staffID) {
             this.builderStaffID = staffID;
@@ -135,21 +102,20 @@ public class Staff {
             return this;
         }
 
+        public static StaffBuilder builder(int staffID, String builderFirstName, String builderLastName, String position) {
+            return new StaffBuilder(staffID, builderFirstName, builderLastName, position);
+        }
 
         public Staff build() {
             Staff staff = new Staff(builderStaffID, builderFirstName, builderLastName, builderPosition);
-            staff.setStaffArtistID(builderStaffArtistID);
+            staff.setStaffID(builderStaffID);
+            staff.setFirstName(builderFirstName);
+            staff.setLastName(builderLastName);
+            staff.setPosition(builderPosition);
             return staff;
         }
 
     }
 
-    Staff staff = new StaffBuilder(20, "Sergey", "Builder", "Test Manager")
-            .builderStaffID(20)
-            .builderFirstName("Sergey")
-            .builderLastName("Builder")
-            .builderPosition("Test Manager")
-            .build();
-*/
 
 }
