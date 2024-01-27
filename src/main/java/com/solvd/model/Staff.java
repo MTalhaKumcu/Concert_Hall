@@ -3,7 +3,7 @@ package com.solvd.model;
 import java.util.Objects;
 
 public class Staff {
-    private int staffID ;
+    private int staffID;
     private Artist staffArtistID;
     private String firstName;
     private String lastName;
@@ -15,7 +15,6 @@ public class Staff {
         this.lastName = lastName;
         this.position = position;
     }
-
 
     public int getStaffID() {
         return staffID;
@@ -79,4 +78,63 @@ public class Staff {
                 ", position='" + position + '\'' +
                 '}';
     }
+
+    public static class StaffBuilder {
+        private int builderStaffID;
+        private Artist builderStaffArtistID;
+        private String builderFirstName;
+        private String builderLastName;
+        private String builderPosition;
+
+
+        public StaffBuilder(int staffID, String builderFirstName, String builderLastName, String position) {
+            this.builderStaffID = staffID;
+            this.builderFirstName = builderFirstName;
+            this.builderLastName = builderLastName;
+            this.builderPosition = position;
+        }
+
+        public StaffBuilder builderStaffID(int staffID) {
+            this.builderStaffID = staffID;
+            return this;
+        }
+
+
+        public StaffBuilder builderStaffArtistID(Artist staffArtistID) {
+            this.builderStaffArtistID = staffArtistID;
+            return this;
+        }
+
+        public StaffBuilder builderFirstName(String firstName) {
+            this.builderFirstName = firstName;
+            return this;
+        }
+
+
+        public StaffBuilder builderLastName(String lastName) {
+            this.builderLastName = lastName;
+            return this;
+        }
+
+        public StaffBuilder builderPosition(String position) {
+            this.builderPosition = position;
+            return this;
+        }
+
+
+        public Staff build() {
+            Staff staff = new Staff(builderStaffID, builderFirstName, builderLastName, builderPosition);
+            staff.setStaffArtistID(builderStaffArtistID);
+            return staff;
+        }
+
+    }
+
+    Staff staff = new StaffBuilder(20, "Sergey", "Builder", "Test Manager")
+            .builderStaffID(20)
+            .builderFirstName("Sergey")
+            .builderLastName("Builder")
+            .builderPosition("Test Manager")
+            .build();
+
 }

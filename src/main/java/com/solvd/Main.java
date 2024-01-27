@@ -1,10 +1,14 @@
 package com.solvd;
 
 
+import com.solvd.factory.FactoryService;
 import com.solvd.model.*;
 import com.solvd.persistence.connection.ConnectionPool;
 import com.solvd.persistence.dao.*;
 import com.solvd.persistence.daoImpl.*;
+import com.solvd.service.JdbcDaoService.ArtistService;
+import com.solvd.service.JdbcDaoService.CustomerService;
+import com.solvd.service.JdbcDaoService.GenreService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -21,9 +25,23 @@ public class Main {
         ConnectionPool connectionPool = new ConnectionPool();
 
         try {
+
+
+            ArtistService artistService = FactoryService.artistService();
+            artistService.getAllArtists();
+            LOGGER.info(artistService);
+
+
+            CustomerService customerService = FactoryService.customerService();
+            customerService.addCustomer(new Customer(1234));
+            LOGGER.info("customer added from factory",customerService);
+
+            GenreService genreService = FactoryService.genreService();             
+            genreService.updateGenre(new Genre(30,"new genre type from factory!!!"));
+            LOGGER.info("genre updated from factory",genreService);
+
             // Create DAO instances
             ArtistDAO artistDAO = new JdbcArtistDAO(connectionPool);
-
             GenreDAO genreDAO = new JdbcGenreDAO(connectionPool);
             EventDAO eventDAO = new JdbcEventDAO(connectionPool);
             VenueDAO venueDAO = new JdbcVenueDAO(connectionPool);
@@ -37,7 +55,6 @@ public class Main {
             RoleDAO roleDAO = new JdbcRoleDAO(connectionPool);
             StaffRoleDAO staffRoleDAO = new JdbcStaffRoleDAO(connectionPool);
 
-
             Artist newArtist = new Artist();
             newArtist.setArtistName("Mehmet");
             newArtist.setArtistSurame("Kumcu");
@@ -45,7 +62,6 @@ public class Main {
             newArtist.setCountry("TURKEY");
             artistDAO.addArtist(newArtist);
             LOGGER.info("New artist added: ", newArtist);
-
 
             Genre newGenre = new Genre();
             newGenre.setGenreID(15);
@@ -80,7 +96,7 @@ public class Main {
             LOGGER.info("new customer added", newCustomer);
 
 
-            // Example operations with ArtistDAO
+           // Example operations with ArtistDAO
             LOGGER.info("Fetching all artists:");
             List<Artist> artists = artistDAO.getAllArtists();
             artists.forEach(artist -> LOGGER.info(artist));
