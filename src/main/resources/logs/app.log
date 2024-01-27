@@ -1,375 +1,119 @@
-2024-01-26 02:48:24.733 [main] ERROR c.s.Main - An error occurred: 
-2024-01-26 02:52:14.638 [main] ERROR c.s.Main - An error occurred: 
-2024-01-26 02:52:25.346 [main] ERROR c.s.Main - An error occurred: 
-2024-01-26 02:54:55.245 [main] ERROR c.s.Main - An error occurred: 
-2024-01-26 02:56:24.583 [main] ERROR c.s.Main - An error occurred: 
-2024-01-26 02:59:41.365 [main] ERROR c.s.Main - An error occurred: 
-2024-01-26 16:14:04.044 [main] ERROR c.s.Main - An error occurred: 
-2024-01-26 16:17:44.553 [main] ERROR c.s.Main - An error occurred: 
-2024-01-26 16:35:21.966 [main] ERROR c.s.Main - An error occurred: 
-2024-01-27 16:36:17.785 [main] ERROR c.s.Main - An error occurred: 
-2024-01-27 18:56:59.309 [main] ERROR c.s.Main - An error occurred: 
-2024-01-27 18:58:49.361 [main] ERROR c.s.Main - An error occurred: 
-2024-01-27 18:59:09.326 [main] ERROR c.s.Main - An error occurred: 
-2024-01-27 19:16:41.538 [main] ERROR c.s.Main - An error occurred: 
-2024-01-27 19:24:18.571 [main] ERROR c.s.Main - An error occurred: 
-2024-01-27 19:26:22.418 [main] ERROR c.s.Main - An error occurred: 
-2024-01-27 19:28:22.081 [main] ERROR c.s.Main - An error occurred: 
-2024-01-27 19:31:19.624 [main] ERROR c.s.Main - An error occurred: 
-2024-01-27 19:33:51.017 [main] ERROR c.s.Main - An error occurred: 
-2024-01-27 19:36:04.148 [main] INFO  c.s.Main - com.solvd.service.JdbcDaoService.ArtistService@76c7beb3
-2024-01-27 19:36:04.162 [main] ERROR c.s.Main - An error occurred: 
-2024-01-27 19:39:58.283 [main] ERROR c.s.Main - An error occurred: 
-2024-01-27 19:40:20.569 [main] INFO  c.s.Main - com.solvd.service.JdbcDaoService.ArtistService@76c7beb3
-2024-01-27 19:40:20.578 [main] INFO  c.s.Main - staff added from builder
-2024-01-27 19:40:20.648 [main] INFO  c.s.Main - New artist added: 
-2024-01-27 19:40:20.649 [main] INFO  c.s.Main - New genre added:
-2024-01-27 19:40:20.650 [main] INFO  c.s.Main - New venue added:
-2024-01-27 19:40:20.652 [main] INFO  c.s.Main - new ticket type added
-2024-01-27 19:40:20.654 [main] INFO  c.s.Main - new payment method added
-2024-01-27 19:40:20.655 [main] INFO  c.s.Main - new customer added
-2024-01-27 19:40:20.655 [main] INFO  c.s.Main - Fetching all artists:
-2024-01-27 19:40:20.666 [main] INFO  c.s.Main - ArtistsDAO{artistID=1, artistName='John Doe', artistSurame='doe', birthDate='1990-01-15', country='Canada', genreID=null}
-2024-01-27 19:40:20.667 [main] INFO  c.s.Main - ArtistsDAO{artistID=2, artistName='Jane Smith', artistSurame='doe', birthDate='1985-05-20', country='UK', genreID=null}
-2024-01-27 19:40:20.667 [main] INFO  c.s.Main - ArtistsDAO{artistID=3, artistName='Kane Smith', artistSurame='null', birthDate='1986-05-20', country='TR', genreID=null}
-2024-01-27 19:40:20.667 [main] INFO  c.s.Main - ArtistsDAO{artistID=4, artistName='Alex', artistSurame='Johnson', birthDate='1992-08-10', country='USA', genreID=null}
-2024-01-27 19:40:20.667 [main] INFO  c.s.Main - ArtistsDAO{artistID=5, artistName='Emma', artistSurame='Davis', birthDate='1995-02-28', country='Canada', genreID=null}
-2024-01-27 19:40:20.667 [main] INFO  c.s.Main - ArtistsDAO{artistID=6, artistName='David', artistSurame='Miller', birthDate='1988-11-15', country='USA', genreID=null}
-2024-01-27 19:40:20.667 [main] INFO  c.s.Main - ArtistsDAO{artistID=7, artistName='Sophie', artistSurame='Anderson', birthDate='1993-04-03', country='France', genreID=null}
-2024-01-27 19:40:20.667 [main] INFO  c.s.Main - ArtistsDAO{artistID=8, artistName='Michael', artistSurame='Schmidt', birthDate='1987-09-22', country='Germany', genreID=null}
-2024-01-27 19:40:20.668 [main] INFO  c.s.Main - ArtistsDAO{artistID=9, artistName='Olivia', artistSurame='Thomas', birthDate='1996-07-18', country='USA', genreID=null}
-2024-01-27 19:40:20.668 [main] INFO  c.s.Main - ArtistsDAO{artistID=10, artistName='Daniel', artistSurame='Wilson', birthDate='1984-03-25', country='UK', genreID=null}
-2024-01-27 19:40:20.668 [main] INFO  c.s.Main - Fetching all genres:
-2024-01-27 19:40:20.705 [main] INFO  c.s.Main - GenresDAO{genreID=1, genreName='Rock'}
-2024-01-27 19:40:20.705 [main] INFO  c.s.Main - GenresDAO{genreID=2, genreName='Pop'}
-2024-01-27 19:40:20.706 [main] INFO  c.s.Main - GenresDAO{genreID=3, genreName='Metal'}
-2024-01-27 19:40:20.706 [main] INFO  c.s.Main - GenresDAO{genreID=4, genreName='Jazz'}
-2024-01-27 19:40:20.706 [main] INFO  c.s.Main - GenresDAO{genreID=5, genreName='Electronic'}
-2024-01-27 19:40:20.706 [main] INFO  c.s.Main - GenresDAO{genreID=6, genreName='Country'}
-2024-01-27 19:40:20.706 [main] INFO  c.s.Main - GenresDAO{genreID=7, genreName='Hip Hop'}
-2024-01-27 19:40:20.706 [main] INFO  c.s.Main - GenresDAO{genreID=8, genreName='Blues'}
-2024-01-27 19:40:20.706 [main] INFO  c.s.Main - GenresDAO{genreID=9, genreName='Classical'}
-2024-01-27 19:40:20.706 [main] INFO  c.s.Main - GenresDAO{genreID=10, genreName='R&B'}
-2024-01-27 19:40:20.706 [main] INFO  c.s.Main - Fetching all events:
-2024-01-27 19:40:20.743 [main] INFO  c.s.Main - Event{eventID=1, eventName='RockFest', eventDate=2023-07-15, startTime=18:00:00, endTime=23:00:00, venueID=VenuesDAO{venueID=0, venueName='null', capacity=0, location='null'}}
-2024-01-27 19:40:20.743 [main] INFO  c.s.Main - Event{eventID=2, eventName='PopConcert', eventDate=2023-08-20, startTime=19:30:00, endTime=22:30:00, venueID=VenuesDAO{venueID=0, venueName='null', capacity=0, location='null'}}
-2024-01-27 19:40:20.743 [main] INFO  c.s.Main - Event{eventID=3, eventName='MetalFest', eventDate=2023-08-20, startTime=19:30:00, endTime=22:30:00, venueID=VenuesDAO{venueID=0, venueName='null', capacity=0, location='null'}}
-2024-01-27 19:40:20.743 [main] INFO  c.s.Main - Event{eventID=4, eventName='JazzNight', eventDate=2023-09-10, startTime=20:00:00, endTime=23:00:00, venueID=VenuesDAO{venueID=0, venueName='null', capacity=0, location='null'}}
-2024-01-27 19:40:20.743 [main] INFO  c.s.Main - Event{eventID=5, eventName='ElectroBeats', eventDate=2023-09-25, startTime=21:00:00, endTime=02:00:00, venueID=VenuesDAO{venueID=0, venueName='null', capacity=0, location='null'}}
-2024-01-27 19:40:20.744 [main] INFO  c.s.Main - Event{eventID=6, eventName='CountryShow', eventDate=2023-10-05, startTime=18:30:00, endTime=21:30:00, venueID=VenuesDAO{venueID=0, venueName='null', capacity=0, location='null'}}
-2024-01-27 19:40:20.744 [main] INFO  c.s.Main - Event{eventID=7, eventName='HipHopParty', eventDate=2023-10-15, startTime=22:00:00, endTime=02:00:00, venueID=VenuesDAO{venueID=0, venueName='null', capacity=0, location='null'}}
-2024-01-27 19:40:20.744 [main] INFO  c.s.Main - Event{eventID=8, eventName='BluesFestival', eventDate=2023-11-08, startTime=19:00:00, endTime=22:30:00, venueID=VenuesDAO{venueID=0, venueName='null', capacity=0, location='null'}}
-2024-01-27 19:40:20.744 [main] INFO  c.s.Main - Event{eventID=9, eventName='ClassicalNight', eventDate=2023-11-20, startTime=20:30:00, endTime=23:30:00, venueID=VenuesDAO{venueID=0, venueName='null', capacity=0, location='null'}}
-2024-01-27 19:40:20.744 [main] INFO  c.s.Main - Event{eventID=10, eventName='R&BMagic', eventDate=2023-12-01, startTime=21:30:00, endTime=01:00:00, venueID=VenuesDAO{venueID=0, venueName='null', capacity=0, location='null'}}
-2024-01-27 19:40:20.744 [main] INFO  c.s.Main - Fetching all venues:
-2024-01-27 19:40:20.764 [main] INFO  c.s.Main - VenuesDAO{venueID=1, venueName='City Hall', capacity=1000, location='Downtown'}
-2024-01-27 19:40:20.764 [main] INFO  c.s.Main - VenuesDAO{venueID=2, venueName='Music Arena', capacity=2000, location='Suburb'}
-2024-01-27 19:40:20.764 [main] INFO  c.s.Main - VenuesDAO{venueID=3, venueName='Music Arena', capacity=3000, location='Center'}
-2024-01-27 19:40:20.764 [main] INFO  c.s.Main - VenuesDAO{venueID=4, venueName='Stadium', capacity=50000, location='Outskirts'}
-2024-01-27 19:40:20.764 [main] INFO  c.s.Main - VenuesDAO{venueID=5, venueName='Club XYZ', capacity=300, location='Downtown'}
-2024-01-27 19:40:20.764 [main] INFO  c.s.Main - VenuesDAO{venueID=6, venueName='Amphitheater', capacity=5000, location='Park'}
-2024-01-27 19:40:20.764 [main] INFO  c.s.Main - VenuesDAO{venueID=7, venueName='Event Center', capacity=2500, location='City Center'}
-2024-01-27 19:40:20.764 [main] INFO  c.s.Main - VenuesDAO{venueID=8, venueName='Theater Royal', capacity=1200, location='Downtown'}
-2024-01-27 19:40:20.765 [main] INFO  c.s.Main - VenuesDAO{venueID=9, venueName='Pavilion', capacity=800, location='Suburb'}
-2024-01-27 19:40:20.765 [main] INFO  c.s.Main - VenuesDAO{venueID=10, venueName='Exhibition Hall', capacity=1800, location='City Center'}
-2024-01-27 19:40:20.765 [main] INFO  c.s.Main - Fetching all tickets:
-2024-01-27 19:40:20.791 [main] INFO  c.s.Main - Ticket{ticketID=1, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, price=50.0, ticketType=TicketTypesDAOticketTypeID=1, ticketTypeName='null, description='null}
-2024-01-27 19:40:20.792 [main] INFO  c.s.Main - Ticket{ticketID=2, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, price=75.0, ticketType=TicketTypesDAOticketTypeID=2, ticketTypeName='null, description='null}
-2024-01-27 19:40:20.792 [main] INFO  c.s.Main - Ticket{ticketID=3, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, price=75.0, ticketType=TicketTypesDAOticketTypeID=3, ticketTypeName='null, description='null}
-2024-01-27 19:40:20.792 [main] INFO  c.s.Main - Ticket{ticketID=4, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, price=60.0, ticketType=TicketTypesDAOticketTypeID=4, ticketTypeName='null, description='null}
-2024-01-27 19:40:20.792 [main] INFO  c.s.Main - Ticket{ticketID=5, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, price=40.0, ticketType=TicketTypesDAOticketTypeID=5, ticketTypeName='null, description='null}
-2024-01-27 19:40:20.792 [main] INFO  c.s.Main - Ticket{ticketID=6, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, price=55.0, ticketType=TicketTypesDAOticketTypeID=6, ticketTypeName='null, description='null}
-2024-01-27 19:40:20.792 [main] INFO  c.s.Main - Ticket{ticketID=7, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, price=65.0, ticketType=TicketTypesDAOticketTypeID=7, ticketTypeName='null, description='null}
-2024-01-27 19:40:20.793 [main] INFO  c.s.Main - Ticket{ticketID=8, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, price=70.0, ticketType=TicketTypesDAOticketTypeID=8, ticketTypeName='null, description='null}
-2024-01-27 19:40:20.793 [main] INFO  c.s.Main - Ticket{ticketID=9, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, price=80.0, ticketType=TicketTypesDAOticketTypeID=9, ticketTypeName='null, description='null}
-2024-01-27 19:40:20.793 [main] INFO  c.s.Main - Ticket{ticketID=10, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, price=90.0, ticketType=TicketTypesDAOticketTypeID=10, ticketTypeName='null, description='null}
-2024-01-27 19:40:20.793 [main] INFO  c.s.Main - Fetching all ticket types:
-2024-01-27 19:40:20.815 [main] INFO  c.s.Main - TicketTypesDAOticketTypeID=1, ticketTypeName='Regular, description='Standard admission ticket
-2024-01-27 19:40:20.815 [main] INFO  c.s.Main - TicketTypesDAOticketTypeID=2, ticketTypeName='VIP, description='VIP access with additional perks
-2024-01-27 19:40:20.815 [main] INFO  c.s.Main - TicketTypesDAOticketTypeID=3, ticketTypeName='Student, description='Discounted ticket for students
-2024-01-27 19:40:20.815 [main] INFO  c.s.Main - TicketTypesDAOticketTypeID=4, ticketTypeName='Senior, description='Discounted ticket for seniors
-2024-01-27 19:40:20.815 [main] INFO  c.s.Main - TicketTypesDAOticketTypeID=5, ticketTypeName='Family Pack, description='Admission for a family at a discounted rate
-2024-01-27 19:40:20.815 [main] INFO  c.s.Main - TicketTypesDAOticketTypeID=6, ticketTypeName='Group Discount, description='Discounted rate for group bookings
-2024-01-27 19:40:20.815 [main] INFO  c.s.Main - TicketTypesDAOticketTypeID=7, ticketTypeName='Early Bird, description='Special discount for early bookings
-2024-01-27 19:40:20.815 [main] INFO  c.s.Main - TicketTypesDAOticketTypeID=8, ticketTypeName='Backstage Pass, description='Access to backstage areas
-2024-01-27 19:40:20.816 [main] INFO  c.s.Main - TicketTypesDAOticketTypeID=9, ticketTypeName='Golden Circle, description='Premium viewing area access
-2024-01-27 19:40:20.816 [main] INFO  c.s.Main - TicketTypesDAOticketTypeID=10, ticketTypeName='Front Row, description='Front row seating
-2024-01-27 19:40:20.816 [main] INFO  c.s.Main - Fetching all customers:
-2024-01-27 19:40:20.837 [main] INFO  c.s.Main - Customer{customerID=1, firstName='Alice', lastName='Johnson', email='alice@email.com'}
-2024-01-27 19:40:20.837 [main] INFO  c.s.Main - Customer{customerID=2, firstName='Bob', lastName='Smith', email='bob@email.com'}
-2024-01-27 19:40:20.837 [main] INFO  c.s.Main - Customer{customerID=3, firstName='Mehmet', lastName='Smith', email='Mehmet@email.com'}
-2024-01-27 19:40:20.837 [main] INFO  c.s.Main - Customer{customerID=4, firstName='Eva', lastName='White', email='eva@email.com'}
-2024-01-27 19:40:20.837 [main] INFO  c.s.Main - Customer{customerID=5, firstName='Chris', lastName='Martin', email='chris@email.com'}
-2024-01-27 19:40:20.837 [main] INFO  c.s.Main - Customer{customerID=6, firstName='Sophia', lastName='Brown', email='sophia@email.com'}
-2024-01-27 19:40:20.838 [main] INFO  c.s.Main - Customer{customerID=7, firstName='David', lastName='Taylor', email='david@email.com'}
-2024-01-27 19:40:20.838 [main] INFO  c.s.Main - Customer{customerID=8, firstName='Emma', lastName='Clark', email='emma@email.com'}
-2024-01-27 19:40:20.838 [main] INFO  c.s.Main - Customer{customerID=9, firstName='Daniel', lastName='Anderson', email='daniel@email.com'}
-2024-01-27 19:40:20.839 [main] INFO  c.s.Main - Customer{customerID=10, firstName='Olivia', lastName='Moore', email='olivia@email.com'}
-2024-01-27 19:40:20.839 [main] INFO  c.s.Main - Fetching all orders:
-2024-01-27 19:40:20.861 [main] INFO  c.s.Main - OrdersDAO{orderID=1, customerID=Customer{customerID=1, firstName='null', lastName='null', email='null'}, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, purchaseDate='2023-07-10', totalAmount=50, paymentMethodID=null}
-2024-01-27 19:40:20.861 [main] INFO  c.s.Main - OrdersDAO{orderID=2, customerID=Customer{customerID=2, firstName='null', lastName='null', email='null'}, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, purchaseDate='2023-08-15', totalAmount=75, paymentMethodID=null}
-2024-01-27 19:40:20.862 [main] INFO  c.s.Main - OrdersDAO{orderID=3, customerID=Customer{customerID=3, firstName='null', lastName='null', email='null'}, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, purchaseDate='2023-08-15', totalAmount=75, paymentMethodID=null}
-2024-01-27 19:40:20.862 [main] INFO  c.s.Main - OrdersDAO{orderID=4, customerID=Customer{customerID=4, firstName='null', lastName='null', email='null'}, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, purchaseDate='2023-09-20', totalAmount=60, paymentMethodID=null}
-2024-01-27 19:40:20.862 [main] INFO  c.s.Main - OrdersDAO{orderID=5, customerID=Customer{customerID=5, firstName='null', lastName='null', email='null'}, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, purchaseDate='2023-09-30', totalAmount=40, paymentMethodID=null}
-2024-01-27 19:40:20.862 [main] INFO  c.s.Main - OrdersDAO{orderID=6, customerID=Customer{customerID=6, firstName='null', lastName='null', email='null'}, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, purchaseDate='2023-10-10', totalAmount=55, paymentMethodID=null}
-2024-01-27 19:40:20.862 [main] INFO  c.s.Main - OrdersDAO{orderID=7, customerID=Customer{customerID=7, firstName='null', lastName='null', email='null'}, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, purchaseDate='2023-10-18', totalAmount=65, paymentMethodID=null}
-2024-01-27 19:40:20.862 [main] INFO  c.s.Main - OrdersDAO{orderID=8, customerID=Customer{customerID=8, firstName='null', lastName='null', email='null'}, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, purchaseDate='2023-11-12', totalAmount=70, paymentMethodID=null}
-2024-01-27 19:40:20.863 [main] INFO  c.s.Main - OrdersDAO{orderID=9, customerID=Customer{customerID=9, firstName='null', lastName='null', email='null'}, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, purchaseDate='2023-11-25', totalAmount=80, paymentMethodID=null}
-2024-01-27 19:40:20.863 [main] INFO  c.s.Main - OrdersDAO{orderID=10, customerID=Customer{customerID=10, firstName='null', lastName='null', email='null'}, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, purchaseDate='2023-12-05', totalAmount=90, paymentMethodID=null}
-2024-01-27 19:40:20.863 [main] INFO  c.s.Main - Fetching all payment methods:
-2024-01-27 19:40:20.885 [main] INFO  c.s.Main - com.solvd.model.PaymentsMethod@3f19b8b3
-2024-01-27 19:40:20.885 [main] INFO  c.s.Main - com.solvd.model.PaymentsMethod@7de0c6ae
-2024-01-27 19:40:20.885 [main] INFO  c.s.Main - com.solvd.model.PaymentsMethod@a486d78
-2024-01-27 19:40:20.885 [main] INFO  c.s.Main - com.solvd.model.PaymentsMethod@cdc3aae
-2024-01-27 19:40:20.885 [main] INFO  c.s.Main - com.solvd.model.PaymentsMethod@7ef2d7a6
-2024-01-27 19:40:20.886 [main] INFO  c.s.Main - com.solvd.model.PaymentsMethod@5dcbb60
-2024-01-27 19:40:20.886 [main] INFO  c.s.Main - com.solvd.model.PaymentsMethod@4c36250e
-2024-01-27 19:40:20.886 [main] INFO  c.s.Main - com.solvd.model.PaymentsMethod@21526f6c
-2024-01-27 19:40:20.886 [main] INFO  c.s.Main - com.solvd.model.PaymentsMethod@49f5c307
-2024-01-27 19:40:20.886 [main] INFO  c.s.Main - com.solvd.model.PaymentsMethod@299266e2
-2024-01-27 19:40:20.886 [main] INFO  c.s.Main - Fetching all order items:
-2024-01-27 19:40:20.909 [main] INFO  c.s.Main - OrderItemsDAO{orderItemID=1, orderID=OrdersDAO{orderID=1, customerID=null, eventID=null, purchaseDate='null', totalAmount=0, paymentMethodID=null}, ticketID=Ticket{ticketID=1, eventID=null, price=0.0, ticketType=null}, quantity=2, subTotal=100}
-2024-01-27 19:40:20.909 [main] INFO  c.s.Main - OrderItemsDAO{orderItemID=2, orderID=OrdersDAO{orderID=2, customerID=null, eventID=null, purchaseDate='null', totalAmount=0, paymentMethodID=null}, ticketID=Ticket{ticketID=2, eventID=null, price=0.0, ticketType=null}, quantity=1, subTotal=75}
-2024-01-27 19:40:20.909 [main] INFO  c.s.Main - OrderItemsDAO{orderItemID=3, orderID=OrdersDAO{orderID=3, customerID=null, eventID=null, purchaseDate='null', totalAmount=0, paymentMethodID=null}, ticketID=Ticket{ticketID=3, eventID=null, price=0.0, ticketType=null}, quantity=1, subTotal=75}
-2024-01-27 19:40:20.909 [main] INFO  c.s.Main - Fetching all roles:
-2024-01-27 19:40:20.932 [main] INFO  c.s.Main - RolesDAO{roleID=1, roleName='Admin', description='Administrator role with full access'}
-2024-01-27 19:40:20.932 [main] INFO  c.s.Main - RolesDAO{roleID=2, roleName='User', description='Regular user role with basic access'}
-2024-01-27 19:40:20.932 [main] INFO  c.s.Main - RolesDAO{roleID=3, roleName='Manager', description='Manager role with specific privileges'}
-2024-01-27 19:40:20.932 [main] INFO  c.s.Main - RolesDAO{roleID=4, roleName='Artist', description='Artists role with special role'}
-2024-01-27 19:40:20.933 [main] INFO  c.s.Main - Fetching all staff roles:
-2024-01-27 19:42:47.802 [main] INFO  c.s.Main - com.solvd.service.JdbcDaoService.ArtistService@64337702
-2024-01-27 19:42:47.807 [main] INFO  c.s.Main - staff added from builder
-2024-01-27 19:42:47.867 [main] INFO  c.s.Main - New artist added: 
-2024-01-27 19:42:47.867 [main] INFO  c.s.Main - New genre added:
-2024-01-27 19:42:47.868 [main] INFO  c.s.Main - New venue added:
-2024-01-27 19:42:47.869 [main] INFO  c.s.Main - new ticket type added
-2024-01-27 19:42:47.869 [main] INFO  c.s.Main - new payment method added
-2024-01-27 19:42:47.870 [main] INFO  c.s.Main - new customer added
-2024-01-27 19:42:47.870 [main] INFO  c.s.Main - Fetching all artists:
-2024-01-27 19:42:47.882 [main] INFO  c.s.Main - ArtistsDAO{artistID=1, artistName='John Doe', artistSurame='doe', birthDate='1990-01-15', country='Canada', genreID=null}
-2024-01-27 19:42:47.882 [main] INFO  c.s.Main - ArtistsDAO{artistID=2, artistName='Jane Smith', artistSurame='doe', birthDate='1985-05-20', country='UK', genreID=null}
-2024-01-27 19:42:47.882 [main] INFO  c.s.Main - ArtistsDAO{artistID=3, artistName='Kane Smith', artistSurame='null', birthDate='1986-05-20', country='TR', genreID=null}
-2024-01-27 19:42:47.882 [main] INFO  c.s.Main - ArtistsDAO{artistID=4, artistName='Alex', artistSurame='Johnson', birthDate='1992-08-10', country='USA', genreID=null}
-2024-01-27 19:42:47.882 [main] INFO  c.s.Main - ArtistsDAO{artistID=5, artistName='Emma', artistSurame='Davis', birthDate='1995-02-28', country='Canada', genreID=null}
-2024-01-27 19:42:47.882 [main] INFO  c.s.Main - ArtistsDAO{artistID=6, artistName='David', artistSurame='Miller', birthDate='1988-11-15', country='USA', genreID=null}
-2024-01-27 19:42:47.882 [main] INFO  c.s.Main - ArtistsDAO{artistID=7, artistName='Sophie', artistSurame='Anderson', birthDate='1993-04-03', country='France', genreID=null}
-2024-01-27 19:42:47.883 [main] INFO  c.s.Main - ArtistsDAO{artistID=8, artistName='Michael', artistSurame='Schmidt', birthDate='1987-09-22', country='Germany', genreID=null}
-2024-01-27 19:42:47.883 [main] INFO  c.s.Main - ArtistsDAO{artistID=9, artistName='Olivia', artistSurame='Thomas', birthDate='1996-07-18', country='USA', genreID=null}
-2024-01-27 19:42:47.883 [main] INFO  c.s.Main - ArtistsDAO{artistID=10, artistName='Daniel', artistSurame='Wilson', birthDate='1984-03-25', country='UK', genreID=null}
-2024-01-27 19:42:47.883 [main] INFO  c.s.Main - Fetching all genres:
-2024-01-27 19:42:47.887 [main] INFO  c.s.Main - GenresDAO{genreID=1, genreName='Rock'}
-2024-01-27 19:42:47.887 [main] INFO  c.s.Main - GenresDAO{genreID=2, genreName='Pop'}
-2024-01-27 19:42:47.888 [main] INFO  c.s.Main - GenresDAO{genreID=3, genreName='Metal'}
-2024-01-27 19:42:47.888 [main] INFO  c.s.Main - GenresDAO{genreID=4, genreName='Jazz'}
-2024-01-27 19:42:47.888 [main] INFO  c.s.Main - GenresDAO{genreID=5, genreName='Electronic'}
-2024-01-27 19:42:47.888 [main] INFO  c.s.Main - GenresDAO{genreID=6, genreName='Country'}
-2024-01-27 19:42:47.888 [main] INFO  c.s.Main - GenresDAO{genreID=7, genreName='Hip Hop'}
-2024-01-27 19:42:47.888 [main] INFO  c.s.Main - GenresDAO{genreID=8, genreName='Blues'}
-2024-01-27 19:42:47.888 [main] INFO  c.s.Main - GenresDAO{genreID=9, genreName='Classical'}
-2024-01-27 19:42:47.889 [main] INFO  c.s.Main - GenresDAO{genreID=10, genreName='R&B'}
-2024-01-27 19:42:47.889 [main] INFO  c.s.Main - Fetching all events:
-2024-01-27 19:42:47.903 [main] INFO  c.s.Main - Event{eventID=1, eventName='RockFest', eventDate=2023-07-15, startTime=18:00:00, endTime=23:00:00, venueID=VenuesDAO{venueID=0, venueName='null', capacity=0, location='null'}}
-2024-01-27 19:42:47.903 [main] INFO  c.s.Main - Event{eventID=2, eventName='PopConcert', eventDate=2023-08-20, startTime=19:30:00, endTime=22:30:00, venueID=VenuesDAO{venueID=0, venueName='null', capacity=0, location='null'}}
-2024-01-27 19:42:47.903 [main] INFO  c.s.Main - Event{eventID=3, eventName='MetalFest', eventDate=2023-08-20, startTime=19:30:00, endTime=22:30:00, venueID=VenuesDAO{venueID=0, venueName='null', capacity=0, location='null'}}
-2024-01-27 19:42:47.903 [main] INFO  c.s.Main - Event{eventID=4, eventName='JazzNight', eventDate=2023-09-10, startTime=20:00:00, endTime=23:00:00, venueID=VenuesDAO{venueID=0, venueName='null', capacity=0, location='null'}}
-2024-01-27 19:42:47.903 [main] INFO  c.s.Main - Event{eventID=5, eventName='ElectroBeats', eventDate=2023-09-25, startTime=21:00:00, endTime=02:00:00, venueID=VenuesDAO{venueID=0, venueName='null', capacity=0, location='null'}}
-2024-01-27 19:42:47.904 [main] INFO  c.s.Main - Event{eventID=6, eventName='CountryShow', eventDate=2023-10-05, startTime=18:30:00, endTime=21:30:00, venueID=VenuesDAO{venueID=0, venueName='null', capacity=0, location='null'}}
-2024-01-27 19:42:47.904 [main] INFO  c.s.Main - Event{eventID=7, eventName='HipHopParty', eventDate=2023-10-15, startTime=22:00:00, endTime=02:00:00, venueID=VenuesDAO{venueID=0, venueName='null', capacity=0, location='null'}}
-2024-01-27 19:42:47.904 [main] INFO  c.s.Main - Event{eventID=8, eventName='BluesFestival', eventDate=2023-11-08, startTime=19:00:00, endTime=22:30:00, venueID=VenuesDAO{venueID=0, venueName='null', capacity=0, location='null'}}
-2024-01-27 19:42:47.904 [main] INFO  c.s.Main - Event{eventID=9, eventName='ClassicalNight', eventDate=2023-11-20, startTime=20:30:00, endTime=23:30:00, venueID=VenuesDAO{venueID=0, venueName='null', capacity=0, location='null'}}
-2024-01-27 19:42:47.904 [main] INFO  c.s.Main - Event{eventID=10, eventName='R&BMagic', eventDate=2023-12-01, startTime=21:30:00, endTime=01:00:00, venueID=VenuesDAO{venueID=0, venueName='null', capacity=0, location='null'}}
-2024-01-27 19:42:47.904 [main] INFO  c.s.Main - Fetching all venues:
-2024-01-27 19:42:47.907 [main] INFO  c.s.Main - VenuesDAO{venueID=1, venueName='City Hall', capacity=1000, location='Downtown'}
-2024-01-27 19:42:47.908 [main] INFO  c.s.Main - VenuesDAO{venueID=2, venueName='Music Arena', capacity=2000, location='Suburb'}
-2024-01-27 19:42:47.908 [main] INFO  c.s.Main - VenuesDAO{venueID=3, venueName='Music Arena', capacity=3000, location='Center'}
-2024-01-27 19:42:47.908 [main] INFO  c.s.Main - VenuesDAO{venueID=4, venueName='Stadium', capacity=50000, location='Outskirts'}
-2024-01-27 19:42:47.908 [main] INFO  c.s.Main - VenuesDAO{venueID=5, venueName='Club XYZ', capacity=300, location='Downtown'}
-2024-01-27 19:42:47.908 [main] INFO  c.s.Main - VenuesDAO{venueID=6, venueName='Amphitheater', capacity=5000, location='Park'}
-2024-01-27 19:42:47.908 [main] INFO  c.s.Main - VenuesDAO{venueID=7, venueName='Event Center', capacity=2500, location='City Center'}
-2024-01-27 19:42:47.908 [main] INFO  c.s.Main - VenuesDAO{venueID=8, venueName='Theater Royal', capacity=1200, location='Downtown'}
-2024-01-27 19:42:47.909 [main] INFO  c.s.Main - VenuesDAO{venueID=9, venueName='Pavilion', capacity=800, location='Suburb'}
-2024-01-27 19:42:47.909 [main] INFO  c.s.Main - VenuesDAO{venueID=10, venueName='Exhibition Hall', capacity=1800, location='City Center'}
-2024-01-27 19:42:47.909 [main] INFO  c.s.Main - Fetching all tickets:
-2024-01-27 19:42:47.921 [main] INFO  c.s.Main - Ticket{ticketID=1, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, price=50.0, ticketType=TicketTypesDAOticketTypeID=1, ticketTypeName='null, description='null}
-2024-01-27 19:42:47.921 [main] INFO  c.s.Main - Ticket{ticketID=2, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, price=75.0, ticketType=TicketTypesDAOticketTypeID=2, ticketTypeName='null, description='null}
-2024-01-27 19:42:47.921 [main] INFO  c.s.Main - Ticket{ticketID=3, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, price=75.0, ticketType=TicketTypesDAOticketTypeID=3, ticketTypeName='null, description='null}
-2024-01-27 19:42:47.922 [main] INFO  c.s.Main - Ticket{ticketID=4, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, price=60.0, ticketType=TicketTypesDAOticketTypeID=4, ticketTypeName='null, description='null}
-2024-01-27 19:42:47.922 [main] INFO  c.s.Main - Ticket{ticketID=5, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, price=40.0, ticketType=TicketTypesDAOticketTypeID=5, ticketTypeName='null, description='null}
-2024-01-27 19:42:47.922 [main] INFO  c.s.Main - Ticket{ticketID=6, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, price=55.0, ticketType=TicketTypesDAOticketTypeID=6, ticketTypeName='null, description='null}
-2024-01-27 19:42:47.922 [main] INFO  c.s.Main - Ticket{ticketID=7, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, price=65.0, ticketType=TicketTypesDAOticketTypeID=7, ticketTypeName='null, description='null}
-2024-01-27 19:42:47.922 [main] INFO  c.s.Main - Ticket{ticketID=8, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, price=70.0, ticketType=TicketTypesDAOticketTypeID=8, ticketTypeName='null, description='null}
-2024-01-27 19:42:47.922 [main] INFO  c.s.Main - Ticket{ticketID=9, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, price=80.0, ticketType=TicketTypesDAOticketTypeID=9, ticketTypeName='null, description='null}
-2024-01-27 19:42:47.922 [main] INFO  c.s.Main - Ticket{ticketID=10, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, price=90.0, ticketType=TicketTypesDAOticketTypeID=10, ticketTypeName='null, description='null}
-2024-01-27 19:42:47.923 [main] INFO  c.s.Main - Fetching all ticket types:
-2024-01-27 19:42:47.925 [main] INFO  c.s.Main - TicketTypesDAOticketTypeID=1, ticketTypeName='Regular, description='Standard admission ticket
-2024-01-27 19:42:47.925 [main] INFO  c.s.Main - TicketTypesDAOticketTypeID=2, ticketTypeName='VIP, description='VIP access with additional perks
-2024-01-27 19:42:47.925 [main] INFO  c.s.Main - TicketTypesDAOticketTypeID=3, ticketTypeName='Student, description='Discounted ticket for students
-2024-01-27 19:42:47.926 [main] INFO  c.s.Main - TicketTypesDAOticketTypeID=4, ticketTypeName='Senior, description='Discounted ticket for seniors
-2024-01-27 19:42:47.926 [main] INFO  c.s.Main - TicketTypesDAOticketTypeID=5, ticketTypeName='Family Pack, description='Admission for a family at a discounted rate
-2024-01-27 19:42:47.926 [main] INFO  c.s.Main - TicketTypesDAOticketTypeID=6, ticketTypeName='Group Discount, description='Discounted rate for group bookings
-2024-01-27 19:42:47.926 [main] INFO  c.s.Main - TicketTypesDAOticketTypeID=7, ticketTypeName='Early Bird, description='Special discount for early bookings
-2024-01-27 19:42:47.926 [main] INFO  c.s.Main - TicketTypesDAOticketTypeID=8, ticketTypeName='Backstage Pass, description='Access to backstage areas
-2024-01-27 19:42:47.926 [main] INFO  c.s.Main - TicketTypesDAOticketTypeID=9, ticketTypeName='Golden Circle, description='Premium viewing area access
-2024-01-27 19:42:47.927 [main] INFO  c.s.Main - TicketTypesDAOticketTypeID=10, ticketTypeName='Front Row, description='Front row seating
-2024-01-27 19:42:47.927 [main] INFO  c.s.Main - Fetching all customers:
-2024-01-27 19:42:47.930 [main] INFO  c.s.Main - Customer{customerID=1, firstName='Alice', lastName='Johnson', email='alice@email.com'}
-2024-01-27 19:42:47.930 [main] INFO  c.s.Main - Customer{customerID=2, firstName='Bob', lastName='Smith', email='bob@email.com'}
-2024-01-27 19:42:47.930 [main] INFO  c.s.Main - Customer{customerID=3, firstName='Mehmet', lastName='Smith', email='Mehmet@email.com'}
-2024-01-27 19:42:47.931 [main] INFO  c.s.Main - Customer{customerID=4, firstName='Eva', lastName='White', email='eva@email.com'}
-2024-01-27 19:42:47.931 [main] INFO  c.s.Main - Customer{customerID=5, firstName='Chris', lastName='Martin', email='chris@email.com'}
-2024-01-27 19:42:47.931 [main] INFO  c.s.Main - Customer{customerID=6, firstName='Sophia', lastName='Brown', email='sophia@email.com'}
-2024-01-27 19:42:47.931 [main] INFO  c.s.Main - Customer{customerID=7, firstName='David', lastName='Taylor', email='david@email.com'}
-2024-01-27 19:42:47.931 [main] INFO  c.s.Main - Customer{customerID=8, firstName='Emma', lastName='Clark', email='emma@email.com'}
-2024-01-27 19:42:47.931 [main] INFO  c.s.Main - Customer{customerID=9, firstName='Daniel', lastName='Anderson', email='daniel@email.com'}
-2024-01-27 19:42:47.931 [main] INFO  c.s.Main - Customer{customerID=10, firstName='Olivia', lastName='Moore', email='olivia@email.com'}
-2024-01-27 19:42:47.931 [main] INFO  c.s.Main - Fetching all orders:
-2024-01-27 19:42:47.937 [main] INFO  c.s.Main - OrdersDAO{orderID=1, customerID=Customer{customerID=1, firstName='null', lastName='null', email='null'}, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, purchaseDate='2023-07-10', totalAmount=50, paymentMethodID=null}
-2024-01-27 19:42:47.937 [main] INFO  c.s.Main - OrdersDAO{orderID=2, customerID=Customer{customerID=2, firstName='null', lastName='null', email='null'}, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, purchaseDate='2023-08-15', totalAmount=75, paymentMethodID=null}
-2024-01-27 19:42:47.937 [main] INFO  c.s.Main - OrdersDAO{orderID=3, customerID=Customer{customerID=3, firstName='null', lastName='null', email='null'}, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, purchaseDate='2023-08-15', totalAmount=75, paymentMethodID=null}
-2024-01-27 19:42:47.937 [main] INFO  c.s.Main - OrdersDAO{orderID=4, customerID=Customer{customerID=4, firstName='null', lastName='null', email='null'}, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, purchaseDate='2023-09-20', totalAmount=60, paymentMethodID=null}
-2024-01-27 19:42:47.938 [main] INFO  c.s.Main - OrdersDAO{orderID=5, customerID=Customer{customerID=5, firstName='null', lastName='null', email='null'}, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, purchaseDate='2023-09-30', totalAmount=40, paymentMethodID=null}
-2024-01-27 19:42:47.938 [main] INFO  c.s.Main - OrdersDAO{orderID=6, customerID=Customer{customerID=6, firstName='null', lastName='null', email='null'}, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, purchaseDate='2023-10-10', totalAmount=55, paymentMethodID=null}
-2024-01-27 19:42:47.938 [main] INFO  c.s.Main - OrdersDAO{orderID=7, customerID=Customer{customerID=7, firstName='null', lastName='null', email='null'}, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, purchaseDate='2023-10-18', totalAmount=65, paymentMethodID=null}
-2024-01-27 19:42:47.938 [main] INFO  c.s.Main - OrdersDAO{orderID=8, customerID=Customer{customerID=8, firstName='null', lastName='null', email='null'}, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, purchaseDate='2023-11-12', totalAmount=70, paymentMethodID=null}
-2024-01-27 19:42:47.938 [main] INFO  c.s.Main - OrdersDAO{orderID=9, customerID=Customer{customerID=9, firstName='null', lastName='null', email='null'}, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, purchaseDate='2023-11-25', totalAmount=80, paymentMethodID=null}
-2024-01-27 19:42:47.938 [main] INFO  c.s.Main - OrdersDAO{orderID=10, customerID=Customer{customerID=10, firstName='null', lastName='null', email='null'}, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, purchaseDate='2023-12-05', totalAmount=90, paymentMethodID=null}
-2024-01-27 19:42:47.938 [main] INFO  c.s.Main - Fetching all payment methods:
-2024-01-27 19:42:47.940 [main] INFO  c.s.Main - com.solvd.model.PaymentsMethod@7de0c6ae
-2024-01-27 19:42:47.940 [main] INFO  c.s.Main - com.solvd.model.PaymentsMethod@a486d78
-2024-01-27 19:42:47.940 [main] INFO  c.s.Main - com.solvd.model.PaymentsMethod@cdc3aae
-2024-01-27 19:42:47.940 [main] INFO  c.s.Main - com.solvd.model.PaymentsMethod@7ef2d7a6
-2024-01-27 19:42:47.941 [main] INFO  c.s.Main - com.solvd.model.PaymentsMethod@5dcbb60
-2024-01-27 19:42:47.941 [main] INFO  c.s.Main - com.solvd.model.PaymentsMethod@4c36250e
-2024-01-27 19:42:47.941 [main] INFO  c.s.Main - com.solvd.model.PaymentsMethod@21526f6c
-2024-01-27 19:42:47.941 [main] INFO  c.s.Main - com.solvd.model.PaymentsMethod@49f5c307
-2024-01-27 19:42:47.941 [main] INFO  c.s.Main - com.solvd.model.PaymentsMethod@299266e2
-2024-01-27 19:42:47.941 [main] INFO  c.s.Main - com.solvd.model.PaymentsMethod@5471388b
-2024-01-27 19:42:47.941 [main] INFO  c.s.Main - Fetching all order items:
-2024-01-27 19:42:47.948 [main] INFO  c.s.Main - OrderItemsDAO{orderItemID=1, orderID=OrdersDAO{orderID=1, customerID=null, eventID=null, purchaseDate='null', totalAmount=0, paymentMethodID=null}, ticketID=Ticket{ticketID=1, eventID=null, price=0.0, ticketType=null}, quantity=2, subTotal=100}
-2024-01-27 19:42:47.949 [main] INFO  c.s.Main - OrderItemsDAO{orderItemID=2, orderID=OrdersDAO{orderID=2, customerID=null, eventID=null, purchaseDate='null', totalAmount=0, paymentMethodID=null}, ticketID=Ticket{ticketID=2, eventID=null, price=0.0, ticketType=null}, quantity=1, subTotal=75}
-2024-01-27 19:42:47.949 [main] INFO  c.s.Main - OrderItemsDAO{orderItemID=3, orderID=OrdersDAO{orderID=3, customerID=null, eventID=null, purchaseDate='null', totalAmount=0, paymentMethodID=null}, ticketID=Ticket{ticketID=3, eventID=null, price=0.0, ticketType=null}, quantity=1, subTotal=75}
-2024-01-27 19:42:47.949 [main] INFO  c.s.Main - Fetching all roles:
-2024-01-27 19:42:47.954 [main] INFO  c.s.Main - RolesDAO{roleID=1, roleName='Admin', description='Administrator role with full access'}
-2024-01-27 19:42:47.954 [main] INFO  c.s.Main - RolesDAO{roleID=2, roleName='User', description='Regular user role with basic access'}
-2024-01-27 19:42:47.954 [main] INFO  c.s.Main - RolesDAO{roleID=3, roleName='Manager', description='Manager role with specific privileges'}
-2024-01-27 19:42:47.954 [main] INFO  c.s.Main - RolesDAO{roleID=4, roleName='Artist', description='Artists role with special role'}
-2024-01-27 19:42:47.954 [main] INFO  c.s.Main - Fetching all staff roles:
-2024-01-27 19:56:01.841 [main] INFO  c.s.Main - com.solvd.service.JdbcDaoService.ArtistService@64337702
-2024-01-27 19:56:01.865 [main] INFO  c.s.Main - customer added from factory
-2024-01-27 19:56:01.870 [main] INFO  c.s.Main - genre updated from factory
-2024-01-27 19:56:01.872 [main] INFO  c.s.Main - staff added from builder
-2024-01-27 19:56:01.909 [main] INFO  c.s.Main - New artist added: 
-2024-01-27 19:56:01.909 [main] INFO  c.s.Main - New genre added:
-2024-01-27 19:56:01.910 [main] INFO  c.s.Main - New venue added:
-2024-01-27 19:56:01.910 [main] INFO  c.s.Main - new ticket type added
-2024-01-27 19:56:01.911 [main] INFO  c.s.Main - new payment method added
-2024-01-27 19:56:01.911 [main] INFO  c.s.Main - new customer added
-2024-01-27 19:56:01.912 [main] INFO  c.s.Main - Fetching all artists:
-2024-01-27 19:56:01.922 [main] INFO  c.s.Main - ArtistsDAO{artistID=1, artistName='John Doe', artistSurame='doe', birthDate='1990-01-15', country='Canada', genreID=null}
-2024-01-27 19:56:01.922 [main] INFO  c.s.Main - ArtistsDAO{artistID=2, artistName='Jane Smith', artistSurame='doe', birthDate='1985-05-20', country='UK', genreID=null}
-2024-01-27 19:56:01.922 [main] INFO  c.s.Main - ArtistsDAO{artistID=3, artistName='Kane Smith', artistSurame='null', birthDate='1986-05-20', country='TR', genreID=null}
-2024-01-27 19:56:01.923 [main] INFO  c.s.Main - ArtistsDAO{artistID=4, artistName='Alex', artistSurame='Johnson', birthDate='1992-08-10', country='USA', genreID=null}
-2024-01-27 19:56:01.923 [main] INFO  c.s.Main - ArtistsDAO{artistID=5, artistName='Emma', artistSurame='Davis', birthDate='1995-02-28', country='Canada', genreID=null}
-2024-01-27 19:56:01.923 [main] INFO  c.s.Main - ArtistsDAO{artistID=6, artistName='David', artistSurame='Miller', birthDate='1988-11-15', country='USA', genreID=null}
-2024-01-27 19:56:01.923 [main] INFO  c.s.Main - ArtistsDAO{artistID=7, artistName='Sophie', artistSurame='Anderson', birthDate='1993-04-03', country='France', genreID=null}
-2024-01-27 19:56:01.923 [main] INFO  c.s.Main - ArtistsDAO{artistID=8, artistName='Michael', artistSurame='Schmidt', birthDate='1987-09-22', country='Germany', genreID=null}
-2024-01-27 19:56:01.923 [main] INFO  c.s.Main - ArtistsDAO{artistID=9, artistName='Olivia', artistSurame='Thomas', birthDate='1996-07-18', country='USA', genreID=null}
-2024-01-27 19:56:01.924 [main] INFO  c.s.Main - ArtistsDAO{artistID=10, artistName='Daniel', artistSurame='Wilson', birthDate='1984-03-25', country='UK', genreID=null}
-2024-01-27 19:56:01.924 [main] INFO  c.s.Main - Fetching all genres:
-2024-01-27 19:56:01.929 [main] INFO  c.s.Main - GenresDAO{genreID=1, genreName='Rock'}
-2024-01-27 19:56:01.929 [main] INFO  c.s.Main - GenresDAO{genreID=2, genreName='Pop'}
-2024-01-27 19:56:01.929 [main] INFO  c.s.Main - GenresDAO{genreID=3, genreName='Metal'}
-2024-01-27 19:56:01.929 [main] INFO  c.s.Main - GenresDAO{genreID=4, genreName='Jazz'}
-2024-01-27 19:56:01.929 [main] INFO  c.s.Main - GenresDAO{genreID=5, genreName='Electronic'}
-2024-01-27 19:56:01.929 [main] INFO  c.s.Main - GenresDAO{genreID=6, genreName='Country'}
-2024-01-27 19:56:01.929 [main] INFO  c.s.Main - GenresDAO{genreID=7, genreName='Hip Hop'}
-2024-01-27 19:56:01.929 [main] INFO  c.s.Main - GenresDAO{genreID=8, genreName='Blues'}
-2024-01-27 19:56:01.930 [main] INFO  c.s.Main - GenresDAO{genreID=9, genreName='Classical'}
-2024-01-27 19:56:01.930 [main] INFO  c.s.Main - GenresDAO{genreID=10, genreName='R&B'}
-2024-01-27 19:56:01.930 [main] INFO  c.s.Main - Fetching all events:
-2024-01-27 19:56:01.945 [main] INFO  c.s.Main - Event{eventID=1, eventName='RockFest', eventDate=2023-07-15, startTime=18:00:00, endTime=23:00:00, venueID=VenuesDAO{venueID=0, venueName='null', capacity=0, location='null'}}
-2024-01-27 19:56:01.945 [main] INFO  c.s.Main - Event{eventID=2, eventName='PopConcert', eventDate=2023-08-20, startTime=19:30:00, endTime=22:30:00, venueID=VenuesDAO{venueID=0, venueName='null', capacity=0, location='null'}}
-2024-01-27 19:56:01.945 [main] INFO  c.s.Main - Event{eventID=3, eventName='MetalFest', eventDate=2023-08-20, startTime=19:30:00, endTime=22:30:00, venueID=VenuesDAO{venueID=0, venueName='null', capacity=0, location='null'}}
-2024-01-27 19:56:01.945 [main] INFO  c.s.Main - Event{eventID=4, eventName='JazzNight', eventDate=2023-09-10, startTime=20:00:00, endTime=23:00:00, venueID=VenuesDAO{venueID=0, venueName='null', capacity=0, location='null'}}
-2024-01-27 19:56:01.945 [main] INFO  c.s.Main - Event{eventID=5, eventName='ElectroBeats', eventDate=2023-09-25, startTime=21:00:00, endTime=02:00:00, venueID=VenuesDAO{venueID=0, venueName='null', capacity=0, location='null'}}
-2024-01-27 19:56:01.946 [main] INFO  c.s.Main - Event{eventID=6, eventName='CountryShow', eventDate=2023-10-05, startTime=18:30:00, endTime=21:30:00, venueID=VenuesDAO{venueID=0, venueName='null', capacity=0, location='null'}}
-2024-01-27 19:56:01.946 [main] INFO  c.s.Main - Event{eventID=7, eventName='HipHopParty', eventDate=2023-10-15, startTime=22:00:00, endTime=02:00:00, venueID=VenuesDAO{venueID=0, venueName='null', capacity=0, location='null'}}
-2024-01-27 19:56:01.946 [main] INFO  c.s.Main - Event{eventID=8, eventName='BluesFestival', eventDate=2023-11-08, startTime=19:00:00, endTime=22:30:00, venueID=VenuesDAO{venueID=0, venueName='null', capacity=0, location='null'}}
-2024-01-27 19:56:01.946 [main] INFO  c.s.Main - Event{eventID=9, eventName='ClassicalNight', eventDate=2023-11-20, startTime=20:30:00, endTime=23:30:00, venueID=VenuesDAO{venueID=0, venueName='null', capacity=0, location='null'}}
-2024-01-27 19:56:01.946 [main] INFO  c.s.Main - Event{eventID=10, eventName='R&BMagic', eventDate=2023-12-01, startTime=21:30:00, endTime=01:00:00, venueID=VenuesDAO{venueID=0, venueName='null', capacity=0, location='null'}}
-2024-01-27 19:56:01.946 [main] INFO  c.s.Main - Fetching all venues:
-2024-01-27 19:56:01.949 [main] INFO  c.s.Main - VenuesDAO{venueID=1, venueName='City Hall', capacity=1000, location='Downtown'}
-2024-01-27 19:56:01.949 [main] INFO  c.s.Main - VenuesDAO{venueID=2, venueName='Music Arena', capacity=2000, location='Suburb'}
-2024-01-27 19:56:01.949 [main] INFO  c.s.Main - VenuesDAO{venueID=3, venueName='Music Arena', capacity=3000, location='Center'}
-2024-01-27 19:56:01.949 [main] INFO  c.s.Main - VenuesDAO{venueID=4, venueName='Stadium', capacity=50000, location='Outskirts'}
-2024-01-27 19:56:01.949 [main] INFO  c.s.Main - VenuesDAO{venueID=5, venueName='Club XYZ', capacity=300, location='Downtown'}
-2024-01-27 19:56:01.950 [main] INFO  c.s.Main - VenuesDAO{venueID=6, venueName='Amphitheater', capacity=5000, location='Park'}
-2024-01-27 19:56:01.950 [main] INFO  c.s.Main - VenuesDAO{venueID=7, venueName='Event Center', capacity=2500, location='City Center'}
-2024-01-27 19:56:01.950 [main] INFO  c.s.Main - VenuesDAO{venueID=8, venueName='Theater Royal', capacity=1200, location='Downtown'}
-2024-01-27 19:56:01.950 [main] INFO  c.s.Main - VenuesDAO{venueID=9, venueName='Pavilion', capacity=800, location='Suburb'}
-2024-01-27 19:56:01.950 [main] INFO  c.s.Main - VenuesDAO{venueID=10, venueName='Exhibition Hall', capacity=1800, location='City Center'}
-2024-01-27 19:56:01.950 [main] INFO  c.s.Main - Fetching all tickets:
-2024-01-27 19:56:01.962 [main] INFO  c.s.Main - Ticket{ticketID=1, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, price=50.0, ticketType=TicketTypesDAOticketTypeID=1, ticketTypeName='null, description='null}
-2024-01-27 19:56:01.963 [main] INFO  c.s.Main - Ticket{ticketID=2, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, price=75.0, ticketType=TicketTypesDAOticketTypeID=2, ticketTypeName='null, description='null}
-2024-01-27 19:56:01.963 [main] INFO  c.s.Main - Ticket{ticketID=3, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, price=75.0, ticketType=TicketTypesDAOticketTypeID=3, ticketTypeName='null, description='null}
-2024-01-27 19:56:01.963 [main] INFO  c.s.Main - Ticket{ticketID=4, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, price=60.0, ticketType=TicketTypesDAOticketTypeID=4, ticketTypeName='null, description='null}
-2024-01-27 19:56:01.963 [main] INFO  c.s.Main - Ticket{ticketID=5, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, price=40.0, ticketType=TicketTypesDAOticketTypeID=5, ticketTypeName='null, description='null}
-2024-01-27 19:56:01.963 [main] INFO  c.s.Main - Ticket{ticketID=6, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, price=55.0, ticketType=TicketTypesDAOticketTypeID=6, ticketTypeName='null, description='null}
-2024-01-27 19:56:01.963 [main] INFO  c.s.Main - Ticket{ticketID=7, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, price=65.0, ticketType=TicketTypesDAOticketTypeID=7, ticketTypeName='null, description='null}
-2024-01-27 19:56:01.964 [main] INFO  c.s.Main - Ticket{ticketID=8, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, price=70.0, ticketType=TicketTypesDAOticketTypeID=8, ticketTypeName='null, description='null}
-2024-01-27 19:56:01.964 [main] INFO  c.s.Main - Ticket{ticketID=9, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, price=80.0, ticketType=TicketTypesDAOticketTypeID=9, ticketTypeName='null, description='null}
-2024-01-27 19:56:01.964 [main] INFO  c.s.Main - Ticket{ticketID=10, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, price=90.0, ticketType=TicketTypesDAOticketTypeID=10, ticketTypeName='null, description='null}
-2024-01-27 19:56:01.964 [main] INFO  c.s.Main - Fetching all ticket types:
-2024-01-27 19:56:01.966 [main] INFO  c.s.Main - TicketTypesDAOticketTypeID=1, ticketTypeName='Regular, description='Standard admission ticket
-2024-01-27 19:56:01.966 [main] INFO  c.s.Main - TicketTypesDAOticketTypeID=2, ticketTypeName='VIP, description='VIP access with additional perks
-2024-01-27 19:56:01.966 [main] INFO  c.s.Main - TicketTypesDAOticketTypeID=3, ticketTypeName='Student, description='Discounted ticket for students
-2024-01-27 19:56:01.966 [main] INFO  c.s.Main - TicketTypesDAOticketTypeID=4, ticketTypeName='Senior, description='Discounted ticket for seniors
-2024-01-27 19:56:01.966 [main] INFO  c.s.Main - TicketTypesDAOticketTypeID=5, ticketTypeName='Family Pack, description='Admission for a family at a discounted rate
-2024-01-27 19:56:01.967 [main] INFO  c.s.Main - TicketTypesDAOticketTypeID=6, ticketTypeName='Group Discount, description='Discounted rate for group bookings
-2024-01-27 19:56:01.967 [main] INFO  c.s.Main - TicketTypesDAOticketTypeID=7, ticketTypeName='Early Bird, description='Special discount for early bookings
-2024-01-27 19:56:01.967 [main] INFO  c.s.Main - TicketTypesDAOticketTypeID=8, ticketTypeName='Backstage Pass, description='Access to backstage areas
-2024-01-27 19:56:01.967 [main] INFO  c.s.Main - TicketTypesDAOticketTypeID=9, ticketTypeName='Golden Circle, description='Premium viewing area access
-2024-01-27 19:56:01.967 [main] INFO  c.s.Main - TicketTypesDAOticketTypeID=10, ticketTypeName='Front Row, description='Front row seating
-2024-01-27 19:56:01.967 [main] INFO  c.s.Main - Fetching all customers:
-2024-01-27 19:56:01.970 [main] INFO  c.s.Main - Customer{customerID=1, firstName='Alice', lastName='Johnson', email='alice@email.com'}
-2024-01-27 19:56:01.970 [main] INFO  c.s.Main - Customer{customerID=2, firstName='Bob', lastName='Smith', email='bob@email.com'}
-2024-01-27 19:56:01.970 [main] INFO  c.s.Main - Customer{customerID=3, firstName='Mehmet', lastName='Smith', email='Mehmet@email.com'}
-2024-01-27 19:56:01.970 [main] INFO  c.s.Main - Customer{customerID=4, firstName='Eva', lastName='White', email='eva@email.com'}
-2024-01-27 19:56:01.970 [main] INFO  c.s.Main - Customer{customerID=5, firstName='Chris', lastName='Martin', email='chris@email.com'}
-2024-01-27 19:56:01.970 [main] INFO  c.s.Main - Customer{customerID=6, firstName='Sophia', lastName='Brown', email='sophia@email.com'}
-2024-01-27 19:56:01.970 [main] INFO  c.s.Main - Customer{customerID=7, firstName='David', lastName='Taylor', email='david@email.com'}
-2024-01-27 19:56:01.970 [main] INFO  c.s.Main - Customer{customerID=8, firstName='Emma', lastName='Clark', email='emma@email.com'}
-2024-01-27 19:56:01.971 [main] INFO  c.s.Main - Customer{customerID=9, firstName='Daniel', lastName='Anderson', email='daniel@email.com'}
-2024-01-27 19:56:01.971 [main] INFO  c.s.Main - Customer{customerID=10, firstName='Olivia', lastName='Moore', email='olivia@email.com'}
-2024-01-27 19:56:01.971 [main] INFO  c.s.Main - Fetching all orders:
-2024-01-27 19:56:01.978 [main] INFO  c.s.Main - OrdersDAO{orderID=1, customerID=Customer{customerID=1, firstName='null', lastName='null', email='null'}, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, purchaseDate='2023-07-10', totalAmount=50, paymentMethodID=null}
-2024-01-27 19:56:01.978 [main] INFO  c.s.Main - OrdersDAO{orderID=2, customerID=Customer{customerID=2, firstName='null', lastName='null', email='null'}, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, purchaseDate='2023-08-15', totalAmount=75, paymentMethodID=null}
-2024-01-27 19:56:01.978 [main] INFO  c.s.Main - OrdersDAO{orderID=3, customerID=Customer{customerID=3, firstName='null', lastName='null', email='null'}, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, purchaseDate='2023-08-15', totalAmount=75, paymentMethodID=null}
-2024-01-27 19:56:01.978 [main] INFO  c.s.Main - OrdersDAO{orderID=4, customerID=Customer{customerID=4, firstName='null', lastName='null', email='null'}, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, purchaseDate='2023-09-20', totalAmount=60, paymentMethodID=null}
-2024-01-27 19:56:01.978 [main] INFO  c.s.Main - OrdersDAO{orderID=5, customerID=Customer{customerID=5, firstName='null', lastName='null', email='null'}, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, purchaseDate='2023-09-30', totalAmount=40, paymentMethodID=null}
-2024-01-27 19:56:01.979 [main] INFO  c.s.Main - OrdersDAO{orderID=6, customerID=Customer{customerID=6, firstName='null', lastName='null', email='null'}, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, purchaseDate='2023-10-10', totalAmount=55, paymentMethodID=null}
-2024-01-27 19:56:01.979 [main] INFO  c.s.Main - OrdersDAO{orderID=7, customerID=Customer{customerID=7, firstName='null', lastName='null', email='null'}, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, purchaseDate='2023-10-18', totalAmount=65, paymentMethodID=null}
-2024-01-27 19:56:01.979 [main] INFO  c.s.Main - OrdersDAO{orderID=8, customerID=Customer{customerID=8, firstName='null', lastName='null', email='null'}, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, purchaseDate='2023-11-12', totalAmount=70, paymentMethodID=null}
-2024-01-27 19:56:01.979 [main] INFO  c.s.Main - OrdersDAO{orderID=9, customerID=Customer{customerID=9, firstName='null', lastName='null', email='null'}, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, purchaseDate='2023-11-25', totalAmount=80, paymentMethodID=null}
-2024-01-27 19:56:01.979 [main] INFO  c.s.Main - OrdersDAO{orderID=10, customerID=Customer{customerID=10, firstName='null', lastName='null', email='null'}, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, purchaseDate='2023-12-05', totalAmount=90, paymentMethodID=null}
-2024-01-27 19:56:01.979 [main] INFO  c.s.Main - Fetching all payment methods:
-2024-01-27 19:56:01.981 [main] INFO  c.s.Main - com.solvd.model.PaymentsMethod@3bffddff
-2024-01-27 19:56:01.981 [main] INFO  c.s.Main - com.solvd.model.PaymentsMethod@66971f6b
-2024-01-27 19:56:01.981 [main] INFO  c.s.Main - com.solvd.model.PaymentsMethod@50687efb
-2024-01-27 19:56:01.981 [main] INFO  c.s.Main - com.solvd.model.PaymentsMethod@517bd097
-2024-01-27 19:56:01.982 [main] INFO  c.s.Main - com.solvd.model.PaymentsMethod@142eef62
-2024-01-27 19:56:01.982 [main] INFO  c.s.Main - com.solvd.model.PaymentsMethod@4a9cc6cb
-2024-01-27 19:56:01.982 [main] INFO  c.s.Main - com.solvd.model.PaymentsMethod@5990e6c5
-2024-01-27 19:56:01.982 [main] INFO  c.s.Main - com.solvd.model.PaymentsMethod@56e07a08
-2024-01-27 19:56:01.982 [main] INFO  c.s.Main - com.solvd.model.PaymentsMethod@35d6ca49
-2024-01-27 19:56:01.982 [main] INFO  c.s.Main - com.solvd.model.PaymentsMethod@1950e8a6
-2024-01-27 19:56:01.982 [main] INFO  c.s.Main - Fetching all order items:
-2024-01-27 19:56:01.990 [main] INFO  c.s.Main - OrderItemsDAO{orderItemID=1, orderID=OrdersDAO{orderID=1, customerID=null, eventID=null, purchaseDate='null', totalAmount=0, paymentMethodID=null}, ticketID=Ticket{ticketID=1, eventID=null, price=0.0, ticketType=null}, quantity=2, subTotal=100}
-2024-01-27 19:56:01.990 [main] INFO  c.s.Main - OrderItemsDAO{orderItemID=2, orderID=OrdersDAO{orderID=2, customerID=null, eventID=null, purchaseDate='null', totalAmount=0, paymentMethodID=null}, ticketID=Ticket{ticketID=2, eventID=null, price=0.0, ticketType=null}, quantity=1, subTotal=75}
-2024-01-27 19:56:01.990 [main] INFO  c.s.Main - OrderItemsDAO{orderItemID=3, orderID=OrdersDAO{orderID=3, customerID=null, eventID=null, purchaseDate='null', totalAmount=0, paymentMethodID=null}, ticketID=Ticket{ticketID=3, eventID=null, price=0.0, ticketType=null}, quantity=1, subTotal=75}
-2024-01-27 19:56:01.990 [main] INFO  c.s.Main - Fetching all roles:
-2024-01-27 19:56:01.994 [main] INFO  c.s.Main - RolesDAO{roleID=1, roleName='Admin', description='Administrator role with full access'}
-2024-01-27 19:56:01.994 [main] INFO  c.s.Main - RolesDAO{roleID=2, roleName='User', description='Regular user role with basic access'}
-2024-01-27 19:56:01.994 [main] INFO  c.s.Main - RolesDAO{roleID=3, roleName='Manager', description='Manager role with specific privileges'}
-2024-01-27 19:56:01.995 [main] INFO  c.s.Main - RolesDAO{roleID=4, roleName='Artist', description='Artists role with special role'}
-2024-01-27 19:56:01.995 [main] INFO  c.s.Main - Fetching all staff roles:
+2024-01-27 23:55:16.191 [main] INFO  c.s.Main - com.solvd.service.JdbcDaoService.ArtistService@64337702
+2024-01-27 23:55:16.209 [main] INFO  c.s.Main - customer added from factory
+2024-01-27 23:55:16.211 [main] INFO  c.s.Main - genre updated from factory
+2024-01-27 23:55:16.212 [main] INFO  c.s.Main - staff added from builder
+2024-01-27 23:55:16.242 [main] INFO  c.s.Main - New artist added: 
+2024-01-27 23:55:16.242 [main] INFO  c.s.Main - New genre added:
+2024-01-27 23:55:16.243 [main] INFO  c.s.Main - New venue added:
+2024-01-27 23:55:16.243 [main] INFO  c.s.Main - new ticket type added
+2024-01-27 23:55:16.244 [main] INFO  c.s.Main - new payment method added
+2024-01-27 23:55:16.244 [main] INFO  c.s.Main - new customer added
+2024-01-27 23:55:16.244 [main] INFO  c.s.Main - Fetching all artists:
+2024-01-27 23:55:16.254 [main] INFO  c.s.Main - ArtistsDAO{artistID=1, artistName='John Doe', artistSurame='doe', birthDate='1990-01-15', country='Canada', genreID=null}
+2024-01-27 23:55:16.254 [main] INFO  c.s.Main - ArtistsDAO{artistID=2, artistName='Jane Smith', artistSurame='doe', birthDate='1985-05-20', country='UK', genreID=null}
+2024-01-27 23:55:16.254 [main] INFO  c.s.Main - ArtistsDAO{artistID=3, artistName='Kane Smith', artistSurame='null', birthDate='1986-05-20', country='TR', genreID=null}
+2024-01-27 23:55:16.255 [main] INFO  c.s.Main - ArtistsDAO{artistID=4, artistName='Alex', artistSurame='Johnson', birthDate='1992-08-10', country='USA', genreID=null}
+2024-01-27 23:55:16.255 [main] INFO  c.s.Main - ArtistsDAO{artistID=5, artistName='Emma', artistSurame='Davis', birthDate='1995-02-28', country='Canada', genreID=null}
+2024-01-27 23:55:16.255 [main] INFO  c.s.Main - ArtistsDAO{artistID=6, artistName='David', artistSurame='Miller', birthDate='1988-11-15', country='USA', genreID=null}
+2024-01-27 23:55:16.255 [main] INFO  c.s.Main - ArtistsDAO{artistID=7, artistName='Sophie', artistSurame='Anderson', birthDate='1993-04-03', country='France', genreID=null}
+2024-01-27 23:55:16.255 [main] INFO  c.s.Main - ArtistsDAO{artistID=8, artistName='Michael', artistSurame='Schmidt', birthDate='1987-09-22', country='Germany', genreID=null}
+2024-01-27 23:55:16.255 [main] INFO  c.s.Main - ArtistsDAO{artistID=9, artistName='Olivia', artistSurame='Thomas', birthDate='1996-07-18', country='USA', genreID=null}
+2024-01-27 23:55:16.255 [main] INFO  c.s.Main - ArtistsDAO{artistID=10, artistName='Daniel', artistSurame='Wilson', birthDate='1984-03-25', country='UK', genreID=null}
+2024-01-27 23:55:16.255 [main] INFO  c.s.Main - Fetching all genres:
+2024-01-27 23:55:16.259 [main] INFO  c.s.Main - GenresDAO{genreID=1, genreName='Rock'}
+2024-01-27 23:55:16.260 [main] INFO  c.s.Main - GenresDAO{genreID=2, genreName='Pop'}
+2024-01-27 23:55:16.260 [main] INFO  c.s.Main - GenresDAO{genreID=3, genreName='Metal'}
+2024-01-27 23:55:16.260 [main] INFO  c.s.Main - GenresDAO{genreID=4, genreName='Jazz'}
+2024-01-27 23:55:16.260 [main] INFO  c.s.Main - GenresDAO{genreID=5, genreName='Electronic'}
+2024-01-27 23:55:16.260 [main] INFO  c.s.Main - GenresDAO{genreID=6, genreName='Country'}
+2024-01-27 23:55:16.260 [main] INFO  c.s.Main - GenresDAO{genreID=7, genreName='Hip Hop'}
+2024-01-27 23:55:16.260 [main] INFO  c.s.Main - GenresDAO{genreID=8, genreName='Blues'}
+2024-01-27 23:55:16.261 [main] INFO  c.s.Main - GenresDAO{genreID=9, genreName='Classical'}
+2024-01-27 23:55:16.261 [main] INFO  c.s.Main - GenresDAO{genreID=10, genreName='R&B'}
+2024-01-27 23:55:16.261 [main] INFO  c.s.Main - Fetching all events:
+2024-01-27 23:55:16.274 [main] INFO  c.s.Main - Event{eventID=1, eventName='RockFest', eventDate=2023-07-15, startTime=18:00:00, endTime=23:00:00, venueID=VenuesDAO{venueID=0, venueName='null', capacity=0, location='null'}}
+2024-01-27 23:55:16.275 [main] INFO  c.s.Main - Event{eventID=2, eventName='PopConcert', eventDate=2023-08-20, startTime=19:30:00, endTime=22:30:00, venueID=VenuesDAO{venueID=0, venueName='null', capacity=0, location='null'}}
+2024-01-27 23:55:16.275 [main] INFO  c.s.Main - Event{eventID=3, eventName='MetalFest', eventDate=2023-08-20, startTime=19:30:00, endTime=22:30:00, venueID=VenuesDAO{venueID=0, venueName='null', capacity=0, location='null'}}
+2024-01-27 23:55:16.275 [main] INFO  c.s.Main - Event{eventID=4, eventName='JazzNight', eventDate=2023-09-10, startTime=20:00:00, endTime=23:00:00, venueID=VenuesDAO{venueID=0, venueName='null', capacity=0, location='null'}}
+2024-01-27 23:55:16.275 [main] INFO  c.s.Main - Event{eventID=5, eventName='ElectroBeats', eventDate=2023-09-25, startTime=21:00:00, endTime=02:00:00, venueID=VenuesDAO{venueID=0, venueName='null', capacity=0, location='null'}}
+2024-01-27 23:55:16.275 [main] INFO  c.s.Main - Event{eventID=6, eventName='CountryShow', eventDate=2023-10-05, startTime=18:30:00, endTime=21:30:00, venueID=VenuesDAO{venueID=0, venueName='null', capacity=0, location='null'}}
+2024-01-27 23:55:16.276 [main] INFO  c.s.Main - Event{eventID=7, eventName='HipHopParty', eventDate=2023-10-15, startTime=22:00:00, endTime=02:00:00, venueID=VenuesDAO{venueID=0, venueName='null', capacity=0, location='null'}}
+2024-01-27 23:55:16.276 [main] INFO  c.s.Main - Event{eventID=8, eventName='BluesFestival', eventDate=2023-11-08, startTime=19:00:00, endTime=22:30:00, venueID=VenuesDAO{venueID=0, venueName='null', capacity=0, location='null'}}
+2024-01-27 23:55:16.276 [main] INFO  c.s.Main - Event{eventID=9, eventName='ClassicalNight', eventDate=2023-11-20, startTime=20:30:00, endTime=23:30:00, venueID=VenuesDAO{venueID=0, venueName='null', capacity=0, location='null'}}
+2024-01-27 23:55:16.276 [main] INFO  c.s.Main - Event{eventID=10, eventName='R&BMagic', eventDate=2023-12-01, startTime=21:30:00, endTime=01:00:00, venueID=VenuesDAO{venueID=0, venueName='null', capacity=0, location='null'}}
+2024-01-27 23:55:16.276 [main] INFO  c.s.Main - Fetching all venues:
+2024-01-27 23:55:16.278 [main] INFO  c.s.Main - VenuesDAO{venueID=1, venueName='City Hall', capacity=1000, location='Downtown'}
+2024-01-27 23:55:16.279 [main] INFO  c.s.Main - VenuesDAO{venueID=2, venueName='Music Arena', capacity=2000, location='Suburb'}
+2024-01-27 23:55:16.279 [main] INFO  c.s.Main - VenuesDAO{venueID=3, venueName='Music Arena', capacity=3000, location='Center'}
+2024-01-27 23:55:16.279 [main] INFO  c.s.Main - VenuesDAO{venueID=4, venueName='Stadium', capacity=50000, location='Outskirts'}
+2024-01-27 23:55:16.279 [main] INFO  c.s.Main - VenuesDAO{venueID=5, venueName='Club XYZ', capacity=300, location='Downtown'}
+2024-01-27 23:55:16.279 [main] INFO  c.s.Main - VenuesDAO{venueID=6, venueName='Amphitheater', capacity=5000, location='Park'}
+2024-01-27 23:55:16.279 [main] INFO  c.s.Main - VenuesDAO{venueID=7, venueName='Event Center', capacity=2500, location='City Center'}
+2024-01-27 23:55:16.279 [main] INFO  c.s.Main - VenuesDAO{venueID=8, venueName='Theater Royal', capacity=1200, location='Downtown'}
+2024-01-27 23:55:16.279 [main] INFO  c.s.Main - VenuesDAO{venueID=9, venueName='Pavilion', capacity=800, location='Suburb'}
+2024-01-27 23:55:16.279 [main] INFO  c.s.Main - VenuesDAO{venueID=10, venueName='Exhibition Hall', capacity=1800, location='City Center'}
+2024-01-27 23:55:16.280 [main] INFO  c.s.Main - Fetching all tickets:
+2024-01-27 23:55:16.293 [main] INFO  c.s.Main - Ticket{ticketID=1, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, price=50.0, ticketType=TicketTypesDAOticketTypeID=1, ticketTypeName='null, description='null}
+2024-01-27 23:55:16.293 [main] INFO  c.s.Main - Ticket{ticketID=2, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, price=75.0, ticketType=TicketTypesDAOticketTypeID=2, ticketTypeName='null, description='null}
+2024-01-27 23:55:16.293 [main] INFO  c.s.Main - Ticket{ticketID=3, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, price=75.0, ticketType=TicketTypesDAOticketTypeID=3, ticketTypeName='null, description='null}
+2024-01-27 23:55:16.294 [main] INFO  c.s.Main - Ticket{ticketID=4, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, price=60.0, ticketType=TicketTypesDAOticketTypeID=4, ticketTypeName='null, description='null}
+2024-01-27 23:55:16.294 [main] INFO  c.s.Main - Ticket{ticketID=5, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, price=40.0, ticketType=TicketTypesDAOticketTypeID=5, ticketTypeName='null, description='null}
+2024-01-27 23:55:16.294 [main] INFO  c.s.Main - Ticket{ticketID=6, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, price=55.0, ticketType=TicketTypesDAOticketTypeID=6, ticketTypeName='null, description='null}
+2024-01-27 23:55:16.294 [main] INFO  c.s.Main - Ticket{ticketID=7, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, price=65.0, ticketType=TicketTypesDAOticketTypeID=7, ticketTypeName='null, description='null}
+2024-01-27 23:55:16.294 [main] INFO  c.s.Main - Ticket{ticketID=8, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, price=70.0, ticketType=TicketTypesDAOticketTypeID=8, ticketTypeName='null, description='null}
+2024-01-27 23:55:16.294 [main] INFO  c.s.Main - Ticket{ticketID=9, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, price=80.0, ticketType=TicketTypesDAOticketTypeID=9, ticketTypeName='null, description='null}
+2024-01-27 23:55:16.295 [main] INFO  c.s.Main - Ticket{ticketID=10, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, price=90.0, ticketType=TicketTypesDAOticketTypeID=10, ticketTypeName='null, description='null}
+2024-01-27 23:55:16.295 [main] INFO  c.s.Main - Fetching all ticket types:
+2024-01-27 23:55:16.297 [main] INFO  c.s.Main - TicketTypesDAOticketTypeID=1, ticketTypeName='Regular, description='Standard admission ticket
+2024-01-27 23:55:16.297 [main] INFO  c.s.Main - TicketTypesDAOticketTypeID=2, ticketTypeName='VIP, description='VIP access with additional perks
+2024-01-27 23:55:16.297 [main] INFO  c.s.Main - TicketTypesDAOticketTypeID=3, ticketTypeName='Student, description='Discounted ticket for students
+2024-01-27 23:55:16.298 [main] INFO  c.s.Main - TicketTypesDAOticketTypeID=4, ticketTypeName='Senior, description='Discounted ticket for seniors
+2024-01-27 23:55:16.298 [main] INFO  c.s.Main - TicketTypesDAOticketTypeID=5, ticketTypeName='Family Pack, description='Admission for a family at a discounted rate
+2024-01-27 23:55:16.298 [main] INFO  c.s.Main - TicketTypesDAOticketTypeID=6, ticketTypeName='Group Discount, description='Discounted rate for group bookings
+2024-01-27 23:55:16.298 [main] INFO  c.s.Main - TicketTypesDAOticketTypeID=7, ticketTypeName='Early Bird, description='Special discount for early bookings
+2024-01-27 23:55:16.298 [main] INFO  c.s.Main - TicketTypesDAOticketTypeID=8, ticketTypeName='Backstage Pass, description='Access to backstage areas
+2024-01-27 23:55:16.298 [main] INFO  c.s.Main - TicketTypesDAOticketTypeID=9, ticketTypeName='Golden Circle, description='Premium viewing area access
+2024-01-27 23:55:16.298 [main] INFO  c.s.Main - TicketTypesDAOticketTypeID=10, ticketTypeName='Front Row, description='Front row seating
+2024-01-27 23:55:16.298 [main] INFO  c.s.Main - Fetching all customers:
+2024-01-27 23:55:16.303 [main] INFO  c.s.Main - Customer{customerID=1, firstName='Alice', lastName='Johnson', email='alice@email.com'}
+2024-01-27 23:55:16.303 [main] INFO  c.s.Main - Customer{customerID=2, firstName='Bob', lastName='Smith', email='bob@email.com'}
+2024-01-27 23:55:16.303 [main] INFO  c.s.Main - Customer{customerID=3, firstName='Mehmet', lastName='Smith', email='Mehmet@email.com'}
+2024-01-27 23:55:16.303 [main] INFO  c.s.Main - Customer{customerID=4, firstName='Eva', lastName='White', email='eva@email.com'}
+2024-01-27 23:55:16.303 [main] INFO  c.s.Main - Customer{customerID=5, firstName='Chris', lastName='Martin', email='chris@email.com'}
+2024-01-27 23:55:16.303 [main] INFO  c.s.Main - Customer{customerID=6, firstName='Sophia', lastName='Brown', email='sophia@email.com'}
+2024-01-27 23:55:16.303 [main] INFO  c.s.Main - Customer{customerID=7, firstName='David', lastName='Taylor', email='david@email.com'}
+2024-01-27 23:55:16.304 [main] INFO  c.s.Main - Customer{customerID=8, firstName='Emma', lastName='Clark', email='emma@email.com'}
+2024-01-27 23:55:16.304 [main] INFO  c.s.Main - Customer{customerID=9, firstName='Daniel', lastName='Anderson', email='daniel@email.com'}
+2024-01-27 23:55:16.304 [main] INFO  c.s.Main - Customer{customerID=10, firstName='Olivia', lastName='Moore', email='olivia@email.com'}
+2024-01-27 23:55:16.304 [main] INFO  c.s.Main - Fetching all orders:
+2024-01-27 23:55:16.315 [main] INFO  c.s.Main - OrdersDAO{orderID=1, customerID=Customer{customerID=1, firstName='null', lastName='null', email='null'}, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, purchaseDate='2023-07-10', totalAmount=50, paymentMethodID=null}
+2024-01-27 23:55:16.315 [main] INFO  c.s.Main - OrdersDAO{orderID=2, customerID=Customer{customerID=2, firstName='null', lastName='null', email='null'}, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, purchaseDate='2023-08-15', totalAmount=75, paymentMethodID=null}
+2024-01-27 23:55:16.315 [main] INFO  c.s.Main - OrdersDAO{orderID=3, customerID=Customer{customerID=3, firstName='null', lastName='null', email='null'}, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, purchaseDate='2023-08-15', totalAmount=75, paymentMethodID=null}
+2024-01-27 23:55:16.315 [main] INFO  c.s.Main - OrdersDAO{orderID=4, customerID=Customer{customerID=4, firstName='null', lastName='null', email='null'}, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, purchaseDate='2023-09-20', totalAmount=60, paymentMethodID=null}
+2024-01-27 23:55:16.315 [main] INFO  c.s.Main - OrdersDAO{orderID=5, customerID=Customer{customerID=5, firstName='null', lastName='null', email='null'}, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, purchaseDate='2023-09-30', totalAmount=40, paymentMethodID=null}
+2024-01-27 23:55:16.315 [main] INFO  c.s.Main - OrdersDAO{orderID=6, customerID=Customer{customerID=6, firstName='null', lastName='null', email='null'}, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, purchaseDate='2023-10-10', totalAmount=55, paymentMethodID=null}
+2024-01-27 23:55:16.317 [main] INFO  c.s.Main - OrdersDAO{orderID=7, customerID=Customer{customerID=7, firstName='null', lastName='null', email='null'}, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, purchaseDate='2023-10-18', totalAmount=65, paymentMethodID=null}
+2024-01-27 23:55:16.317 [main] INFO  c.s.Main - OrdersDAO{orderID=8, customerID=Customer{customerID=8, firstName='null', lastName='null', email='null'}, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, purchaseDate='2023-11-12', totalAmount=70, paymentMethodID=null}
+2024-01-27 23:55:16.317 [main] INFO  c.s.Main - OrdersDAO{orderID=9, customerID=Customer{customerID=9, firstName='null', lastName='null', email='null'}, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, purchaseDate='2023-11-25', totalAmount=80, paymentMethodID=null}
+2024-01-27 23:55:16.317 [main] INFO  c.s.Main - OrdersDAO{orderID=10, customerID=Customer{customerID=10, firstName='null', lastName='null', email='null'}, eventID=Event{eventID=0, eventName='null', eventDate=null, startTime=null, endTime=null, venueID=null}, purchaseDate='2023-12-05', totalAmount=90, paymentMethodID=null}
+2024-01-27 23:55:16.317 [main] INFO  c.s.Main - Fetching all payment methods:
+2024-01-27 23:55:16.319 [main] INFO  c.s.Main - com.solvd.model.PaymentsMethod@3bffddff
+2024-01-27 23:55:16.320 [main] INFO  c.s.Main - com.solvd.model.PaymentsMethod@66971f6b
+2024-01-27 23:55:16.320 [main] INFO  c.s.Main - com.solvd.model.PaymentsMethod@50687efb
+2024-01-27 23:55:16.320 [main] INFO  c.s.Main - com.solvd.model.PaymentsMethod@517bd097
+2024-01-27 23:55:16.320 [main] INFO  c.s.Main - com.solvd.model.PaymentsMethod@142eef62
+2024-01-27 23:55:16.320 [main] INFO  c.s.Main - com.solvd.model.PaymentsMethod@4a9cc6cb
+2024-01-27 23:55:16.320 [main] INFO  c.s.Main - com.solvd.model.PaymentsMethod@5990e6c5
+2024-01-27 23:55:16.320 [main] INFO  c.s.Main - com.solvd.model.PaymentsMethod@56e07a08
+2024-01-27 23:55:16.320 [main] INFO  c.s.Main - com.solvd.model.PaymentsMethod@35d6ca49
+2024-01-27 23:55:16.320 [main] INFO  c.s.Main - com.solvd.model.PaymentsMethod@1950e8a6
+2024-01-27 23:55:16.320 [main] INFO  c.s.Main - Fetching all order items:
+2024-01-27 23:55:16.328 [main] INFO  c.s.Main - OrderItemsDAO{orderItemID=1, orderID=OrdersDAO{orderID=1, customerID=null, eventID=null, purchaseDate='null', totalAmount=0, paymentMethodID=null}, ticketID=Ticket{ticketID=1, eventID=null, price=0.0, ticketType=null}, quantity=2, subTotal=100}
+2024-01-27 23:55:16.329 [main] INFO  c.s.Main - OrderItemsDAO{orderItemID=2, orderID=OrdersDAO{orderID=2, customerID=null, eventID=null, purchaseDate='null', totalAmount=0, paymentMethodID=null}, ticketID=Ticket{ticketID=2, eventID=null, price=0.0, ticketType=null}, quantity=1, subTotal=75}
+2024-01-27 23:55:16.329 [main] INFO  c.s.Main - OrderItemsDAO{orderItemID=3, orderID=OrdersDAO{orderID=3, customerID=null, eventID=null, purchaseDate='null', totalAmount=0, paymentMethodID=null}, ticketID=Ticket{ticketID=3, eventID=null, price=0.0, ticketType=null}, quantity=1, subTotal=75}
+2024-01-27 23:55:16.329 [main] INFO  c.s.Main - Fetching all roles:
+2024-01-27 23:55:16.333 [main] INFO  c.s.Main - RolesDAO{roleID=1, roleName='Admin', description='Administrator role with full access'}
+2024-01-27 23:55:16.333 [main] INFO  c.s.Main - RolesDAO{roleID=2, roleName='User', description='Regular user role with basic access'}
+2024-01-27 23:55:16.333 [main] INFO  c.s.Main - RolesDAO{roleID=3, roleName='Manager', description='Manager role with specific privileges'}
+2024-01-27 23:55:16.333 [main] INFO  c.s.Main - RolesDAO{roleID=4, roleName='Artist', description='Artists role with special role'}
+2024-01-27 23:55:16.333 [main] INFO  c.s.Main - Fetching all staff roles:

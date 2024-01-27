@@ -115,6 +115,7 @@ public class JdbcPaymentMethodDAO implements PaymentMethodDAO {
             e.printStackTrace();
         }
     }
+
     private PaymentsMethod mapResultSetToPaymentMethod(ResultSet resultSet) throws SQLException {
         int paymentMethodID = resultSet.getInt("PaymentMethodID");
         String methodName = resultSet.getString("MethodName");
