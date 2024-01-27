@@ -1,70 +1,84 @@
 package com.solvd.factory;
 
 
+import com.solvd.persistence.dao.*;
 import com.solvd.service.JdbcDaoService.*;
 
 import java.lang.reflect.Constructor;
 
 public class FactoryService {
 
-    public static ArtistService artistService(){
-        return createService(ArtistService.class);
+    public static ArtistService artistService(ArtistDAO artistDAO){
+        ArtistService artistService = new ArtistService(artistDAO);
+        return artistService;
+
     }
 
-    public static CustomerService customerService() {
-        return createService(CustomerService.class);
+    public static CustomerService customerService(CustomerDAO customerDAO) {
+       CustomerService customerService = new CustomerService(customerDAO);
+        return customerService;
     }
 
-    public static EventService eventService() {
-        return createService(EventService.class);
+    public static EventService eventService(EventDAO eventDAO) {
+        EventService eventService = new EventService(eventDAO);
+        return eventService;
     }
 
-    public static GenreService genreService() {
-        return createService(GenreService.class);
+    public static GenreService genreService(GenreDAO genreDAO) {
+        GenreService genreService = new GenreService(genreDAO);
+        return genreService;
     }
 
-    public static OrderService orderService() {
-        return createService(OrderService.class);
+    public static OrderService orderService(OrderDAO orderDAO) {
+        OrderService orderService =new OrderService(orderDAO);
+        return orderService;
     }
 
-    public static OrderItemService orderItemService() {
-        return createService(OrderItemService.class);
+    public static OrderItemService orderItemService(OrderItemDAO orderItemDAO) {
+        OrderItemService orderItemService = new OrderItemService(orderItemDAO);
+        return orderItemService;
     }
 
-    public static PaymentMethodService paymentMethodService() {
-        return createService(PaymentMethodService.class);
+    public static PaymentMethodService paymentMethodService(PaymentMethodDAO paymentMethodDAO) {
+        PaymentMethodService paymentMethodService = new PaymentMethodService(paymentMethodDAO);
+        return paymentMethodService;
     }
 
-    public static RolesService rolesService() {
-        return createService(RolesService.class);
+    public static RolesService rolesService(RoleDAO roleDAO) {
+        RolesService rolesService = new RolesService(roleDAO);
+        return rolesService;
     }
 
-    public static StaffRoleService staffRoleService() {
-        return createService(StaffRoleService.class);
+    public static StaffRoleService staffRoleService(StaffRoleDAO staffRoleDAO) {
+        StaffRoleService staffRoleService = new StaffRoleService(staffRoleDAO);
+        return staffRoleService;
     }
 
-    public static StaffService staffService() {
-        return createService(StaffService.class);
+    public static StaffService staffService(StaffDAO staffDAO) {
+        StaffService staffService = new StaffService(staffDAO);
+        return staffService;
     }
 
-    public static TicketService ticketService() {
-        return createService(TicketService.class);
+    public static TicketService ticketService(TicketDAO ticketDAO) {
+        TicketService ticketService = new TicketService(ticketDAO);
+        return ticketService;
     }
 
-    public static TicketTypeService ticketTypeService() {
-        return createService(TicketTypeService.class);
+    public static TicketTypeService ticketTypeService(TicketTypeDAO ticketTypeDAO) {
+        TicketTypeService ticketTypeService = new TicketTypeService(ticketTypeDAO);
+        return ticketTypeService;
     }
-    public static VenueService venueService(){
-        return createService(VenueService.class);
+    public static VenueService venueService(VenueDAO venueDAO){
+        VenueService venueService = new VenueService(venueDAO);
+        return venueService;
     }
 
     public static <T> T createService(Class<T> serviceClass) {
         try {
-            // Servis sınıfının parametresiz bir constructor'ı olmalı
             Constructor<T> constructor = serviceClass.getConstructor();
             return constructor.newInstance();
         } catch (Exception e) {
-            e.printStackTrace(); // Hata durumunda ekrana yazdırabilirsiniz.
+            e.printStackTrace();
             return null;
         }
     }
