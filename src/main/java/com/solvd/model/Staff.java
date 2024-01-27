@@ -1,7 +1,10 @@
 package com.solvd.model;
 
+import lombok.Builder;
+
 import java.util.Objects;
 
+@Builder
 public class Staff {
     private int staffID;
     private Artist staffArtistID;
@@ -78,7 +81,18 @@ public class Staff {
                 ", position='" + position + '\'' +
                 '}';
     }
+// if you would like to add lombok dependency ,
+// meanwhile you should upload lombok plugin
+    Staff staff = Staff.builder()
+            .staffID(20)
+            .firstName("Sergey")
+            .lastName("Builder")
+            .position("Test Manager")
+            .build();
 
+    // its for builder class but I used to
+    // lombok dependency to automatically build my staff
+/*
     public static class StaffBuilder {
         private int builderStaffID;
         private Artist builderStaffArtistID;
@@ -136,5 +150,6 @@ public class Staff {
             .builderLastName("Builder")
             .builderPosition("Test Manager")
             .build();
+*/
 
 }
